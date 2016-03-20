@@ -1,4 +1,3 @@
-oyanokai@oyanokai.org [~/kurabu.oyanokai.org]# cat public/.htaccess
 PassengerEnabled On
 PassengerLoadShellEnvVars On
 PassengerAppRoot /home/oyanokai/kurabu.oyanokai.org
