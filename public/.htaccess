@@ -1,0 +1,6 @@
+oyanokai@oyanokai.org [~/kurabu.oyanokai.org]# cat public/.htaccess
+PassengerEnabled On
+PassengerLoadShellEnvVars On
+PassengerAppRoot /home/oyanokai/kurabu.oyanokai.org
+PassengerRuby /usr/local/ruby20/bin/ruby
+RackEnv development
