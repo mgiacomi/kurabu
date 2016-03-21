@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'register/index'
+
+  match '/signups/new'     => 'signups#new',    :as => :signups_new, :via => :get
+  match '/signups'         => 'signups#create', :as => :signups,     :via => :post
+  match '/signups/pay/:id' => 'signups#pay',    :as => :signups_pay, :via => :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

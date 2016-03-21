@@ -1,0 +1,46 @@
+<h1>Kurabu Summer Camp 2016 Registration</h1>
+<h1>クラブ（サマーキャンプ）</h1>
+<p>Purchase Sessions</p>
+
+<p style="color:black;margin-bottom:10px;"><strong>Student Information</strong></p>
+  <table>
+    <tr>
+      <td><p style="margin-bottom:0;">Child’s First Name:</p></td>
+      <td><%= @signup.cfname %></td>
+    </tr>
+    <tr>
+      <td><p style="margin-bottom:0;">Child’s Last Name:</p></td>
+      <td><%= @signup.clname %></td>
+    </tr>
+  </table>
+
+  <br/><br/>
+  <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
+  <ul style="list-style-type: none;">
+    <% if @signup.session1 == '1' %>
+      <li>
+        <strong>Session 1: June 22 – June 26, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
+      </li>
+    <% end %>
+    <% if @signup.session2 == '1' %>
+    <li>
+      <strong>Session 2: June 29 – July 02, M-Th </strong> <span style="color: red; font-weight: bold;">$149</span>
+    </li>
+    <% end %>
+    <% if @signup.session3 == '1' %>
+    <li>
+      <strong>Session 3: July 06 – July 10, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
+    </li>
+    <% end %>
+    <% if @signup.session4 == '1' %>
+    <li>
+      <strong>Session 4: July 13 – July 17, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
+    </li>
+    <% end %>
+    <% if @signup.session5 == '1' %>
+    <li>
+      <strong>Session 5: July 20 – July 24, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
+    </li>
+    <% end %>
+  </ul>
+

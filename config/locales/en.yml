@@ -21,3 +21,27 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+      attributes:
+        signup:
+          cfname: "Child's First Name"
+          clname: "Child's Last Name"
+          cgender: "Child's Gender"
+          cmonth: "Child's Birth Month"
+          cday: "Child's Birth Day"
+          cyear: "Child's Birth Year"
+          cage: "Child's Age"
+          p1fname: "Parent's First Name"
+          p1lname: "Parent's Last Name"
+          phone1: "Home/Cell Phone"
+          econtact_name: "Emergency Contact Name"
+          econtact_relationship: "Emergency Contact Relationship"
+          econtact_phone: "Emergency Contact Phone Number"
+          econtact_address: "Emergency Contact Address"
+          activity_cname: "Child's Name (Authorization Activities)"
+          activity_agree: ""
+          activity_signed: "Activities Authorization Signature"
+          activity_signed_date: "Activities Authorization Date"
+
+
