@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'signups#new'
 
   match '/signups/new'     => 'signups#new',    :as => :signups_new, :via => :get
   match '/signups'         => 'signups#create', :as => :signups,     :via => :post
