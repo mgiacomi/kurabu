@@ -14,9 +14,9 @@ default: &default
 
 development:
   <<: *default
+  database: kurabu
   username: kurabu
   password: kurabu
-  database: kurabu
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +27,6 @@ test:
 
 production:
   <<: *default
-  username: root
-  password:
-  database: my_app_prod
+  database: oyanokai_kurabu
+  username: oyanokai_kurabu
+  password: xxx
