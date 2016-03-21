@@ -2,4 +2,4 @@ PassengerEnabled On
 PassengerLoadShellEnvVars On
 PassengerAppRoot /home/oyanokai/kurabu.oyanokai.org
 PassengerRuby /usr/local/ruby20/bin/ruby
-RackEnv production
+RackEnv development
