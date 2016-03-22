@@ -31,7 +31,7 @@ en:
           cmonth: "Child's Birth Month"
           cday: "Child's Birth Day"
           cyear: "Child's Birth Year"
-          cage: "Child's Age"
+          cage: "Child's Grade"
           p1fname: "Parent's First Name"
           p1lname: "Parent's Last Name"
           phone1: "Home/Cell Phone"
