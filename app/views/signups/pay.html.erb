@@ -1,46 +1,110 @@
 <h1>Kurabu Summer Camp 2016 Registration</h1>
 <h1>クラブ（サマーキャンプ）</h1>
-<p>Purchase Sessions</p>
-
+<h3>Purchase Kurabu Sessions</h3>
+<br/>
 <p style="color:black;margin-bottom:10px;"><strong>Student Information</strong></p>
-  <table>
-    <tr>
-      <td><p style="margin-bottom:0;">Child’s First Name:</p></td>
-      <td><%= @signup.cfname %></td>
-    </tr>
-    <tr>
-      <td><p style="margin-bottom:0;">Child’s Last Name:</p></td>
-      <td><%= @signup.clname %></td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <td><p style="margin-bottom:0;">Child’s First Name:</p></td>
+    <td><%= @signup.cfname %></td>
+  </tr>
+  <tr>
+    <td><p style="margin-bottom:0;">Child’s Last Name:</p></td>
+    <td><%= @signup.clname %></td>
+  </tr>
+</table>
 
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="cmd" value="_cart">
+  <input type="hidden" name="upload" value="1">
+  <input type="hidden" name="business" value="kathy.black@pdx.edu">
+
+  <% @session_count = 1 %>
   <br/><br/>
   <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
-  <ul style="list-style-type: none;">
+  <table cellspacing="8">
     <% if @signup.session1 == '1' %>
-      <li>
-        <strong>Session 1: June 22 – June 26, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
-      </li>
+        <tr>
+          <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
+          <td><p style="margin-bottom:0;">June 20 - June 24</p></td>
+          <td><p style="margin-bottom:0;">M-F</p></td>
+          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
+        </tr>
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 1: June 20 - June 24, M-F">
+        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+        <input type="hidden" name="amount_<%= @session_count %>" value="215">
+        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
+        <% @session_count = @session_count + 1 %>
     <% end %>
     <% if @signup.session2 == '1' %>
-    <li>
-      <strong>Session 2: June 29 – July 02, M-Th </strong> <span style="color: red; font-weight: bold;">$149</span>
-    </li>
+        <tr>
+          <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
+          <td><p style="margin-bottom:0;">June 27 - July 01</p></td>
+          <td><p style="margin-bottom:0;">M-F</p></td>
+          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
+        </tr>
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 2: June 27 - July 01, M-F">
+        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+        <input type="hidden" name="amount_<%= @session_count %>" value="215">
+        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
+        <% @session_count = @session_count + 1 %>
     <% end %>
     <% if @signup.session3 == '1' %>
-    <li>
-      <strong>Session 3: July 06 – July 10, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
-    </li>
+        <tr>
+          <td><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
+          <td><p style="margin-bottom:0;">July 03 - July 05</p></td>
+          <td><p style="margin-bottom:0;">M-Th</p></td>
+          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$175</span></p></td>
+        </tr>
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 3: July 05 - July 08, M-Th">
+        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+        <input type="hidden" name="amount_<%= @session_count %>" value="175">
+        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
+        <% @session_count = @session_count + 1 %>
     <% end %>
     <% if @signup.session4 == '1' %>
-    <li>
-      <strong>Session 4: July 13 – July 17, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
-    </li>
+        <tr>
+          <td><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
+          <td><p style="margin-bottom:0;">July 11 - July 15</p></td>
+          <td><p style="margin-bottom:0;">M-F</p></td>
+          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
+        </tr>
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 4: July 11 - July 15, M-F">
+        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+        <input type="hidden" name="amount_<%= @session_count %>" value="215">
+        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
+        <% @session_count = @session_count + 1 %>
     <% end %>
     <% if @signup.session5 == '1' %>
-    <li>
-      <strong>Session 5: July 20 – July 24, M-F </strong> <span style="color: red; font-weight: bold;">$149</span>
-    </li>
+        <tr>
+          <td><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
+          <td><p style="margin-bottom:0;">July 18 - July 22</p></td>
+          <td><p style="margin-bottom:0;">M-F</p></td>
+          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
+        </tr>
+        <input type="hidden" name="item_name_5" value="Session 5: July 18 - July 22, M-F">
+        <input type="hidden" name="item_number_5" value="<%= @signup.cfname %> <%= @signup.clname %>">
+        <input type="hidden" name="amount_5" value="215">
+        <input type="hidden" name="quantity_5" value="1">
+        <% @session_count = @session_count + 1 %>
     <% end %>
-  </ul>
+  </table>
+  <br/>
 
+  <input type="hidden" name="no_note" value="1">
+  <input type="hidden" name="currency_code" value="USD">
+
+  <!-- Enable override of buyers's address stored with PayPal . -->
+  <input type="hidden" name="address_override" value="1">
+  <!-- Set variables that override the address stored with PayPal. -->
+  <input type="hidden" name="first_name" value="John">
+  <input type="hidden" name="last_name" value="Doe">
+  <input type="hidden" name="address1" value="345 Lark Ave">
+  <input type="hidden" name="city" value="San Jose">
+  <input type="hidden" name="state" value="CA">
+  <input type="hidden" name="zip" value="95121">
+  <input type="hidden" name="country" value="US">
+  <input type="image" name="submit"
+         src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+         alt="PayPal - The safer, easier way to pay online">
+</form>
