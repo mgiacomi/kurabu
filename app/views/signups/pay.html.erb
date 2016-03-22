@@ -91,18 +91,18 @@
   </table>
   <br/>
 
-  <input type="hidden" name="no_note" value="1">
   <input type="hidden" name="currency_code" value="USD">
 
   <!-- Enable override of buyers's address stored with PayPal . -->
   <input type="hidden" name="address_override" value="1">
   <!-- Set variables that override the address stored with PayPal. -->
-  <input type="hidden" name="first_name" value="John">
-  <input type="hidden" name="last_name" value="Doe">
-  <input type="hidden" name="address1" value="345 Lark Ave">
-  <input type="hidden" name="city" value="San Jose">
-  <input type="hidden" name="state" value="CA">
-  <input type="hidden" name="zip" value="95121">
+  <input type="hidden" name="first_name" value="<%= @signup.p1fname %>">
+  <input type="hidden" name="last_name" value="<%= @signup.p1lname %>">
+  <input type="hidden" name="address1" value="<%= @signup.street %>">
+  <input type="hidden" name="city" value="<%= @signup.city %>">
+  <input type="hidden" name="state" value="<%= @signup.state %>">
+  <input type="hidden" name="zip" value="<%= @signup.zip %>">
+  <input type="hidden" name="email" value="<%= @signup.email %>">
   <input type="hidden" name="country" value="US">
   <input type="image" name="submit"
          src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
