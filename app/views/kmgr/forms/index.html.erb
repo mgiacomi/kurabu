@@ -45,8 +45,8 @@
         <td><p style="margin-bottom:0;"><%= signup.session4 == "1" ? "Y" : "" %></p></td>
         <td><p style="margin-bottom:0;"><%= signup.session5 == "1" ? "Y" : "" %></p></td>
         <td><p style="margin-bottom:0;"><%= !signup.payment.nil? && signup.payment.accepted == "1" ? "Accepted" : "" %></p></td>
-        <td><p style="margin-bottom:0;text-align:right;"><%= !signup.payment.nil? && signup.payment.amount.present? ? "$#{signup.payment.amount}" : "" %></p></td>
-        <td><p style="margin-bottom:0;text-align:right;">$<%= signup.amt_due %></p></td>
+        <td><p style="margin-bottom:0;text-align:right;"><%= !signup.payment.nil? && signup.payment.amount.present? ? number_to_currency(signup.payment.amount) : "" %></p></td>
+        <td><p style="margin-bottom:0;text-align:right;"><%= number_to_currency(signup.amt_due) %></p></td>
       </tr>
   <% end %>
 </table>
