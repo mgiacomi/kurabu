@@ -1,5 +1,18 @@
+<script>
+  jQuery(function() {
+    jQuery('#delete').click(function() {
+      var strconfirm = confirm("Are you sure you want to delete this application?");
+      if (strconfirm == true)
+      {
+        jQuery('#delete_form').submit();
+      }
+    });
+  });
+</script>
+<%= form_for @payment.signup, url: kmgr_application_delete_path(@payment.signup.id), html: { id: 'delete_form' } do |f| %><% end %>
+
 <h3>Kurabu Administration</h3>
-<%= link_to 'view all signups', kmgr_forms_path %> | <%= link_to 'edit signup data', edit_kmgr_form_path(@payment.signup_id) %>
+<%= link_to 'view all signups', kmgr_forms_path %> | <%= link_to 'edit signup data', edit_kmgr_form_path(@payment.signup_id) %> | <a href="#" id="delete">delete application</a>
 <br/><br/>
 
 <% if @payment.errors.any? %>

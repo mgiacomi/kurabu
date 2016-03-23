@@ -23,6 +23,12 @@ class Kmgr::FormsController < ApplicationController
     end
   end
 
+  def delete
+    @signup = Signup.find(params[:id])
+    @signup.destroy
+    redirect_to kmgr_forms_path, alert: "Application for #{@signup.cfname} #{@signup.clname} has been deleted."
+  end
+
   def payment_update
     @payment = Payment.find_or_create_by(signup_id: params[:payment][:signup_id])
 
