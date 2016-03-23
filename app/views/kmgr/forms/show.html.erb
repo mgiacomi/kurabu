@@ -1,18 +1,19 @@
 <script>
-  jQuery(function() {
-    jQuery('#delete').click(function() {
+  jQuery(function () {
+    jQuery('#delete').click(function () {
       var strconfirm = confirm("Are you sure you want to delete this application?");
-      if (strconfirm == true)
-      {
+      if (strconfirm == true) {
         jQuery('#delete_form').submit();
       }
     });
   });
 </script>
-<%= form_for @payment.signup, url: kmgr_application_delete_path(@payment.signup.id), html: { id: 'delete_form' } do |f| %><% end %>
+<%= form_for @payment.signup, url: kmgr_application_delete_path(@payment.signup.id), html: {id: 'delete_form'} do |f| %>
+<% end %>
 
 <h3>Kurabu Administration</h3>
-<%= link_to 'view all signups', kmgr_forms_path %> | <%= link_to 'edit signup data', edit_kmgr_form_path(@payment.signup_id) %> | <a href="#" id="delete">delete application</a>
+<%= link_to 'view all signups', kmgr_forms_path %> | <%= link_to 'edit signup data', edit_kmgr_form_path(@payment.signup_id) %> |
+<a href="#" id="delete">delete application</a>
 <br/><br/>
 
 <% if @payment.errors.any? %>
@@ -46,52 +47,44 @@
         <td>Payment Amount:</td>
         <td><%= f.text_field :amount %></td>
       </tr>
+      <tr>
+        <td>Amount Due:</td>
+        <td>$<%= @payment.signup.amt_due %></td>
+      </tr>
     </table>
+    <br/>
     <%= f.submit "Update Payment Data" %>
 <% end %>
 <br/><br/>
 
-<table style="border-bottom: 1px;">
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Id</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.id %></p></td>
-  </tr>
+<table style="border-bottom: 1px;width:700px;">
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child First</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.cfname %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child Last</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.clname %></p></td>
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child Gender</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.cgender %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Birthday Month</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.cmonth %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Birthday Day</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.cday %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Birthday Year</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.cyear %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Grade</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.cage %></p></td>
+  </tr>
+  <tr>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Birthday</p></td>
+    <td nowrap="nowrap">
+      <p style="margin-bottom:0;"><%= @payment.signup.cmonth %>
+        <%= @payment.signup.cday %>
+        <%= @payment.signup.cyear %></p>
+    </td>
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 1 First</p>
     </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.p1fname %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 1 Last</p>
     </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.p1lname %></p></td>
@@ -100,19 +93,15 @@
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 2 First</p>
     </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.p2fname %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 2 Last</p>
     </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.p2lname %></p></td>
   </tr>
-
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Home/Cell Phone</p>
-    </td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Home/Cell Phone</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.phone1 %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Work Phone</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.phone2 %></p></td>
   </tr>
@@ -123,32 +112,28 @@
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Street</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.street %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">City</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.city %></p></td>
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">State</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.state %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Zip</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.zip %></p></td>
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S1</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.session1 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S2</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.session2 == "1" ? "Y" : "" %></p></td>
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S3</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.session3 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S4</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.session4 == "1" ? "Y" : "" %></p></td>
   </tr>
@@ -158,26 +143,21 @@
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Special</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.special %></p></td>
+    <td colspan="3"><p style="margin-bottom:0;"><%= @payment.signup.special %></p></td>
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.medical %></p></td>
+    <td colspan="3"><p style="margin-bottom:0;"><%= @payment.signup.medical %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Agree</p>
-    </td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Agree</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.medical_agree %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed</p>
-    </td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.medical_signed %></p></td>
-  </tr>
-  <tr>
-    <td>
-      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed Date</p>
-    </td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed Date</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.medical_signed_date %></p></td>
   </tr>
   <tr>
@@ -185,51 +165,37 @@
     <td><p style="margin-bottom:0;"><%= @payment.signup.shots_date %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Name</p>
-    </td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Name</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_name %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact
-      Relationship</p></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Relationship</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_relationship %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Phone</p>
-    </td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Phone</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_phone %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Address</p>
-    </td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Address</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_address %></p></td>
   </tr>
   <tr>
-    <td>
-      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Child Name</p>
-    </td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Child Name</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_cname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Agree</p>
-    </td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Agree</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_agree %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed</p>
-    </td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_signed %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed
-      Date</p></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed Date</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_signed_date %></p></td>
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Agree</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.photo_agree %></p></td>
-  </tr>
-  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Signed</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.photo_signed %></p></td>
   </tr>
@@ -240,6 +206,6 @@
   </tr>
   <tr>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Directions</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.directions %></p></td>
+    <td colspan="3"><p style="margin-bottom:0;"><%= @payment.signup.directions %></p></td>
   </tr>
 </table>
