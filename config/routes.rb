@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  root 'signups#new'
 
   match '/signups/new'     => 'signups#new',    :as => :signups_new, :via => :get
   match '/signups'         => 'signups#create', :as => :signups,     :via => :post
   match '/signups/pay/:id' => 'signups#pay',    :as => :signups_pay, :via => :get
+
+  devise_for :users, skip: :registrations
+#  devise_for :users
+
+# Admin Resources
+  namespace :kmgr do
+    resources :forms
+  end
+
+  match '/kmgr/payment/update' => 'kmgr/forms#payment_update', :as => :kmgr_payment_update, :via => [:post, :patch]
+
+  root 'signups#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

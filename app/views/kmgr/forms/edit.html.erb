@@ -1,6 +1,6 @@
-<h1>Kurabu Summer Camp 2016 Registration</h1>
-<h1>クラブ（サマーキャンプ）</h1>
-<p>This form must be completed for every child attending Kurabu 2016.</p>
+<h3>Kurabu Administration</h3>
+<%= link_to 'view all signups', kmgr_forms_path %> | <%= link_to 'edit payment data', kmgr_form_path(@signup.id) %>
+<br/><br/>
 
 <% if @signup.errors.any? %>
     <div id="error_explanation">
@@ -14,7 +14,7 @@
     </div>
 <% end %>
 
-<%= form_for @signup do |f| %>
+<%= form_for @signup, :url => kmgr_form_path do |f| %>
     <%= render '/signups/edit_form', f: f %>
-    <%= f.submit "Submit My Application" %>
+    <%= f.submit "Update Application" %>
 <% end %>
