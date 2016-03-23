@@ -8,7 +8,7 @@ class SignupsController < ApplicationController
     @signup = Signup.new params[:signup]
 
     if @signup.save
-      redirect_to signups_pay_path(@signup.id), notice: {title: 'Success', msg: 'Registration Accepted.'}
+      redirect_to signups_pay_path(@signup.id), notice: 'Registration Accepted.'
     else
       render 'new'
     end
