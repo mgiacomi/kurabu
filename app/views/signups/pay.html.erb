@@ -82,10 +82,10 @@
           <td><p style="margin-bottom:0;">M-F</p></td>
           <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
         </tr>
-        <input type="hidden" name="item_name_5" value="Session 5: July 18 - July 22, M-F">
-        <input type="hidden" name="item_number_5" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_5" value="215">
-        <input type="hidden" name="quantity_5" value="1">
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 5: July 18 - July 22, M-F">
+        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+        <input type="hidden" name="amount_<%= @session_count %>" value="215">
+        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
         <% @session_count = @session_count + 1 %>
     <% end %>
   </table>
