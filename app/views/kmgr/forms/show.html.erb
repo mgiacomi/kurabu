@@ -49,7 +49,7 @@
       </tr>
       <tr>
         <td>Amount Due:</td>
-        <td>$<%= @payment.signup.amt_due %></td>
+        <td><%= number_to_currency(@payment.signup.amt_due) %></td>
       </tr>
     </table>
     <br/>
