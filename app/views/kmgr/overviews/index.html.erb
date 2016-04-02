@@ -7,7 +7,31 @@
 </script>
 
 <h3>Kurabu Administration</h3>
-<%= link_to 'overview', kmgr_overview_path %>
+<%= link_to 'view all signups', kmgr_forms_path %>
+
+<br/><br/>
+<table style="border-bottom: 1px;width:500px;">
+  <tr>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Grade</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S1</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S2</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S3</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S4</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S5</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;color:black;">Total</p></td>
+  </tr>
+  <% @summeries.each do |summary| %>
+      <tr>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:grade] %></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:s1] %></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:s2] %></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:s3] %></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:s4] %></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:s5] %></p></td>
+        <td><p style="margin-bottom:0;color: black;font-weight:bold;"><%= summary[:total] %></p></td>
+      </tr>
+  <% end %>
+</table>
 
 <br/><br/>
 <table style="border-bottom: 1px;">
@@ -27,7 +51,7 @@
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Paid</p></td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Amt Due</p></td>
   </tr>
-  <% @signups.each do |signup| %>
+  <% @outstanding.each do |signup| %>
       <tr>
         <td>
           <p style="margin-bottom:0;">

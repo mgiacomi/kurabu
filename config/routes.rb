@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   devise_for :users, skip: :registrations
 #  devise_for :users
 
+  match '/kmgr/overview' => 'kmgr/overviews#index',    :as => :kmgr_overview, :via => :get
+
 # Admin Resources
   namespace :kmgr do
     resources :forms
