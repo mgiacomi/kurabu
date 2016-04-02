@@ -5,11 +5,11 @@ class Kmgr::OverviewsController < ApplicationController
     @all_signups = Signup.all.order(:clname)
 
     @outstanding = @all_signups.select do |signup|
-      !signup.payment.nil? && signup.payment.accepted != '1'
+      signup.amt_due > 0 || signup.payment.nil? || signup.payment.accepted != '1'
     end
 
     @accepted = @all_signups.select do |signup|
-      !signup.payment.nil? && signup.payment.accepted == '1'
+      !signup.payment.nil? && signup.payment.accepted == "1"
     end
 
     outer = Hash.new
