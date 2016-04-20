@@ -1,7 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  def fsa()
-    @user = user
-    @url  = 'http://example.com/login'
-    mail(to: 'mgiacomi@gltech.com', subject: 'Kurabu test email.')
+  def fsa to_email
+    mail(to: to_email, subject: 'Kurabu Summer Camp Receipt')
   end
 end

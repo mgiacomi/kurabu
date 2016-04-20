@@ -1,4 +1,4 @@
-desc "Send FSA "
+desc "Send FSA Email"
 task :send_fsa_email => :environment do
   Rails.logger.warn "#{Time.now.strftime("%Y-%m-%d %H:%M:%S")} Starting FSA Emails."
 
@@ -7,7 +7,7 @@ task :send_fsa_email => :environment do
 #      notification.email_multi_notifications notification.email_to, "1w"
 #  end
 
-
+  NotificationMailer.fsa('mgiacomi@gltech.com').deliver
 
   Rails.logger.warn "#{Time.now.strftime("%Y-%m-%d %H:%M:%S")} Completed FSA Emails."
 end
