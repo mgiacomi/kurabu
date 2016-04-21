@@ -1,6 +1,8 @@
 class Kmgr::OverviewsController < ApplicationController
   before_filter :authenticate_user!
 
+  layout "mailer", only: [:test]
+
   def index
     @all_signups = Signup.all.order(:clname)
 
@@ -49,6 +51,10 @@ class Kmgr::OverviewsController < ApplicationController
     @summeries.push(outer['5th Grade'])
     @summeries.push(outer[:total])
 
+  end
+
+  def test
+    render :action => "../../notification_mailer/fsa"
   end
 
 end

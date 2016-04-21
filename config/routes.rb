@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   match '/signups/pay/:id' => 'signups#pay',    :as => :signups_pay, :via => :get
 
   devise_for :users, skip: :registrations
-#  devise_for :users
 
   match '/kmgr/overview' => 'kmgr/overviews#index',    :as => :kmgr_overview, :via => :get
+  match '/kmgr/test'     => 'kmgr/overviews#test',     :as => :kmgr_test,     :via => :get
 
 # Admin Resources
   namespace :kmgr do

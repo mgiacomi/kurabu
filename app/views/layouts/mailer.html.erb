@@ -1,5 +1,49 @@
-<html>
-  <body>
-    <%= yield %>
-  </body>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title> Oya No Kai – Kurabu Summer Camp </title>
+</head>
+
+<body style="font-size: 13px; font-family: helvetica, sans-serif; background: #f7f7f7">
+<header style="height: 65px; background-color: dimgrey;"></header>
+
+<section style="background: #bf1515;">
+  <center>
+  <table cellpadding="10" style="width:90%">
+    <tr>
+      <td width="10">
+        <a href="http://oyanokai.org"><img src="http://oyanokai.org/wp-content/uploads/2013/11/Oya_No_Kai_Logo_Landscape.png" alt="Oya No Kai"></a>
+        <br/>
+        <span style="font-size: 14px; color: #fff;"> Supporting the Japanese Dual Language Program of Portland Public Schools</span>
+      </td>
+    </tr>
+  </table>
+  </center>
+</section>
+
+<div style="background: #ebebeb; ">
+  <center>
+    <br/>
+  <section style="width:90%; ">
+
+    <!-- Start Page Content -->
+    <div style="border: 1px solid #c8c9c9; background: #fff;">
+      <br/><br/><br/><br/>
+      <%= yield %>
+      <br/><br/><br/><br/>
+    </div>
+    <br/><br/>
+    <!-- End Page Content -->
+
+  </section>
+  </center>
+  <br/>
+</div>
+<footer>
+  <div class="container">
+    <div class="clear"></div>
+  </div>
+</footer>
+
+</body>
 </html>
