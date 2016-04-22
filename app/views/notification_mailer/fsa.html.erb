@@ -7,7 +7,7 @@
 <body style="font-family: 'Times New Roman', Georgia, Serif;">
 <table style="width: 800px;">
   <tr>
-    <td><img src="/parks_and_rec.png"/></td>
+    <td><img src="http://kurabu.oyanokai.org/parks_and_rec.png"/></td>
     <td style="width: 100px;">&nbsp;</td>
     <td nowrap="nowrap">
       <br/>
@@ -42,7 +42,7 @@
 
   <table width="800px" cellspacing="0" cellpadding="5">
     <tr>
-      <td style="font-weight: bold;">Date</td>
+      <td style="font-weight: bold;">Receipt Date</td>
       <td style="font-weight: bold;">Description</td>
       <td style="font-weight: bold;" align="right">Amount</td>
     </tr>
@@ -51,35 +51,35 @@
         <tr>
           <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
           <td style="border: 1px solid #ddd !important;">Day Camp Session 1: June 20 - June 24</td>
-          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215.00</td>
         </tr>
     <% end %>
     <% if @signup.session2 == '1' %>
         <tr>
           <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
           <td style="border: 1px solid #ddd !important;">Day Camp Session 2: June 27 - July 01</td>
-          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215.00</td>
         </tr>
     <% end %>
     <% if @signup.session3 == '1' %>
         <tr>
           <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
           <td style="border: 1px solid #ddd !important;">Day Camp Session 3: July 03 - July 05</td>
-          <td style="border: 1px solid #ddd !important;" align="right">$175</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$175.00</td>
         </tr>
     <% end %>
     <% if @signup.session4 == '1' %>
         <tr>
           <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
           <td style="border: 1px solid #ddd !important;">Day Camp Session 4: July 11 - July 15</td>
-          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215.00</td>
         </tr>
     <% end %>
     <% if @signup.session5 == '1' %>
         <tr>
           <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
           <td style="border: 1px solid #ddd !important;">Day Camp Session 5: July 18 - July 22</td>
-          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215.00</td>
         </tr>
     <% end %>
     <td style="font-weight: bold;"></td>
@@ -98,10 +98,18 @@
     <tr>
       <td style="border: 1px solid #ddd !important;"><%= @signup.payment.pmtdate %></td>
       <td style="border: 1px solid #ddd !important;"><%= @signup.payment.pmtnum %></td>
-      <td style="border: 1px solid #ddd !important;" align="right"><%= @signup.payment.amount %></td>
+      <td style="border: 1px solid #ddd !important;" align="right"><%= number_to_currency(@signup.payment.amount) %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td style="font-weight: bold;" align="right">
+        <br/><br/>
+        Total Due: &nbsp;&nbsp;&nbsp;<%= number_to_currency(@signup.amt_due) %>
+      </td>
     </tr>
   </table>
-  <br/><br/><br/>
+  <br/><br/>
   <div style="width: 800px">
     Kurabu Camp Director: Shinobu Chrisman <a href="mailto:shinobu712@gmail.com">shinobu712@gmail.com</a>
     <br/><br/>
