@@ -40,8 +40,6 @@ class Kmgr::OverviewsController < ApplicationController
       outer[:total][:total] = outer['Kindergarten'][:total] +outer['1st Grade'][:total] +outer['2nd Grade'][:total] +outer['3rd Grade'][:total] +outer['4th Grade'][:total] +outer['5th Grade'][:total]
     end
 
-
-
     @summeries = []
     @summeries.push(outer['Kindergarten'])
     @summeries.push(outer['1st Grade'])
@@ -50,10 +48,10 @@ class Kmgr::OverviewsController < ApplicationController
     @summeries.push(outer['4th Grade'])
     @summeries.push(outer['5th Grade'])
     @summeries.push(outer[:total])
-
   end
 
   def test
+    @signup = Signup.find(params[:id])
     render :action => "../../notification_mailer/fsa"
   end
 

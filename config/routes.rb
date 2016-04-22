@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: :registrations
 
   match '/kmgr/overview' => 'kmgr/overviews#index',    :as => :kmgr_overview, :via => :get
-  match '/kmgr/test'     => 'kmgr/overviews#test',     :as => :kmgr_test,     :via => :get
+  match '/kmgr/test/:id'     => 'kmgr/overviews#test',     :as => :kmgr_test,     :via => :get
 
 # Admin Resources
   namespace :kmgr do

@@ -1,1 +1,122 @@
-test email here
+<html lang="en">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Kurabu Summer Camp 2016</title>
+</head>
+
+<body style="font-family: 'Times New Roman', Georgia, Serif;">
+<table style="width: 800px;">
+  <tr>
+    <td><img src="/parks_and_rec.png"/></td>
+    <td style="width: 100px;">&nbsp;</td>
+    <td nowrap="nowrap">
+      <br/>
+      <span style="font-weight: bold;font-size: 23px;">Kurabu Summer Camp 2016</span>
+      <br/><br/>
+      <span style="font-size: 16px;">
+        Mt Tabor SUN Community School<br/>
+        5800 SE Ash Street, Portland, OR 97215<br/><br/>
+        Phone: (523) 916-2915<br/><br/>
+        TAX ID: 93-1124364<br/><br/>
+      </span>
+    </td>
+  </tr>
+</table>
+<div style="width: 800px;">
+  <hr/>
+  <br/>
+<span style="font-size: 18px; font-weight: bold;">
+  <%= @signup.p1fname %> <%= @signup.p1lname %>
+  <% unless @signup.p2lname.nil? || @signup.p2lname.empty? %>
+      and <%= @signup.p2fname %> <%= @signup.p2lname %>
+  <% end %>
+</span>
+  <br/>
+  <%= @signup.street %><br/>
+  <%= @signup.city %>,
+  <%= @signup.state %>
+  <%= @signup.zip %>
+  <br/><br/><br/>
+
+  <span style="font-weight: bold;">Enrollment for <%= @signup.cfname %> <%= @signup.clname %></span><br><br/>
+
+  <table width="800px" cellspacing="0" cellpadding="5">
+    <tr>
+      <td style="font-weight: bold;">Date</td>
+      <td style="font-weight: bold;">Description</td>
+      <td style="font-weight: bold;" align="right">Amount</td>
+    </tr>
+
+    <% if @signup.session1 == '1' %>
+        <tr>
+          <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
+          <td style="border: 1px solid #ddd !important;">Day Camp Session 1: June 20 - June 24</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+        </tr>
+    <% end %>
+    <% if @signup.session2 == '1' %>
+        <tr>
+          <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
+          <td style="border: 1px solid #ddd !important;">Day Camp Session 2: June 27 - July 01</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+        </tr>
+    <% end %>
+    <% if @signup.session3 == '1' %>
+        <tr>
+          <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
+          <td style="border: 1px solid #ddd !important;">Day Camp Session 3: July 03 - July 05</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$175</td>
+        </tr>
+    <% end %>
+    <% if @signup.session4 == '1' %>
+        <tr>
+          <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
+          <td style="border: 1px solid #ddd !important;">Day Camp Session 4: July 11 - July 15</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+        </tr>
+    <% end %>
+    <% if @signup.session5 == '1' %>
+        <tr>
+          <td style="border: 1px solid #ddd !important;"><%= Time.now.strftime("%m/%d/%Y") %></td>
+          <td style="border: 1px solid #ddd !important;">Day Camp Session 5: July 18 - July 22</td>
+          <td style="border: 1px solid #ddd !important;" align="right">$215</td>
+        </tr>
+    <% end %>
+    <td style="font-weight: bold;"></td>
+    <td style="font-weight: bold;"></td>
+    <td style="font-weight: bold;" align="right"><%= number_to_currency(@signup.total) %></td>
+  </table>
+
+  <span style="font-weight: bold;">Payments</span><br><br/>
+
+  <table width="800px" cellspacing="0" cellpadding="5">
+    <tr>
+      <td style="font-weight: bold;">Date</td>
+      <td style="font-weight: bold;">Type</td>
+      <td style="font-weight: bold;" align="right">Amount</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd !important;"><%= @signup.payment.pmtdate %></td>
+      <td style="border: 1px solid #ddd !important;"><%= @signup.payment.pmtnum %></td>
+      <td style="border: 1px solid #ddd !important;" align="right"><%= @signup.payment.amount %></td>
+    </tr>
+  </table>
+  <br/><br/><br/>
+  <div style="width: 800px">
+    Kurabu Camp Director: Shinobu Chrisman <a href="mailto:shinobu712@gmail.com">shinobu712@gmail.com</a>
+    <br/><br/>
+    Payments received by: Kathy Black, Kurabu Registrar. <a href="mailto:kblack@pdx.edu">kblack@pdx.edu</a>
+    <br/><br/>
+    Notes about Fees, Withdrawal & Refunds: Fees are for Portland area residents. For residents outside of the
+    Portland area, an additional 10% fee must be added. (See definition of non-resident on PP&R website.) A $25
+    non-refundable deposit per student is included in the price of the camp. ONK requires a 72-hour cancellation
+    notice for a full refund (minus the $25 deposit). We do not prorate for any missed days. Receipt of full payment
+    is required to reserve your spot, unless otherwise arranged. For cancellations less than 72 hours and for payment
+    options, contact Kathy Black, kblack@pdx.edu.
+  </div>
+  <br/><br/>
+</div>
+
+
+</body>
+</html>
