@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.url_enc_base = "4c71e197be9d616cc42f2d8dc1de76bb6bcc3ca128073e32353672282a37d219972e343457520a5a54004c6a8699285f807447ed7365a05526d5b05cb48b1c8c"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

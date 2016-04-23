@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  match '/signups/new'     => 'signups#new',    :as => :signups_new, :via => :get
-  match '/signups'         => 'signups#create', :as => :signups,     :via => :post
-  match '/signups/pay/:id' => 'signups#pay',    :as => :signups_pay, :via => :get
+  match '/signups/new'         => 'signups#new',     :as => :signups_new,     :via => :get
+  match '/signups'             => 'signups#create',  :as => :signups,         :via => :post
+  match '/signups/pay/:id'     => 'signups#pay',     :as => :signups_pay,     :via => :get
+  match '/signups/receipt/:id' => 'signups#receipt', :as => :signups_receipt, :via => :get
 
   devise_for :users, skip: :registrations
 
   match '/kmgr/overview' => 'kmgr/overviews#index',    :as => :kmgr_overview, :via => :get
-  match '/kmgr/test/:id'     => 'kmgr/overviews#test',     :as => :kmgr_test,     :via => :get
 
 # Admin Resources
   namespace :kmgr do

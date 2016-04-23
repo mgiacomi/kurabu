@@ -17,4 +17,13 @@ class SignupsController < ApplicationController
   def pay
     @signup = Signup.find(params[:id])
   end
+
+  def receipt
+    crypt = ActiveSupport::MessageEncryptor.new(Rails.configuration.url_enc_base)
+    id = crypt.decrypt_and_verify(params[:id])
+
+    @signup = Signup.find(id)
+    render :action => "../notification_mailer/fsa"
+  end
+
 end
