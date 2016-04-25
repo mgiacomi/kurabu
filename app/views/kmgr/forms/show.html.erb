@@ -12,8 +12,14 @@
 <% end %>
 
 <h3>Kurabu Administration</h3>
-<%= link_to 'Overview', kmgr_overview_path %> | <%= link_to 'View All Signups', kmgr_forms_path %> | <%= link_to 'Edit Signup Data', edit_kmgr_form_path(@payment.signup_id) %> |
-<a href="#" id="delete">Delete Application</a> | <%= link_to 'Pay Link', signups_pay_path(@payment.signup_id) %> | <%= link_to 'Receipt Link', signups_receipt_path(@enc_receipt_id) %>
+<%= link_to 'Overview', kmgr_overview_path %> |
+<%= link_to 'View All Signups', kmgr_forms_path %> |
+<%= link_to 'Edit Signup Data', edit_kmgr_form_path(@payment.signup_id) %> |
+<a href="#" id="delete">Delete Application</a> |
+<% if @payment.signup.amt_due > 0 %>
+    <%= link_to 'Pay Link', signups_pay_path(@payment.signup_id) %> |
+<% end %>
+<%= link_to 'Receipt Link', signups_receipt_path(@enc_receipt_id) %>
 <br/><br/>
 
 <% if @payment.errors.any? %>
@@ -99,7 +105,8 @@
     <td><p style="margin-bottom:0;"><%= @payment.signup.p2lname %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Home/Cell Phone</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Home/Cell Phone</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.phone1 %></p></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Work Phone</p></td>
@@ -150,14 +157,18 @@
     <td colspan="3"><p style="margin-bottom:0;"><%= @payment.signup.medical %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Agree</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Agree</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.medical_agree %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.medical_signed %></p></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed Date</p></td>
+    <td>
+      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed Date</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.medical_signed_date %></p></td>
   </tr>
   <tr>
@@ -165,31 +176,40 @@
     <td><p style="margin-bottom:0;"><%= @payment.signup.shots_date %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Name</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Name</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_name %></p></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Relationship</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact
+      Relationship</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_relationship %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Phone</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Phone</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_phone %></p></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Address</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Address</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_address %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Child Name</p></td>
+    <td>
+      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Child Name</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_cname %></p></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Agree</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Agree</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_agree %></p></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed</p>
+    </td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_signed %></p></td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed Date</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed
+      Date</p></td>
     <td><p style="margin-bottom:0;"><%= @payment.signup.activity_signed_date %></p></td>
   </tr>
   <tr>

@@ -1,4 +1,5 @@
 class SignupsController < ApplicationController
+  layout "mailer", only: [:receipt]
 
   def new
     @signup = Signup.new
