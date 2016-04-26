@@ -6,10 +6,10 @@ task :send_fsa_email => :environment do
     if !payment.signup.nil? && payment.signup.amt_due == 0
       puts "Processing receipt for email #{payment.signup.email}"
 
-#      NotificationMailer.fsa(payment.signup).deliver
+      NotificationMailer.fsa(payment.signup).deliver
 
-#      payment.receipt_date = Time.now
-#      payment.save
+      payment.receipt_date = Time.now
+      payment.save
     end
   end
 
