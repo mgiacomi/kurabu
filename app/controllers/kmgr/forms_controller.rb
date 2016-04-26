@@ -7,9 +7,6 @@ class Kmgr::FormsController < ApplicationController
 
   def show
     @payment = Payment.find_or_create_by(signup_id: params[:id])
-
-    crypt = ActiveSupport::MessageEncryptor.new(Rails.configuration.url_enc_base)
-    @enc_receipt_id = crypt.encrypt_and_sign(@payment.signup_id)
   end
 
   def edit

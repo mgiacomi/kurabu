@@ -9,6 +9,14 @@ class Signup < ActiveRecord::Base
   validates :activity_cname, :activity_agree, :activity_signed, :activity_signed_date, presence: {message: " is required"}
   validate :at_least_one_session
 
+  class << self
+    def find_by_receipt_id receipt_id
+      crypt = ActiveSupport::MessageEncryptor.new(Rails.configuration.url_enc_base)
+      id = crypt.decrypt_and_verify(receipt_id)
+      find(id)
+    end
+  end
+
   def amt_due
     s1 = session1 == "1" ? 215 : 0
     s2 = session2 == "1" ? 215 : 0
