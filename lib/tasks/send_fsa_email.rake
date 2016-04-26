@@ -8,8 +8,8 @@ task :send_fsa_email => :environment do
 
 #      NotificationMailer.fsa(payment.signup).deliver
 
-      payment.receipt_date = Time.now
-      payment.save
+#      payment.receipt_date = Time.now
+#      payment.save
     end
   end
 
