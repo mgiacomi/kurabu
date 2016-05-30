@@ -1,6 +1,7 @@
 class Payment < ActiveRecord::Base
 
   validates :amount, numericality: true, allow_blank: true
+  validates :scholarship, numericality: true, allow_blank: true
 
   belongs_to :signup
 

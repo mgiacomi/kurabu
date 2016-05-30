@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423220021) do
+ActiveRecord::Schema.define(version: 20160423220022) do
 
   create_table "payments", force: :cascade do |t|
     t.integer  "signup_id",    limit: 4
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160423220021) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "receipt_date"
+    t.string   "scholarship",  limit: 255
   end
 
   create_table "signups", force: :cascade do |t|

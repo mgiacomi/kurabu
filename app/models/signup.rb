@@ -24,7 +24,7 @@ class Signup < ActiveRecord::Base
     s4 = session4 == "1" ? 215 : 0
     s5 = session5 == "1" ? 215 : 0
     total = s1 + s2 + s3 + s4 + s5
-    payment.present? ? total - payment.amount.to_f : total
+    payment.present? ? total - payment.scholarship.to_f - payment.amount.to_f : total
   end
 
   def total
