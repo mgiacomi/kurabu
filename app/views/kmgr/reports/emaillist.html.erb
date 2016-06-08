@@ -1,0 +1,42 @@
+<h3>Kurabu Reports</h3>
+<%= link_to 'back to reports', kmgr_reports_index_path %>
+<br/><br/>
+<strong>Email for all Session <%= params[:id] %> parents</strong>
+<br/><br/>
+<div style="float:left; width:50%">
+  <strong>Kindergarten:</strong><br/>
+  <% @kinder.each do |email| %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= email %><br/>
+  <% end %>
+
+  <br/><strong>1st Grade:</strong><br/>
+  <% @first.each do |email| %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= email %><br/>
+  <% end %>
+
+  <br/><strong>2nd Grade:</strong><br/>
+  <% @second.each do |email| %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= email %><br/>
+  <% end %>
+</div>
+
+<div style="float:left; width:50%">
+  <strong>3rd Grade:</strong><br/>
+  <% @third.each do |email| %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= email %><br/>
+  <% end %>
+
+  <br/><strong>4th Grade:</strong><br/>
+  <% @forth.each do |email| %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= email %><br/>
+  <% end %>
+
+  <br/><strong>5th Grade:</strong><br/>
+  <% @fifth.each do |email| %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= email %><br/>
+  <% end %>
+</div>
+<div style="clear:both"></div>
+<br/><br/>
+
+
