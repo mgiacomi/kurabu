@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
+#gem 'nokogiri', '1.6.7.2'
+#gem 'bcrypt', '3.1.10'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
 gem 'mysql2', '0.4.3'
 gem 'devise'
 gem 'google-api-client'

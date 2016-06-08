@@ -26,6 +26,6 @@ module Kurabu
     config.active_record.raise_in_transactional_callbacks = true
 
     ENV['SSL_CERT_FILE'] = File.expand_path(File.dirname(__FILE__)) + "/cacert.pem"
-    ENV['GOOGLE_APPLICATION_CREDENTIALS'] = 'config/kurabu_key.json'
+    ENV['GOOGLE_APPLICATION_CREDENTIALS'] = File.expand_path(File.dirname(__FILE__)) + '/kurabu_key.json'
   end
 end
