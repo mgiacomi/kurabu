@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.1'
 gem 'mysql2', '0.4.3'
 gem 'devise'
+gem 'google-api-client'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -7,15 +7,15 @@ Rails.application.routes.draw do
 
   devise_for :users, skip: :registrations
 
-  match '/kmgr/overview' => 'kmgr/overviews#index',    :as => :kmgr_overview, :via => :get
-
 # Admin Resources
   namespace :kmgr do
     resources :forms
   end
 
-  match '/kmgr/payment/update' => 'kmgr/forms#payment_update', :as => :kmgr_payment_update, :via => [:post, :patch]
-  match '/kmgr/application/delete/:id' => 'kmgr/forms#delete', :as => :kmgr_application_delete, :via => [:post, :patch]
+  match '/kmgr/overview'               => 'kmgr/overviews#index',      :as => :kmgr_overview,            :via => :get
+  match '/kmgr/reports/signupsheet'    => 'kmgr/reports#signupsheet',  :as => :kmgr_reports_signupsheet, :via => :get
+  match '/kmgr/payment/update'         => 'kmgr/forms#payment_update', :as => :kmgr_payment_update,      :via => [:post, :patch]
+  match '/kmgr/application/delete/:id' => 'kmgr/forms#delete',         :as => :kmgr_application_delete,  :via => [:post, :patch]
 
   root 'signups#new'
 

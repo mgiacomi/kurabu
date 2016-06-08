@@ -24,5 +24,8 @@ module Kurabu
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    ENV['SSL_CERT_FILE'] = File.expand_path(File.dirname(__FILE__)) + "/cacert.pem"
+    ENV['GOOGLE_APPLICATION_CREDENTIALS'] = 'config/kurabu_key.json'
   end
 end
