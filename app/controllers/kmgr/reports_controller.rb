@@ -4,8 +4,11 @@ require 'google/apis/drive_v3'
 
 class Kmgr::ReportsController < ApplicationController
   before_filter :authenticate_user!
-
   APPLICATION_NAME = 'Kurabu'
+
+  def index
+    build_overview Signup.all.order(:clname)
+  end
 
   def signupsheet
     # Service authentication to Google
@@ -44,14 +47,19 @@ class Kmgr::ReportsController < ApplicationController
     # update weeks
     if params[:session] == "1"
       daysOfWeek = [['Mon 6/20', 'Tue 6/21', 'Wed 6/22', 'Thu 6/23', 'Fri 6/24']]
+      session = "session1"
     elsif params[:session] == "2"
       daysOfWeek = [['Mon 6/27', 'Tue 6/28', 'Wed 6/29', 'Thu 6/30', 'Fri 7/1']]
+      session = "session2"
     elsif params[:session] == "3"
       daysOfWeek = [['Mon 7/5', 'Tue 7/6', 'Wed 7/7', 'Thu 7/8', '']]
+      session = "session3"
     elsif params[:session] == "4"
       daysOfWeek = [['Mon 7/11', 'Tue 7/12', 'Wed 7/13', 'Thu 7/14', 'Fri 7/15']]
+      session = "session4"
     elsif params[:session] == "5"
       daysOfWeek = [['Mon 7/18', 'Tue 7/19', 'Wed 7/20', 'Thu 7/21', 'Fri 7/22']]
+      session = "session5"
     end
 
     value_range = Google::Apis::SheetsV4::ValueRange.new
@@ -61,7 +69,8 @@ class Kmgr::ReportsController < ApplicationController
     value_range.values = daysOfWeek
     s_service.update_spreadsheet_value ss.spreadsheet_id, value_range.range, value_range, value_input_option: 'USER_ENTERED'
 
-    @accepted = Signup.where(:session1 => params[:session], :cage => params[:grade]).order(:clname).select do |signup|
+    # SQL Injection can happen here if session is not manually assigned in this controller.
+    @accepted = Signup.where("#{session}=1 and cage=?", params[:grade]).order(:clname).select do |signup|
       !signup.payment.nil? && signup.payment.accepted == "1"
     end
 
