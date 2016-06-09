@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   match '/signups'             => 'signups#create',  :as => :signups,         :via => :post
   match '/signups/pay/:id'     => 'signups#pay',     :as => :signups_pay,     :via => :get
   match '/signups/receipt/:id' => 'signups#receipt', :as => :signups_receipt, :via => :get
+  match '/signups/denied'      => 'signups#denied',  :as => :signups_denied,  :via => :get
 
   devise_for :users, skip: :registrations
 

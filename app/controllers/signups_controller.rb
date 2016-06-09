@@ -24,4 +24,7 @@ class SignupsController < ApplicationController
     render :action => "../notification_mailer/fsa"
   end
 
+  def denied
+  end
+
 end
