@@ -8,15 +8,6 @@ class Kmgr::OverviewsController < ApplicationController
     all_signups = Signup.all.order(:clname)
     build_overview all_signups
 
-if current_user.admin?
-p "YES ADMIN"
-else
-p "NOT ADMIN"
-end
-#password_length = 6
-#password = Devise.friendly_token.first(password_length)
-#User.create!(:email => 'report@kurabu.org', :password => '4onkReports!', :password_confirmation => '4onkReports!')
-
     @outstanding = all_signups.select do |signup|
       signup.amt_due > 0 || signup.payment.nil? || signup.payment.accepted != '1'
     end
