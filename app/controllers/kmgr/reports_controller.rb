@@ -10,6 +10,56 @@ class Kmgr::ReportsController < ApplicationController
     build_overview Signup.all.order(:clname)
   end
 
+  def show
+    @signup = Signup.find(params[:id])
+  end
+
+  def signuplist
+    if params[:id] == "1"
+      session = "session1"
+    elsif params[:id] == "2"
+      session = "session2"
+    elsif params[:id] == "3"
+      session = "session3"
+    elsif params[:id] == "4"
+      session = "session4"
+    elsif params[:id] == "5"
+      session = "session5"
+    end
+
+    accepted = Signup.where("#{session}=1").order(:clname).select do |signup|
+      !signup.payment.nil? && signup.payment.accepted == "1"
+    end
+
+    @kinder = Set.new
+    @first = Set.new
+    @second = Set.new
+    @third = Set.new
+    @forth = Set.new
+    @fifth = Set.new
+
+    accepted.each do |signup|
+      if signup.cage == 'Kindergarten'
+        @kinder.add(signup)
+      end
+      if signup.cage == '1st Grade'
+        @first.add(signup)
+      end
+      if signup.cage == '2nd Grade'
+        @second.add(signup)
+      end
+      if signup.cage == '3rd Grade'
+        @third.add(signup)
+      end
+      if signup.cage == '4th Grade'
+        @forth.add(signup)
+      end
+      if signup.cage == '5th Grade'
+        @fifth.add(signup)
+      end
+    end
+  end
+
   def emaillist
     if params[:id] == "1"
       session = "session1"

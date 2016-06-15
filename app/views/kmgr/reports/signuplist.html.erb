@@ -1,0 +1,54 @@
+<h3>Kurabu Signup List</h3>
+<%= link_to 'back to reports', kmgr_reports_index_path %>
+<br/><br/>
+<strong>Users for Session <%= params[:id] %> parents</strong>
+<br/><br/>
+<div style="float:left; width:50%">
+  <strong>Kindergarten:</strong><br/>
+  <p>
+    <% @kinder.each do |signup| %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{signup.clname}, #{signup.cfname}", kmgr_reports_show_path(signup.id) %><br/>
+    <% end %>
+  </p>
+
+  <strong>1st Grade:</strong><br/>
+  <p>
+    <% @first.each do |signup| %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{signup.clname}, #{signup.cfname}", kmgr_reports_show_path(signup.id) %><br/>
+    <% end %>
+  </p>
+
+  <strong>2nd Grade:</strong><br/>
+  <p>
+    <% @second.each do |signup| %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{signup.clname}, #{signup.cfname}", kmgr_reports_show_path(signup.id) %><br/>
+    <% end %>
+  </p>
+</div>
+
+<div style="float:left; width:50%">
+  <strong>3rd Grade:</strong><br/>
+  <p>
+    <% @third.each do |signup| %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{signup.clname}, #{signup.cfname}", kmgr_reports_show_path(signup.id) %><br/>
+    <% end %>
+  </p>
+
+  <strong>4th Grade:</strong><br/>
+  <p>
+    <% @forth.each do |signup| %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{signup.clname}, #{signup.cfname}", kmgr_reports_show_path(signup.id) %><br/>
+    <% end %>
+  </p>
+
+  <strong>5th Grade:</strong><br/>
+  <p>
+    <% @fifth.each do |signup| %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "#{signup.clname}, #{signup.cfname}", kmgr_reports_show_path(signup.id) %><br/>
+    <% end %>
+  </p>
+</div>
+<div style="clear:both"></div>
+<br/><br/>
+
+
