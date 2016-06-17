@@ -1,0 +1,45 @@
+<script>
+  jQuery(document).ready(function () {
+    jQuery("tr:odd").css("background-color", "#CEF5FF");
+    jQuery("td").css("padding-left", "10px");
+    jQuery("td").css("padding-right", "10px");
+  });
+</script>
+
+<h3>Kurabu Administration</h3>
+<%= link_to 'back to reports', kmgr_reports_index_path %>
+
+<br/><br/>
+<table style="border-bottom: 1px;">
+  <tr>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Child First</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Child Last</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Grade</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Parent First</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Parent Last</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S1</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S2</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S3</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S4</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S5</p></td>
+    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Email</p></td>
+    <!--td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Phone</p></td-->
+  </tr>
+  <% @signups.each do |signup| %>
+      <tr>
+        <td><p style="margin-bottom:0;"><%= link_to signup.cfname, kmgr_reports_show_path(signup) %></p></td>
+        <td><p style="margin-bottom:0;"><%= link_to signup.clname, kmgr_reports_show_path(signup) %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.cage %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.p1fname %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.p1lname %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.session1 == "1" ? "Y" : "" %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.session2 == "1" ? "Y" : "" %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.session3 == "1" ? "Y" : "" %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.session4 == "1" ? "Y" : "" %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.session5 == "1" ? "Y" : "" %></p></td>
+        <td><p style="margin-bottom:0;"><%= signup.email %></p></td>
+        <!--td><p style="margin-bottom:0;"><%= signup.phone1 %></p></td-->
+      </tr>
+  <% end %>
+</table>
+

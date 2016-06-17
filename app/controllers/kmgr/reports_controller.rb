@@ -14,6 +14,12 @@ class Kmgr::ReportsController < ApplicationController
     @signup = Signup.find(params[:id])
   end
 
+  def list
+    @signups = Signup.all.order(:clname).select do |signup|
+      !signup.payment.nil? && signup.payment.accepted == "1"
+    end
+  end
+
   def signuplist
     if params[:id] == "1"
       session = "session1"

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   match '/kmgr/reports'                => 'kmgr/reports#index',        :as => :kmgr_reports_index,       :via => :get
   match '/kmgr/reports/signupsheet'    => 'kmgr/reports#signupsheet',  :as => :kmgr_reports_signupsheet, :via => :get
   match '/kmgr/reports/signuplist/:id' => 'kmgr/reports#signuplist',   :as => :kmgr_reports_signuplist,  :via => :get
+  match '/kmgr/reports/signuplist'     => 'kmgr/reports#list',         :as => :kmgr_reports_list,        :via => :get
   match '/kmgr/reports/show/:id'       => 'kmgr/reports#show',         :as => :kmgr_reports_show,        :via => :get
   match '/kmgr/reports/emaillist/:id'  => 'kmgr/reports#emaillist',    :as => :kmgr_reports_emaillist,   :via => :get
   match '/kmgr/payment/update'         => 'kmgr/forms#payment_update', :as => :kmgr_payment_update,      :via => [:post, :patch]
