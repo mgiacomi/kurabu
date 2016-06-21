@@ -1,3 +1,18 @@
+<script>
+  jQuery(document).ready(function () {
+    jQuery('#signup_cage').change(function () {
+      if ("4th Grade" == jQuery("#signup_cage").val() || "5th Grade" == jQuery("#signup_cage").val()) {
+        jQuery('#tr_session1').hide();
+        jQuery('#tr_session4').hide();
+      }
+      else {
+        jQuery('#tr_session1').show();
+        jQuery('#tr_session4').show();
+      }
+    });
+  });
+</script>
+
 <p style="color:black;margin-bottom:10px;"><strong>Student Information</strong></p>
 <table>
   <tr>
@@ -96,35 +111,39 @@
 <br/><br/>
 <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
 <table cellspacing="8">
-  <tr>
+  <tr id="tr_session1" style="display:table-row">
     <td><%= f.check_box :session1 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
     <td><p style="margin-bottom:0;">June 20 - June 24</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span> <span style="color:blue;font-style:italic;">** No longer accepting 4th/5th graders for this session.</span></p></td>
+    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span>
+      <span style="color:blue;font-style:italic;">** No longer accepting 4th/5th graders for this session.</span></p>
+    </td>
   </tr>
-  <tr>
+  <tr id="tr_session2" style="display:table-row">
     <td><%= f.check_box :session2 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
     <td><p style="margin-bottom:0;">June 27 - July 01</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
     <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
   </tr>
-  <tr>
+  <tr id="tr_session3" style="display:table-row">
     <td><%= f.check_box :session3 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
     <td><p style="margin-bottom:0;">July 05 - July 08</p></td>
     <td><p style="margin-bottom:0;">M-Th</p></td>
     <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$175</span></p></td>
   </tr>
-  <tr>
+  <tr id="tr_session4" style="display:table-row">
     <td><%= f.check_box :session4 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
     <td><p style="margin-bottom:0;">July 11 - July 15</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span> <span style="color:blue;font-style:italic;">** No longer accepting 4th/5th graders for this session.</span></p></td>
+    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span>
+      <span style="color:blue;font-style:italic;">** No longer accepting 4th/5th graders for this session.</span></p>
+    </td>
   </tr>
-  <tr>
+  <tr id="tr_session5" style="display:table-row">
     <td><%= f.check_box :session5 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
     <td><p style="margin-bottom:0;">July 18 - July 22</p></td>
@@ -132,7 +151,8 @@
     <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
   </tr>
 </table>
-<p>** If you require financial assistance please contact us <a href="mailto:kurabu@oyanokai.org">kurabu@oyanokai.org</a></p>
+<p>** If you require financial assistance please contact us <a href="mailto:kurabu@oyanokai.org">kurabu@oyanokai.org</a>
+</p>
 
 <p style="color:black;margin-bottom:10px;">
   <strong>Special information about your child that would be helpful for the Kurabu staff to know:</strong></p>
