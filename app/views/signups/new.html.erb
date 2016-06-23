@@ -1,3 +1,18 @@
+<script>
+  jQuery(document).ready(function () {
+    jQuery('#signup_cage').change(function () {
+      if ("4th Grade" == jQuery("#signup_cage").val() || "5th Grade" == jQuery("#signup_cage").val()) {
+        jQuery('#tr_session1').hide();
+        jQuery('#tr_session4').hide();
+      }
+      else {
+        jQuery('#tr_session1').show();
+        jQuery('#tr_session4').show();
+      }
+    });
+  });
+</script>
+
 <h1>Kurabu Summer Camp 2016 Registration</h1>
 <h1>クラブ（サマーキャンプ）</h1>
 <p>This form must be completed for every child attending Kurabu 2016.</p>
