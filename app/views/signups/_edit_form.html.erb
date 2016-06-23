@@ -9,6 +9,12 @@
         jQuery('#tr_session1').show();
         jQuery('#tr_session4').show();
       }
+      if ("2nd Grade" == jQuery("#signup_cage").val()) {
+        jQuery('#tr_session2').hide();
+      }
+      else {
+        jQuery('#tr_session2').show();
+      }
     });
   });
 </script>
@@ -116,7 +122,8 @@
     <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
     <td><p style="margin-bottom:0;">June 20 - June 24</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span>
+    <td><p style="margin-bottom:0;">
+      <span style="color: red; font-weight: bold;">$215</span>
       <span style="color:blue;font-style:italic;">** No longer accepting 4th/5th graders for this session.</span></p>
     </td>
   </tr>
@@ -125,7 +132,10 @@
     <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
     <td><p style="margin-bottom:0;">June 27 - July 01</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
+    <td><p style="margin-bottom:0;">
+      <span style="color: red; font-weight: bold;">$215</span>
+      <span style="color:blue;font-style:italic;">** No longer accepting 2nd graders for this session.</span></p>
+    </td>
   </tr>
   <tr id="tr_session3" style="display:table-row">
     <td><%= f.check_box :session3 %></td>
