@@ -20,7 +20,14 @@
   <input type="hidden" name="business" value="kathy.black@pdx.edu">
 
   <% @session_count = 1 %>
-  <% scholarship = @signup.payment.present? ? @signup.payment.scholarship.to_f : 0 %>
+  <% discount = @signup.payment.present? ? @signup.payment.scholarship.to_f : 0 %>
+
+  <%
+    if @signup.payment.present? && @signup.payment.amount.to_f > 0
+      discount = discount + @signup.payment.amount.to_f
+    end
+  %>
+
 
   <br/><br/>
   <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
@@ -37,9 +44,9 @@
         <input type="hidden" name="amount_<%= @session_count %>" value="215">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% if scholarship > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= scholarship > 214 ? 214 : scholarship  %>">
-            <% scholarship = scholarship - 214 %>
+        <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 214 ? 214 : discount  %>">
+            <% discount = discount - 214 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -56,9 +63,9 @@
         <input type="hidden" name="amount_<%= @session_count %>" value="215">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% if scholarship > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= scholarship > 214 ? 214 : scholarship  %>">
-            <% scholarship = scholarship - 214 %>
+        <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 214 ? 214 : discount  %>">
+            <% discount = discount - 214 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -75,9 +82,9 @@
         <input type="hidden" name="amount_<%= @session_count %>" value="175">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% if scholarship > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= scholarship > 174 ? 174 : scholarship  %>">
-            <% scholarship = scholarship - 174 %>
+        <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 174 ? 174 : discount  %>">
+            <% discount = discount - 174 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -94,9 +101,9 @@
         <input type="hidden" name="amount_<%= @session_count %>" value="215">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% if scholarship > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= scholarship > 214 ? 214 : scholarship  %>">
-            <% scholarship = scholarship - 214 %>
+        <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 214 ? 214 : discount  %>">
+            <% discount = discount - 214 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -113,9 +120,9 @@
         <input type="hidden" name="amount_<%= @session_count %>" value="215">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% if scholarship > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= scholarship > 214 ? 214 : scholarship  %>">
-            <% scholarship = scholarship - 214 %>
+        <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 214 ? 214 : discount  %>">
+            <% discount = discount - 214 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -125,6 +132,10 @@
 
   <% if @signup.payment.present? && @signup.payment.scholarship.to_f > 0 %>
       <p style="color:black;margin-bottom:10px;"><strong>Scholarship:</strong> <%= number_to_currency(@signup.payment.scholarship) %></p>
+  <% end %>
+
+  <% if @signup.payment.present? && @signup.payment.amount.to_f > 0 %>
+      <p style="color:black;margin-bottom:10px;"><strong>Already Paid:</strong> <%= number_to_currency(@signup.payment.amount) %></p>
   <% end %>
 
   <p style="color:black;margin-bottom:10px;"><strong>Amount Due:</strong> <%= number_to_currency(@signup.amt_due) %></p>
