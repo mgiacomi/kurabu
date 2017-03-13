@@ -36,7 +36,7 @@
     </td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Grade entering in fall 2016:</p></td>
+    <td><p style="margin-bottom:0;">Grade entering in fall 2017:</p></td>
     <td>
       <%= f.select :cage,
                    options_for_select([['', ''], ['Kindergarten', 'Kindergarten'], ['1st Grade', '1st Grade'], ['2nd Grade', '2nd Grade'], ['3rd Grade', '3rd Grade'], ['4th Grade', '4th Grade'], ['5th Grade', '5th Grade']], @signup.cage),
@@ -99,45 +99,37 @@
   <tr id="tr_session1" style="display:table-row">
     <td><%= f.check_box :session1 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
-    <td><p style="margin-bottom:0;">June 20 - June 24</p></td>
+    <td><p style="margin-bottom:0;">June 26 - June 30</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;">
-      <span style="color: red; font-weight: bold;">$215</span>
-      <span style="color:blue;font-style:italic;">** No longer accepting 4th/5th graders for this session.</span></p>
-    </td>
+    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></td>
   </tr>
   <tr id="tr_session2" style="display:table-row">
     <td><%= f.check_box :session2 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
-    <td><p style="margin-bottom:0;">June 27 - July 01</p></td>
+    <td><p style="margin-bottom:0;">July 10 - July 14</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;">
-      <span style="color: red; font-weight: bold;">$215</span>
-      <span style="color:blue;font-style:italic;">** No longer accepting 2nd graders for this session.</span></p>
-    </td>
+    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></td>
   </tr>
   <tr id="tr_session3" style="display:table-row">
     <td><%= f.check_box :session3 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
-    <td><p style="margin-bottom:0;">July 05 - July 08</p></td>
+    <td><p style="margin-bottom:0;">July 17 - July 21</p></td>
     <td><p style="margin-bottom:0;">M-Th</p></td>
-    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$175</span></p></td>
+    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></p></td>
   </tr>
   <tr id="tr_session4" style="display:table-row">
     <td><%= f.check_box :session4 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
-    <td><p style="margin-bottom:0;">July 11 - July 15</p></td>
+    <td><p style="margin-bottom:0;">July 24 - July 28</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span>
-      <span style="color:blue;font-style:italic;">** No longer accepting 4th/5th graders for this session.</span></p>
-    </td>
+    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></td>
   </tr>
-  <tr id="tr_session5" style="display:table-row">
+  <tr id="tr_session5" style="display:none">
     <td><%= f.check_box :session5 %></td>
     <td><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
     <td><p style="margin-bottom:0;">July 18 - July 22</p></td>
     <td><p style="margin-bottom:0;">M-F</p></td>
-    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$215</span></p></td>
+    <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></p></td>
   </tr>
 </table>
 <p>** If you require financial assistance please contact us <a href="mailto:kurabu@oyanokai.org">kurabu@oyanokai.org</a>
@@ -146,7 +138,6 @@
 <p style="color:black;margin-bottom:10px;">
   <strong>Special information about your child that would be helpful for the Kurabu staff to know:</strong></p>
 <%= f.text_area :special, style: "width:700px;height:100px;" %>
-
 
 <br/><br/><br/>
 <p style="color:black;margin-bottom:10px;">

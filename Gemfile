@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
-#gem 'nokogiri', '1.6.7.2'
-#gem 'bcrypt', '3.1.10'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.2'
-gem 'mysql2', '0.4.3'
+gem 'rails', '4.2.8'
 gem 'devise'
+gem 'pg'
+gem 'sqlite3'
 gem 'google-api-client'
+gem 'raygun4ruby'
+gem 'request_store'
+gem 'rails_12factor', group: :production
+gem 'puma'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -38,7 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  #gem 'byebug'
 end
 
 group :development do
