@@ -19,7 +19,6 @@
   <input type="hidden" name="upload" value="1">
   <input type="hidden" name="business" value="mgiacomi-facilitator@gltech.com">
   <input type="hidden" name="notify_url" value="<%= signups_paypal_url %>">
-  <input type="hidden" name="shopping_url" value="<%= payments_overview_url %>">
   <input type="hidden" name="invoice" value="<%= @signup.id %>-<%= Time.now.to_i %>">
 
   <% @session_count = 1 %>

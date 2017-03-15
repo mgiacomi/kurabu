@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 password = SecureRandom.urlsafe_base64(6)
-user = User.create(email: 'mgiacomi@gltech.com', password: password, admin: true)
+user = User.create(email: 'mgiacomi@gltech.com', password: password, admin: 1)
 puts "Created Admin: #{user.email} #{password}"
 
 password = SecureRandom.urlsafe_base64(6)
-user = User.create(email: 'kblack@pdx.edu', password: password, admin: true)
+user = User.create(email: 'kblack@pdx.edu', password: password, admin: 1)
 puts "Created Admin: #{user.email} #{password}"
