@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.8'
 gem 'devise'
 gem 'pg'
-gem 'sqlite3'
 gem 'google-api-client'
 gem 'raygun4ruby'
 gem 'request_store'
@@ -45,6 +44,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
 

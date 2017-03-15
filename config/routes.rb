@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   match '/signups'             => 'signups#create',  :as => :signups,         :via => :post
   match '/signups/pay/:id'     => 'signups#pay',     :as => :signups_pay,     :via => :get
   match '/signups/receipt/:id' => 'signups#receipt', :as => :signups_receipt, :via => :get
+  match '/signups/paypal/:id'  => 'signups#paypal',  :as => :signups_paypal,  :via => :post
   match '/signups/denied'      => 'signups#denied',  :as => :signups_denied,  :via => :get
 
   devise_for :users, skip: :registrations
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
     resources :forms
   end
 
-  match '/kmgr/overview'               => 'kmgr/overviews#index',      :as => :kmgr_overview,            :via => :get
+  match '/kmgr'                        => 'kmgr/overviews#index',      :as => :kmgr_overview,            :via => :get
   match '/kmgr/reports'                => 'kmgr/reports#index',        :as => :kmgr_reports_index,       :via => :get
   match '/kmgr/reports/signupsheet'    => 'kmgr/reports#signupsheet',  :as => :kmgr_reports_signupsheet, :via => :get
   match '/kmgr/reports/signuplist/:id' => 'kmgr/reports#signuplist',   :as => :kmgr_reports_signuplist,  :via => :get
