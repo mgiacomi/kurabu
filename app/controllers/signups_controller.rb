@@ -41,6 +41,15 @@ class SignupsController < ApplicationController
       else
         logger.info "Failed to save payment: #{params[:invoice]} #{params[:payment_gross]} #{params[:payment_status]} #{params[:payment_date]}"
       end
+
+      if !payment.signup.nil? && payment.signup.amt_due == 0
+        logger.info "Processing receipt for email #{payment.signup.email}"
+
+        NotificationMailer.fsa(payment.signup).deliver
+
+        payment.receipt_date = Time.now
+        payment.save
+      end
     end
   end
 
