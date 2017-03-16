@@ -14,8 +14,8 @@
 <h3>Kurabu Administration</h3>
 <%= link_to 'Overview', kmgr_overview_path %> |
 <%= link_to 'View All Signups', kmgr_forms_path %> |
-<%= link_to 'Edit Signup Data', edit_kmgr_form_path(@payment.signup_id) %> |
-<!--a href="#" id="delete">Delete Application</a-->
+<%= link_to 'Edit Signup Data', edit_kmgr_form_path(@payment.signup_id) %>
+<!-- | <a href="#" id="delete">Delete Application</a> -->
 <% if @payment.signup.amt_due > 0 %>
     | <%= link_to 'Pay Link', signups_pay_path(@payment.signup_id) %>
 <% end %>
