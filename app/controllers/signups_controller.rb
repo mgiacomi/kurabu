@@ -30,7 +30,7 @@ class SignupsController < ApplicationController
       signup_id = params[:invoice].split('-')[0]
       payment = Payment.find_or_create_by(signup_id: signup_id)
 
-      payment.accepted = true;
+      payment.accepted = '1'
       payment.pmtnum = "Paypal"
       payment.pmtdate = params[:payment_date]
       payment.amount = params[:payment_gross]
