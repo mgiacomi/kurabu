@@ -39,9 +39,10 @@ en:
           econtact_relationship: "Emergency Contact Relationship"
           econtact_phone: "Emergency Contact Phone Number"
           econtact_address: "Emergency Contact Address"
+          activity_agree: "Activity Agree"
           activity_cname: "Child's Name (Authorization Activities)"
-          activity_agree: ""
           activity_signed: "Activities Authorization Signature"
           activity_signed_date: "Activities Authorization Date"
+
 
 
