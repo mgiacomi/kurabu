@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.url_enc_base = ENV["SECRET_KEY_BASE"]
 
   config.action_mailer.default_url_options = { :host => 'kurabu.herokuapp.com' }
 
