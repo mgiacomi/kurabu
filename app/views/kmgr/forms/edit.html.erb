@@ -12,7 +12,10 @@
 <%= form_for @signup, url: kmgr_application_delete_path(@signup.id), html: { id: 'delete_form' } do |f| %><% end %>
 
 <h3>Kurabu Administration</h3>
-<%= link_to 'overview', kmgr_overview_path %> | <%= link_to 'view all signups', kmgr_forms_path %> | <%= link_to 'edit payment data', kmgr_form_path(@signup.id) %> | <a href="#" id="delete">delete application</a>
+<%= link_to 'overview', kmgr_overview_path %>
+| <%= link_to 'view all signups', kmgr_forms_path %>
+| <%= link_to 'edit payment data', kmgr_form_path(@signup.id) %>
+<% unless @signup.payment.accepted %> | <a href="#" id="delete">delete application</a>  <% end %>
 
 <br/><br/>
 
