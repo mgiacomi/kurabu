@@ -33,7 +33,7 @@ class Kmgr::ReportsController < ApplicationController
       session = "session5"
     end
 
-    accepted = Signup.where("#{session}=1").order(:clname).select do |signup|
+    accepted = Signup.where("#{session}=?", "1").order(:clname).select do |signup|
       !signup.payment.nil? && signup.payment.accepted == "1"
     end
 
@@ -79,7 +79,7 @@ class Kmgr::ReportsController < ApplicationController
       session = "session5"
     end
 
-    accepted = Signup.where("#{session}=1").select do |signup|
+    accepted = Signup.where("#{session}=?", "1").select do |signup|
       !signup.payment.nil? && signup.payment.accepted == "1"
     end
 
@@ -172,7 +172,7 @@ class Kmgr::ReportsController < ApplicationController
     s_service.update_spreadsheet_value ss.spreadsheet_id, value_range.range, value_range, value_input_option: 'USER_ENTERED'
 
     # SQL Injection can happen here if session is not manually assigned in this controller.
-    @accepted = Signup.where("#{session}=1 and cage=?", params[:grade]).order(:clname).select do |signup|
+    @accepted = Signup.where("#{session}=? and cage=?", "1", params[:grade]).order(:clname).select do |signup|
       !signup.payment.nil? && signup.payment.accepted == "1"
     end
 
