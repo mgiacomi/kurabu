@@ -1,17 +1,19 @@
 <script>
-  jQuery(document).ready(function () {
+    jQuery(document).ready(function () {
 
-    jQuery('#signup_cage').change(function () {
-      if ("1st Grade" == jQuery("#signup_cage").val() || "Kindergarten" == jQuery("#signup_cage").val()) {
-        jQuery('#tr_session1').hide();
-      }
-      else {
-        jQuery('#tr_session1').show();
-      }
-    });
+        jQuery('#signup_cage').change(function () {
+            if ("1st Grade" == jQuery("#signup_cage").val() || "Kindergarten" == jQuery("#signup_cage").val()) {
+                jQuery('#tr_session1').hide();
+                jQuery('#session1_desc').hide();
+            }
+            else {
+                jQuery('#tr_session1').show();
+                jQuery('#session1_desc').show();
+            }
+        });
 
 //    jQuery('#tr_session2').hide();
-  });
+    });
 </script>
 
 <h1>Kurabu Summer Camp 2017 Registration</h1>
