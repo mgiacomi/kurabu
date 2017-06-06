@@ -141,23 +141,22 @@ class Kmgr::ReportsController < ApplicationController
     # update header
     value_range = Google::Apis::SheetsV4::ValueRange.new
     value_range.range = "D1:E1"
-    puts "range: #{value_range.range}"
     value_range.major_dimension = 'ROWS'
     value_range.values = [["Session #{params[:session]}", params[:grade]]]
     s_service.update_spreadsheet_value ss.spreadsheet_id, value_range.range, value_range, value_input_option: 'USER_ENTERED'
 
     # update weeks
     if params[:session] == "1"
-      daysOfWeek = [['Mon 6/20', 'Tue 6/21', 'Wed 6/22', 'Thu 6/23', 'Fri 6/24']]
+      daysOfWeek = [['Mon 6/26', 'Tue 6/27', 'Wed 6/28', 'Thu 6/29', 'Fri 6/30']]
       session = "session1"
     elsif params[:session] == "2"
-      daysOfWeek = [['Mon 6/27', 'Tue 6/28', 'Wed 6/29', 'Thu 6/30', 'Fri 7/1']]
+      daysOfWeek = [['Mon 7/10', 'Tue 7/11', 'Wed 7/12', 'Thu 7/13', 'Fri 7/14']]
       session = "session2"
     elsif params[:session] == "3"
-      daysOfWeek = [['Mon 7/5', 'Tue 7/6', 'Wed 7/7', 'Thu 7/8', '']]
+      daysOfWeek = [['Mon 7/17', 'Tue 7/18', 'Wed 7/19', 'Thu 7/20', '7/21']]
       session = "session3"
     elsif params[:session] == "4"
-      daysOfWeek = [['Mon 7/11', 'Tue 7/12', 'Wed 7/13', 'Thu 7/14', 'Fri 7/15']]
+      daysOfWeek = [['Mon 7/24', 'Tue 7/25', 'Wed 7/26', 'Thu 7/27', 'Fri 7/28']]
       session = "session4"
     elsif params[:session] == "5"
       daysOfWeek = [['Mon 7/18', 'Tue 7/19', 'Wed 7/20', 'Thu 7/21', 'Fri 7/22']]
@@ -166,7 +165,6 @@ class Kmgr::ReportsController < ApplicationController
 
     value_range = Google::Apis::SheetsV4::ValueRange.new
     value_range.range = "G3:K3"
-    puts "range: #{value_range.range}"
     value_range.major_dimension = 'ROWS'
     value_range.values = daysOfWeek
     s_service.update_spreadsheet_value ss.spreadsheet_id, value_range.range, value_range, value_input_option: 'USER_ENTERED'
