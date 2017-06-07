@@ -115,7 +115,7 @@ class Kmgr::ReportsController < ApplicationController
   def signupsheet
     # Service authentication to Google
     scopes = [Google::Apis::SheetsV4::AUTH_SPREADSHEETS, Google::Apis::SheetsV4::AUTH_DRIVE]
-    authorization = Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: ENV['KURABU_KEY'], scope: scopes)
+    authorization = Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: StringIO.new(ENV['KURABU_KEY']), scope: scopes)
 
     # Initialize Sheets API
     s_service = Google::Apis::SheetsV4::SheetsService.new
