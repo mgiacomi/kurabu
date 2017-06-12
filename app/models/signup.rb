@@ -9,6 +9,7 @@ class Signup < ActiveRecord::Base
   validates :activity_cname, :activity_signed, :activity_signed_date, presence: {message: " is required"}
   validates :activity_agree, :presence => true, :inclusion => { :in => ['Yes'], message: " must be checked" }
   validate :at_least_one_session
+  validate :k_and_first_not_over_twenty
 
   class << self
     def find_by_receipt_id receipt_id
@@ -47,4 +48,46 @@ class Signup < ActiveRecord::Base
       errors.add(:base, "You must select at least one session ")
     end
   end
+
+  def k_and_first_not_over_twenty
+    signups = Signup.where("cage=? or cage=?", "Kindergarten", "1st Grade")
+
+    if cage == "Kindergarten" || cage == "1st Grade"
+      if session1 == "1"
+        k1 = signups.select {|s| s.session1 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
+        if k1 > 19
+          errors.add(:session1,'is already full for Kindergarten and 1st Graders.')
+        end
+      end
+
+      if session2 == "1"
+        k1 = signups.select {|s| s.session2 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
+        if k1 > 19
+          errors.add(:session2,'is already full for Kindergarten and 1st Graders.')
+        end
+      end
+
+      if session3 == "1"
+        k1 = signups.select {|s| s.session3 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
+        if k1 > 19
+          errors.add(:session3,'is already full for Kindergarten and 1st Graders.')
+        end
+      end
+
+      if session4 == "1"
+        k1 = signups.select {|s| s.session4 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
+        if k1 > 19
+          errors.add(:session4,'is already full for Kindergarten and 1st Graders.')
+        end
+      end
+
+      if session5 == "1"
+        k1 = signups.select {|s| s.session5 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
+        if k1 > 19
+          errors.add(:session5,'is already full for Kindergarten and 1st Graders.')
+        end
+      end
+    end
+  end
+
 end
