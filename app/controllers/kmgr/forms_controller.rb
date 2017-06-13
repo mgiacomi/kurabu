@@ -18,6 +18,7 @@ class Kmgr::FormsController < ApplicationController
 
   def update
     @signup = Signup.find(params[:id])
+    @signup.skip_session_validation = true
 
     if @signup.update_attributes(params[:signup])
       redirect_to kmgr_forms_path, notice: 'Application was successfully updated.'
