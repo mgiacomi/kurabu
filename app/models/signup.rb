@@ -1,4 +1,5 @@
 class Signup < ActiveRecord::Base
+  include SummaryMgr
 
   has_one :payment
 
@@ -9,7 +10,7 @@ class Signup < ActiveRecord::Base
   validates :activity_cname, :activity_signed, :activity_signed_date, presence: {message: " is required"}
   validates :activity_agree, :presence => true, :inclusion => { :in => ['Yes'], message: " must be checked" }
   validate :at_least_one_session
-  validate :k_and_first_not_over_twenty, unless: :skip_session_validation
+  validate :session_not_over_twenty, unless: :skip_session_validation
 
   attr_accessor :skip_session_validation
 
@@ -51,7 +52,7 @@ class Signup < ActiveRecord::Base
     end
   end
 
-  def k_and_first_not_over_twenty
+  def session_not_over_twenty
     signups = Signup.where("cage=? or cage=?", "Kindergarten", "1st Grade")
 
     if cage == "Kindergarten" || cage == "1st Grade"

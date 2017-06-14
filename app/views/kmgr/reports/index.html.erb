@@ -8,7 +8,6 @@
 
 <h3>Kurabu Reports</h3>
 
-<br/>
 <p>Click on a Session/Grade to get a Sign-in Sheet</p>
 <table style="border-bottom: 1px;width:500px;">
   <tr>
@@ -21,53 +20,24 @@
     <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;color:black;">Total</p></td>
   </tr>
   <% session = 0 %>
-  <% @summeries.each_with_index do |summary, index| %>
+
+  <% @summeries.each do |summary| %>
       <tr>
         <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:grade] %></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>">
-          <% if index < 6 %>
-            <a href="/kmgr/reports/signupsheet?session=<%= session + 1 %>&grade=<%= summary[:grade]%>"><%= summary[:s1] %></a>
-          <% else %>
-              <%= summary[:s1] %>
-          <% end %>
-        </p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>">
-          <% if index < 6 %>
-              <a href="/kmgr/reports/signupsheet?session=<%= session + 2 %>&grade=<%= summary[:grade]%>"><%= summary[:s2] %></a>
-          <% else %>
-              <%= summary[:s2] %>
-          <% end %>
-        </p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>">
-          <% if index < 6 %>
-              <a href="/kmgr/reports/signupsheet?session=<%= session + 3 %>&grade=<%= summary[:grade]%>"><%= summary[:s3] %></a>
-          <% else %>
-              <%= summary[:s3] %>
-          <% end %>
-        </p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>">
-          <% if index < 6 %>
-              <a href="/kmgr/reports/signupsheet?session=<%= session + 4 %>&grade=<%= summary[:grade]%>"><%= summary[:s4] %></a>
-          <% else %>
-              <%= summary[:s4] %>
-          <% end %>
-        </p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>">
-          <% if index < 6 %>
-              <a href="/kmgr/reports/signupsheet?session=<%= session + 5 %>&grade=<%= summary[:grade]%>"><%= summary[:s5] %></a>
-          <% else %>
-              <%= summary[:s5] %>
-          <% end %>
-        </p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '1') %>"><%= summary[:s1] %></a></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '2') %>"><%= summary[:s2] %></a></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '3') %>"><%= summary[:s3] %></a></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '4') %>"><%= summary[:s4] %></a></p></td>
+        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '5') %>"><%= summary[:s5] %></a></p></td>
         <td><p style="margin-bottom:0;color: black;font-weight:bold;"><%= summary[:total] %></p></td>
       </tr>
   <% end %>
 </table>
 
-<br/><br/>
+<br/>
 <strong><%= link_to 'All Registered Singups', kmgr_reports_list_path %></strong>
 
-<br/><br/><br/>
+<br/><br/>
 Email List By Session:
 <%= link_to 'Session 1', kmgr_reports_emaillist_url(1) %>&nbsp;&nbsp;&nbsp;
 <%= link_to 'Session 2', kmgr_reports_emaillist_url(2) %>&nbsp;&nbsp;&nbsp;
