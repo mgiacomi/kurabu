@@ -2,7 +2,7 @@ module SummaryMgr
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def build_overview
+    def overview
       all_signups = Signup.all.order(:clname)
       accepted = all_signups.select do |signup|
         !signup.payment.nil? && signup.payment.accepted == "1"
@@ -42,6 +42,28 @@ module SummaryMgr
       summeries.push(outer['4th Grade'])
       summeries.push(outer['5th Grade'])
       summeries.push(outer[:total])
+    end
+
+    def class_summary
+      summeries = Signup.overview
+
+      class1 = summeries.select {|s| s[:grade] == 'Kindergarten' || s[:grade] == '1st Grade'}
+                   .map{|s| {s1: s[:s1], s2: s[:s2], s3: s[:s3], s4: s[:s4], s5: s[:s5]}}
+                   .reduce{|s, n| {s1: (s[:s1] + n[:s1]), s2: (s[:s2] + n[:s2]), s3: (s[:s3] + n[:s3]), s4: (s[:s4] + n[:s4]), s5: (s[:s5] + n[:s5])}}
+
+      class2 = summeries.select {|s| s[:grade] == '2nd Grade'}
+                   .map{|s| {s1: s[:s1], s2: s[:s2], s3: s[:s3], s4: s[:s4], s5: s[:s5]}}
+                   .reduce{|s, n| {s1: (s[:s1] + n[:s1]), s2: (s[:s2] + n[:s2]), s3: (s[:s3] + n[:s3]), s4: (s[:s4] + n[:s4]), s5: (s[:s5] + n[:s5])}}
+
+      class3 = summeries.select {|s| s[:grade] == '3rd Grade'}
+                   .map{|s| {s1: s[:s1], s2: s[:s2], s3: s[:s3], s4: s[:s4], s5: s[:s5]}}
+                   .reduce{|s, n| {s1: (s[:s1] + n[:s1]), s2: (s[:s2] + n[:s2]), s3: (s[:s3] + n[:s3]), s4: (s[:s4] + n[:s4]), s5: (s[:s5] + n[:s5])}}
+
+      class4 = summeries.select {|s| s[:grade] == '4th Grade' || s[:grade] == '5th Grade'}
+                   .map{|s| {s1: s[:s1], s2: s[:s2], s3: s[:s3], s4: s[:s4], s5: s[:s5]}}
+                   .reduce{|s, n| {s1: (s[:s1] + n[:s1]), s2: (s[:s2] + n[:s2]), s3: (s[:s3] + n[:s3]), s4: (s[:s4] + n[:s4]), s5: (s[:s5] + n[:s5])}}
+puts "!!!!!!!!!!!!!!!#{class1}"
+      {class1: class1, class2: class2, class3: class3, class4: class4}
     end
   end
 

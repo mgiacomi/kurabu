@@ -2,22 +2,137 @@
     jQuery(document).ready(function () {
 
         jQuery('#signup_cage').change(function () {
-            if ("1st Grade" == jQuery("#signup_cage").val() || "Kindergarten" == jQuery("#signup_cage").val()) {
-                jQuery('#tr_session1').hide();
-                jQuery('#session1_desc').hide();
-                jQuery('#tr_session2').hide();
-                jQuery('#session2_desc').hide();
-            }
-            else {
-                jQuery('#tr_session1').show();
-                jQuery('#session1_desc').show();
-                jQuery('#tr_session2').show();
-                jQuery('#session2_desc').show();
-            }
+            hideSessions();
         });
 
-//    jQuery('#tr_session2').hide();
+        hideSessions();
     });
+
+    function hideSessions() {
+        if ("1st Grade" == jQuery("#signup_cage").val() || "Kindergarten" == jQuery("#signup_cage").val()) {
+            <% if @class1[:s1] > 19 %>
+            jQuery('#tr_session1').hide();
+            jQuery('#session1_desc').hide();
+            <% else %>
+            jQuery('#tr_session1').show();
+            jQuery('#session1_desc').show();
+            <% end %>
+            <% if @class1[:s2] > 19 %>
+            jQuery('#tr_session2').hide();
+            jQuery('#session2_desc').hide();
+            <% else %>
+            jQuery('#tr_session2').show();
+            jQuery('#session2_desc').show();
+            <% end %>
+            <% if @class1[:s3] > 19 %>
+            jQuery('#tr_session3').hide();
+            jQuery('#session3_desc').hide();
+            <% else %>
+            jQuery('#tr_session3').show();
+            jQuery('#session3_desc').show();
+            <% end %>
+            <% if @class1[:s4] > 19 %>
+            jQuery('#tr_session4').hide();
+            jQuery('#session4_desc').hide();
+            <% else %>
+            jQuery('#tr_session4').show();
+            jQuery('#session4_desc').show();
+            <% end %>
+        }
+
+        if ("2nd Grade" == jQuery("#signup_cage").val()) {
+            <% if @class2[:s1] > 19 %>
+            jQuery('#tr_session1').hide();
+            jQuery('#session1_desc').hide();
+            <% else %>
+            jQuery('#tr_session1').show();
+            jQuery('#session1_desc').show();
+            <% end %>
+            <% if @class2[:s2] > 19 %>
+            jQuery('#tr_session2').hide();
+            jQuery('#session2_desc').hide();
+            <% else %>
+            jQuery('#tr_session2').show();
+            jQuery('#session2_desc').show();
+            <% end %>
+            <% if @class2[:s3] > 19 %>
+            jQuery('#tr_session3').hide();
+            jQuery('#session3_desc').hide();
+            <% else %>
+            jQuery('#tr_session3').show();
+            jQuery('#session3_desc').show();
+            <% end %>
+            <% if @class2[:s4] > 19 %>
+            jQuery('#tr_session4').hide();
+            jQuery('#session4_desc').hide();
+            <% else %>
+            jQuery('#tr_session4').show();
+            jQuery('#session4_desc').show();
+            <% end %>
+        }
+
+        if ("3rd Grade" == jQuery("#signup_cage").val()) {
+            <% if @class3[:s1] > 19 %>
+            jQuery('#tr_session1').hide();
+            jQuery('#session1_desc').hide();
+            <% else %>
+            jQuery('#tr_session1').show();
+            jQuery('#session1_desc').show();
+            <% end %>
+            <% if @class3[:s2] > 19 %>
+            jQuery('#tr_session2').hide();
+            jQuery('#session2_desc').hide();
+            <% else %>
+            jQuery('#tr_session2').show();
+            jQuery('#session2_desc').show();
+            <% end %>
+            <% if @class3[:s3] > 19 %>
+            jQuery('#tr_session3').hide();
+            jQuery('#session3_desc').hide();
+            <% else %>
+            jQuery('#tr_session3').show();
+            jQuery('#session3_desc').show();
+            <% end %>
+            <% if @class3[:s4] > 19 %>
+            jQuery('#tr_session4').hide();
+            jQuery('#session4_desc').hide();
+            <% else %>
+            jQuery('#tr_session4').show();
+            jQuery('#session4_desc').show();
+            <% end %>
+        }
+
+        if ("4th Grade" == jQuery("#signup_cage").val() || "5th Grade" == jQuery("#signup_cage").val()) {
+            <% if @class4[:s1] > 19 %>
+            jQuery('#tr_session1').hide();
+            jQuery('#session1_desc').hide();
+            <% else %>
+            jQuery('#tr_session1').show();
+            jQuery('#session1_desc').show();
+            <% end %>
+            <% if @class4[:s2] > 19 %>
+            jQuery('#tr_session2').hide();
+            jQuery('#session2_desc').hide();
+            <% else %>
+            jQuery('#tr_session2').show();
+            jQuery('#session2_desc').show();
+            <% end %>
+            <% if @class4[:s3] > 19 %>
+            jQuery('#tr_session3').hide();
+            jQuery('#session3_desc').hide();
+            <% else %>
+            jQuery('#tr_session3').show();
+            jQuery('#session3_desc').show();
+            <% end %>
+            <% if @class4[:s4] > 19 %>
+            jQuery('#tr_session4').hide();
+            jQuery('#session4_desc').hide();
+            <% else %>
+            jQuery('#tr_session4').show();
+            jQuery('#session4_desc').show();
+            <% end %>
+        }
+    }
 </script>
 
 <h1>Kurabu Summer Camp 2017 Registration</h1>

@@ -5,7 +5,7 @@ class Kmgr::OverviewsController < ApplicationController
   end
 
   def index
-    @summeries = Signup.build_overview
+    @summeries = Signup.overview
 
     all_signups = Signup.all.order(:clname)
     @outstanding = all_signups.select do |signup|

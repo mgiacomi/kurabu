@@ -4,10 +4,22 @@ class SignupsController < ApplicationController
 
   def new
     @signup = Signup.new
+
+    class_summary = Signup.class_summary
+    @class1 = class_summary[:class1]
+    @class2 = class_summary[:class2]
+    @class3 = class_summary[:class3]
+    @class4 = class_summary[:class4]
   end
 
   def create
     @signup = Signup.new params[:signup]
+
+    class_summary = Signup.class_summary
+    @class1 = class_summary[:class1]
+    @class2 = class_summary[:class2]
+    @class3 = class_summary[:class3]
+    @class4 = class_summary[:class4]
 
     if @signup.save
       redirect_to signups_pay_path(@signup.id), notice: 'Registration Accepted.'

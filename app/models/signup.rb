@@ -53,42 +53,81 @@ class Signup < ActiveRecord::Base
   end
 
   def session_not_over_twenty
-    signups = Signup.where("cage=? or cage=?", "Kindergarten", "1st Grade")
+    class_summary = Signup.class_summary
+    class1 = class_summary[:class1]
+    class2 = class_summary[:class2]
+    class3 = class_summary[:class3]
+    class4 = class_summary[:class4]
 
-    if cage == "Kindergarten" || cage == "1st Grade"
-      if session1 == "1"
-        k1 = signups.select {|s| s.session1 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
-        if k1 > 19
-          errors.add(:session1,'is already full for Kindergarten and 1st Graders.')
-        end
+    if cage == 'Kindergarten' || cage == '1st Grade'
+      if session1 == "1" && class1[:s1] > 19
+        errors.add(:session1,'is already full for Kindergarten and 1st Graders.')
       end
-
-      if session2 == "1"
-        k1 = signups.select {|s| s.session2 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
-        if k1 > 19
-          errors.add(:session2,'is already full for Kindergarten and 1st Graders.')
-        end
+      if session2 == "1" && class1[:s2] > 19
+        errors.add(:session2,'is already full for Kindergarten and 1st Graders.')
       end
-
-      if session3 == "1"
-        k1 = signups.select {|s| s.session3 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
-        if k1 > 19
-          errors.add(:session3,'is already full for Kindergarten and 1st Graders.')
-        end
+      if session3 == "1" && class1[:s3] > 19
+        errors.add(:session3,'is already full for Kindergarten and 1st Graders.')
       end
-
-      if session4 == "1"
-        k1 = signups.select {|s| s.session4 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
-        if k1 > 19
-          errors.add(:session4,'is already full for Kindergarten and 1st Graders.')
-        end
+      if session4 == "1" && class1[:s4] > 19
+        errors.add(:session4,'is already full for Kindergarten and 1st Graders.')
       end
+      if session5 == "1" && class1[:s5] > 19
+        errors.add(:session5,'is already full for Kindergarten and 1st Graders.')
+      end
+    end
 
-      if session5 == "1"
-        k1 = signups.select {|s| s.session5 == "1"}.map{|s| 1}.reduce {|s, n| s + n}
-        if k1 > 19
-          errors.add(:session5,'is already full for Kindergarten and 1st Graders.')
-        end
+    if cage == '2nd Grade'
+      if session1 == "1" && class2[:s1] > 19
+        errors.add(:session1,'is already full for 2nd Graders.')
+      end
+      if session2 == "1" && class2[:s2] > 19
+        errors.add(:session2,'is already full for 2nd Graders.')
+      end
+      if session3 == "1" && class2[:s3] > 19
+        errors.add(:session3,'is already full for 2nd Graders.')
+      end
+      if session4 == "1" && class2[:s4] > 19
+        errors.add(:session4,'is already full for 2nd Graders.')
+      end
+      if session5 == "1" && class2[:s5] > 19
+        errors.add(:session5,'is already full for 2nd Graders.')
+      end
+    end
+
+    if cage == '3rd Grade'
+      if session1 == "1" && class3[:s1] > 19
+        errors.add(:session1,'is already full for 3rd Graders.')
+      end
+      if session2 == "1" && class3[:s2] > 19
+        errors.add(:session2,'is already full for 3rd Graders.')
+      end
+      if session3 == "1" && class3[:s3] > 19
+        errors.add(:session3,'is already full for 3rd Graders.')
+      end
+      if session4 == "1" && class3[:s4] > 19
+        errors.add(:session4,'is already full for 3rd Graders.')
+      end
+      if session5 == "1" && class3[:s5] > 19
+        errors.add(:session5,'is already full for 3rd Graders.')
+      end
+    end
+
+    if cage == '4th Grade' || cage == '5th Grade'
+      if session1 == "1" && class4[:s1] > 19
+        errors.add(:session1,'is already full for 4th and 5th Graders.')
+      end
+      if session2 == "1" && class4[:s2] > 19
+        errors.add(:session2,'is already full for 4th and 5th Graders.')
+      end
+      if session3 == "1" && class4[:s3] > 19
+        errors.add(:session3,'is already full for 4th and 5th Graders.')
+      end
+      if session4 == "1" && class4[:s4] > 19
+        errors.add(:session4,'is already full for 4th and 5th Graders.')
+      end
+      if session5 == "1" && class4[:s5] > 19
+        errors.add(:session5,'is already full for 4th and 5th Graders.')
       end
     end
   end

@@ -7,7 +7,7 @@ class Kmgr::ReportsController < ApplicationController
   APPLICATION_NAME = 'Kurabu'
 
   def index
-    @summeries = Signup.build_overview
+    @summeries = Signup.overview
   end
 
   def show
