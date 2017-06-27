@@ -102,7 +102,7 @@ class Signup < ActiveRecord::Base
       if session2 == "1" #&& class3[:s2] > 19
         errors.add(:session2,'is already full for 3rd Graders.')
       end
-      if session3 == "1" && class3[:s3] > 19
+      if session3 == "1" && class3[:s3] > 15
         errors.add(:session3,'is already full for 3rd Graders.')
       end
       if session4 == "1" && class3[:s4] > 19
