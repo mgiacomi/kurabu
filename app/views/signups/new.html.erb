@@ -13,7 +13,7 @@
         jQuery('#session2_desc').hide();
 
         if ("1st Grade" == jQuery("#signup_cage").val() || "Kindergarten" == jQuery("#signup_cage").val()) {
-            <% if @class1[:s1] > 19 %>
+            <% if @class1[:s1] > 1 %>
             jQuery('#tr_session1').hide();
             jQuery('#session1_desc').hide();
             <% else %>
@@ -44,7 +44,7 @@
         }
 
         if ("2nd Grade" == jQuery("#signup_cage").val()) {
-            <% if @class2[:s1] > 19 %>
+            <% if @class2[:s1] > 1 %>
             jQuery('#tr_session1').hide();
             jQuery('#session1_desc').hide();
             <% else %>
@@ -75,7 +75,7 @@
         }
 
         if ("3rd Grade" == jQuery("#signup_cage").val()) {
-            <% if @class3[:s1] > 19 %>
+            <% if @class3[:s1] > 1 %>
             jQuery('#tr_session1').hide();
             jQuery('#session1_desc').hide();
             <% else %>
@@ -106,7 +106,7 @@
         }
 
         if ("4th Grade" == jQuery("#signup_cage").val() || "5th Grade" == jQuery("#signup_cage").val()) {
-            <% if @class4[:s1] > 19 %>
+            <% if @class4[:s1] > 1 %>
             jQuery('#tr_session1').hide();
             jQuery('#session1_desc').hide();
             <% else %>
