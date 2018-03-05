@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.8'
+gem 'rails', '4.2.10'
 gem 'devise'
-gem 'pg'
+gem 'pg', '~> 0.21'
 gem 'google-api-client'
 gem 'raygun4ruby'
 gem 'request_store'

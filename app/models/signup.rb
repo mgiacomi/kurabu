@@ -23,21 +23,21 @@ class Signup < ActiveRecord::Base
   end
 
   def amt_due
-    s1 = session1 == "1" ? 225 : 0
+    s1 = session1 == "1" ? 250 : 0
     s2 = session2 == "1" ? 225 : 0
-    s3 = session3 == "1" ? 225 : 0
-    s4 = session4 == "1" ? 225 : 0
-    s5 = session5 == "1" ? 225 : 0
+    s3 = session3 == "1" ? 250 : 0
+    s4 = session4 == "1" ? 250 : 0
+    s5 = session5 == "1" ? 250 : 0
     total = s1 + s2 + s3 + s4 + s5
     payment.present? ? total - payment.scholarship.to_f - payment.amount.to_f : total
   end
 
   def total
-    s1 = session1 == "1" ? 225 : 0
+    s1 = session1 == "1" ? 250 : 0
     s2 = session2 == "1" ? 225 : 0
-    s3 = session3 == "1" ? 225 : 0
-    s4 = session4 == "1" ? 225 : 0
-    s5 = session5 == "1" ? 225 : 0
+    s3 = session3 == "1" ? 250 : 0
+    s4 = session4 == "1" ? 250 : 0
+    s5 = session5 == "1" ? 250 : 0
     s1 + s2 + s3 + s4 + s5
   end
 
@@ -54,26 +54,45 @@ class Signup < ActiveRecord::Base
 
   def session_not_over_twenty
     class_summary = Signup.class_summary
+    classk = class_summary[:classk]
     class1 = class_summary[:class1]
     class2 = class_summary[:class2]
     class3 = class_summary[:class3]
     class4 = class_summary[:class4]
 
-    if cage == 'Kindergarten' || cage == '1st Grade'
-      if session1 == "1" && class1[:s1] > 1
-        errors.add(:session1,'is already full for Kindergarten and 1st Graders.')
+    if cage == 'Kindergarten'
+      if session1 == "1" && classk[:s1] > 19
+        errors.add(:session1,'is already full for Kindergarten.')
       end
-      if session2 == "1" && class1[:s2] > 1
-        errors.add(:session2,'is already full for Kindergarten and 1st Graders.')
+      if session2 == "1" && classk[:s2] > 19
+        errors.add(:session2,'is already full for Kindergarten.')
       end
-      if session3 == "1" && class1[:s3] > 1
-        errors.add(:session3,'is already full for Kindergarten and 1st Graders.')
+      if session3 == "1" && classk[:s3] > 19
+        errors.add(:session3,'is already full for Kindergarten.')
       end
-      if session4 == "1" && class1[:s4] > 1
-        errors.add(:session4,'is already full for Kindergarten and 1st Graders.')
+      if session4 == "1" && classk[:s4] > 19
+        errors.add(:session4,'is already full for Kindergarten.')
       end
-      if session5 == "1" && class1[:s5] > 1
-        errors.add(:session5,'is already full for Kindergarten and 1st Graders.')
+      if session5 == "1" && classk[:s5] > 19
+        errors.add(:session5,'is already full for Kindergarten.')
+      end
+    end
+
+    if cage == '1st Grade'
+      if session1 == "1" && class1[:s1] > 19
+        errors.add(:session1,'is already full for 1st Graders.')
+      end
+      if session2 == "1" && class1[:s2] > 19
+        errors.add(:session2,'is already full for 1st Graders.')
+      end
+      if session3 == "1" && class1[:s3] > 19
+        errors.add(:session3,'is already full for 1st Graders.')
+      end
+      if session4 == "1" && class1[:s4] > 19
+        errors.add(:session4,'is already full for 1st Graders.')
+      end
+      if session5 == "1" && class1[:s5] > 19
+        errors.add(:session5,'is already full for 1st Graders.')
       end
     end
 

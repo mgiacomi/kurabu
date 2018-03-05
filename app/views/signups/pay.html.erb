@@ -1,4 +1,4 @@
-<h1>Kurabu Summer Camp 2017 Registration</h1>
+<h1>Kurabu Summer Camp 2018 Registration</h1>
 <h1>クラブ（サマーキャンプ）</h1>
 <h3>Purchase Kurabu Sessions</h3>
 <br/>
@@ -37,18 +37,18 @@
     <% if @signup.session1 == '1' %>
         <tr>
           <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
-          <td><p style="margin-bottom:0;">June 26 - June 30</p></td>
-          <td><p style="margin-bottom:0;">M-F</p></td>
-          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 25 - June 29</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></td>
         </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 1: June 26 - June 30, M-F">
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 1: June 25 - June 29">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="225">
+        <input type="hidden" name="amount_<%= @session_count %>" value="250">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
         <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 224 ? 224 : discount  %>">
-            <% discount = discount - 224 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 249 ? 249 : discount  %>">
+            <% discount = discount - 249 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -56,11 +56,11 @@
     <% if @signup.session2 == '1' %>
         <tr>
           <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
-          <td><p style="margin-bottom:0;">July 10 - July 14</p></td>
-          <td><p style="margin-bottom:0;">M-F</p></td>
-          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 2 - July 8</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M,T,TH,F</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></td>
         </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 2: July 10 - July 14, M-F">
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 2: July 2 - July 8">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
         <input type="hidden" name="amount_<%= @session_count %>" value="225">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
@@ -75,18 +75,18 @@
     <% if @signup.session3 == '1' %>
         <tr>
           <td><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
-          <td><p style="margin-bottom:0;">July 17 - July 21</p></td>
-          <td><p style="margin-bottom:0;">M-F</p></td>
-          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 9 - July 13</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></p></td>
         </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 3: July 17 - July 21, M-F">
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 3: July 9 - July 13">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="225">
+        <input type="hidden" name="amount_<%= @session_count %>" value="250">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
         <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 224 ? 224 : discount  %>">
-            <% discount = discount - 224 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 249 ? 249 : discount  %>">
+            <% discount = discount - 249 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -94,18 +94,18 @@
     <% if @signup.session4 == '1' %>
         <tr>
           <td><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
-          <td><p style="margin-bottom:0;">July 24 - July 28</p></td>
-          <td><p style="margin-bottom:0;">M-F</p></td>
-          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 16 - July 20</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></td>
         </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 4: July 24 - July 28, M-F">
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 4: July 16 - July 20">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="225">
+        <input type="hidden" name="amount_<%= @session_count %>" value="250">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
         <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 224 ? 224 : discount  %>">
-            <% discount = discount - 224 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 250 ? 250 : discount  %>">
+            <% discount = discount - 250 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>
@@ -113,18 +113,18 @@
     <% if @signup.session5 == '1' %>
         <tr>
           <td><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
-          <td><p style="margin-bottom:0;">July xx - July xx</p></td>
-          <td><p style="margin-bottom:0;">M-F</p></td>
-          <td><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$0</span></p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 23 - July 27</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></p></td>
         </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 5: July xx - July xx, M-F">
+        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 5: July 23 - July 27">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="0">
+        <input type="hidden" name="amount_<%= @session_count %>" value="250">
         <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
         <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 224 ? 224 : discount  %>">
-            <% discount = discount - 224 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 249 ? 249 : discount  %>">
+            <% discount = discount - 249 %>
         <% end %>
 
         <% @session_count = @session_count + 1 %>

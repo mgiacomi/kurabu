@@ -47,7 +47,11 @@ module SummaryMgr
     def class_summary
       summeries = Signup.overview
 
-      class1 = summeries.select {|s| s[:grade] == 'Kindergarten' || s[:grade] == '1st Grade'}
+      classk = summeries.select {|s| s[:grade] == 'Kindergarten'}
+                   .map{|s| {s1: s[:s1], s2: s[:s2], s3: s[:s3], s4: s[:s4], s5: s[:s5]}}
+                   .reduce{|s, n| {s1: (s[:s1] + n[:s1]), s2: (s[:s2] + n[:s2]), s3: (s[:s3] + n[:s3]), s4: (s[:s4] + n[:s4]), s5: (s[:s5] + n[:s5])}}
+
+      class1 = summeries.select {|s| s[:grade] == '1st Grade'}
                    .map{|s| {s1: s[:s1], s2: s[:s2], s3: s[:s3], s4: s[:s4], s5: s[:s5]}}
                    .reduce{|s, n| {s1: (s[:s1] + n[:s1]), s2: (s[:s2] + n[:s2]), s3: (s[:s3] + n[:s3]), s4: (s[:s4] + n[:s4]), s5: (s[:s5] + n[:s5])}}
 
@@ -63,7 +67,7 @@ module SummaryMgr
                    .map{|s| {s1: s[:s1], s2: s[:s2], s3: s[:s3], s4: s[:s4], s5: s[:s5]}}
                    .reduce{|s, n| {s1: (s[:s1] + n[:s1]), s2: (s[:s2] + n[:s2]), s3: (s[:s3] + n[:s3]), s4: (s[:s4] + n[:s4]), s5: (s[:s5] + n[:s5])}}
 
-      {class1: class1, class2: class2, class3: class3, class4: class4}
+      {classk: classk, class1: class1, class2: class2, class3: class3, class4: class4}
     end
   end
 

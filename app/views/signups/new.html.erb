@@ -9,10 +9,48 @@
     });
 
     function hideSessions() {
-        jQuery('#tr_session2').hide();
-        jQuery('#session2_desc').hide();
+//        jQuery('#tr_session2').hide();
+//        jQuery('#session2_desc').hide();
 
-        if ("1st Grade" == jQuery("#signup_cage").val() || "Kindergarten" == jQuery("#signup_cage").val()) {
+        if ("Kindergarten" == jQuery("#signup_cage").val()) {
+            <% if @classk[:s1] > 1 %>
+            jQuery('#tr_session1').hide();
+            jQuery('#session1_desc').hide();
+            <% else %>
+            jQuery('#tr_session1').show();
+            jQuery('#session1_desc').show();
+            <% end %>
+            <% if @classk[:s2] > 1 %>
+            jQuery('#tr_session2').hide();
+            jQuery('#session2_desc').hide();
+            <% else %>
+            jQuery('#tr_session2').show();
+            jQuery('#session2_desc').show();
+            <% end %>
+            <% if @classk[:s3] > 1 %>
+            jQuery('#tr_session3').hide();
+            jQuery('#session3_desc').hide();
+            <% else %>
+            jQuery('#tr_session3').show();
+            jQuery('#session3_desc').show();
+            <% end %>
+            <% if @classk[:s4] > 1 %>
+            jQuery('#tr_session4').hide();
+            jQuery('#session4_desc').hide();
+            <% else %>
+            jQuery('#tr_session4').show();
+            jQuery('#session4_desc').show();
+            <% end %>
+            <% if @classk[:s5] > 1 %>
+            jQuery('#tr_session5').hide();
+            jQuery('#session5_desc').hide();
+            <% else %>
+            jQuery('#tr_session5').show();
+            jQuery('#session5_desc').show();
+            <% end %>
+        }
+
+        if ("1st Grade" == jQuery("#signup_cage").val()) {
             <% if @class1[:s1] > 1 %>
             jQuery('#tr_session1').hide();
             jQuery('#session1_desc').hide();
@@ -40,6 +78,13 @@
             <% else %>
             jQuery('#tr_session4').show();
             jQuery('#session4_desc').show();
+            <% end %>
+            <% if @class1[:s5] > 1 %>
+            jQuery('#tr_session5').hide();
+            jQuery('#session5_desc').hide();
+            <% else %>
+            jQuery('#tr_session5').show();
+            jQuery('#session5_desc').show();
             <% end %>
         }
 
@@ -72,6 +117,13 @@
             jQuery('#tr_session4').show();
             jQuery('#session4_desc').show();
             <% end %>
+            <% if @class2[:s5] > 1 %>
+            jQuery('#tr_session5').hide();
+            jQuery('#session5_desc').hide();
+            <% else %>
+            jQuery('#tr_session5').show();
+            jQuery('#session5_desc').show();
+            <% end %>
         }
 
         if ("3rd Grade" == jQuery("#signup_cage").val()) {
@@ -102,6 +154,13 @@
             <% else %>
             jQuery('#tr_session4').show();
             jQuery('#session4_desc').show();
+            <% end %>
+            <% if @class3[:s5] > 1 %>
+            jQuery('#tr_session5').hide();
+            jQuery('#session5_desc').hide();
+            <% else %>
+            jQuery('#tr_session5').show();
+            jQuery('#session5_desc').show();
             <% end %>
         }
 
@@ -134,16 +193,23 @@
             jQuery('#tr_session4').show();
             jQuery('#session4_desc').show();
             <% end %>
+            <% if @class4[:s5] > 1 %>
+            jQuery('#tr_session5').hide();
+            jQuery('#session5_desc').hide();
+            <% else %>
+            jQuery('#tr_session5').show();
+            jQuery('#session5_desc').show();
+            <% end %>
         }
     }
 </script>
 
-<h1>Kurabu Summer Camp 2017 Registration</h1>
+<h1>Kurabu Summer Camp 2018 Registration</h1>
 <h1>クラブ（サマーキャンプ）</h1>
-<p>This form must be completed for every child attending Kurabu 2017.</p>
+<p>This form must be completed for every child attending Kurabu 2018.</p>
 
-<p style="color:red;font-weight: bold;">Sorry All sessions are full.</p>
-<!--
+<!--p style="color:red;font-weight: bold;">Sorry All sessions are full.</p-->
+
 <% if @signup.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this registration from being saved:</h2>
@@ -168,4 +234,3 @@ non-refundable deposit per student is included in the price of the camp. ONK req
 notice for a full refund (minus the $50 deposit). We do not prorate for any missed days. Receipt of full payment
 is required to reserve your spot, unless otherwise arranged. For cancellations less than 72 hours and for payment
   options, contact Kathy Black, <a href="mailto:kurabu@oyanokai.org">kurabu@oyanokai.org</a>.</p>
--->

@@ -6,6 +6,7 @@ class SignupsController < ApplicationController
     @signup = Signup.new
 
     class_summary = Signup.class_summary
+    @classk = class_summary[:classk]
     @class1 = class_summary[:class1]
     @class2 = class_summary[:class2]
     @class3 = class_summary[:class3]
@@ -16,6 +17,7 @@ class SignupsController < ApplicationController
     @signup = Signup.new params[:signup]
 
     class_summary = Signup.class_summary
+    @classk = class_summary[:classk]
     @class1 = class_summary[:class1]
     @class2 = class_summary[:class2]
     @class3 = class_summary[:class3]
