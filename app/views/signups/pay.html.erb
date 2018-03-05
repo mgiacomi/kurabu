@@ -39,7 +39,7 @@
           <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 25 - June 29</p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$250</span></td>
         </tr>
         <input type="hidden" name="item_name_<%= @session_count %>" value="Session 1: June 25 - June 29">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
@@ -58,7 +58,7 @@
           <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 2 - July 8</p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M,T,TH,F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$225</span></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$225</span></td>
         </tr>
         <input type="hidden" name="item_name_<%= @session_count %>" value="Session 2: July 2 - July 8">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
@@ -77,7 +77,7 @@
           <td><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 9 - July 13</p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$250</span></p></td>
         </tr>
         <input type="hidden" name="item_name_<%= @session_count %>" value="Session 3: July 9 - July 13">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
@@ -96,7 +96,7 @@
           <td><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 16 - July 20</p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$250</span></td>
         </tr>
         <input type="hidden" name="item_name_<%= @session_count %>" value="Session 4: July 16 - July 20">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
@@ -115,7 +115,7 @@
           <td><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 23 - July 27</p></td>
           <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$250</span></p></td>
+          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$250</span></p></td>
         </tr>
         <input type="hidden" name="item_name_<%= @session_count %>" value="Session 5: July 23 - July 27">
         <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
@@ -143,7 +143,8 @@
   <p style="color:black;margin-bottom:10px;"><strong>Amount Due:</strong> <%= number_to_currency(@signup.amt_due) %></p>
 
   <br/>
-
+  <p style="font-weight:bold;">Please note: <span style="color:red;">Your spot in Kurabu is not reserved until you have paid in full!</span></p>
+  <br/>
   <input type="hidden" name="currency_code" value="USD">
 
   <!-- Enable override of buyers's address stored with PayPal . -->
@@ -161,5 +162,5 @@
          src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
          alt="PayPal - The safer, easier way to pay online">
 </form>
-<br/><br/>
-<p>After we have received your payment and reviewed your signup form we will send you email confirming your spot at Kurabu.</p>
+<br/>
+<p>After we have received your payment and reviewed your signup form we will send you email confirming your spot at Kurabu.  If you do not receive a confirmation email then please contact us kurabu@oyanokai.org</p>
