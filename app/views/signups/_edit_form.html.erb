@@ -92,6 +92,12 @@
     <td><%= f.text_field :zip, style: 'width:150px;' %></td>
   </tr>
 </table>
+<br/>
+
+Free Kurabu T-Shirt Size:
+<%= f.select :tsize,
+             options_for_select([['', ''], ['Extra Small', 'xs'], ['Small', 's'], ['Mediem', 'm'], ['Large', 'l'], ['Extra Large', 'xl']], @signup.tsize),
+             {}, {:style => 'width:150px;'} %>
 
 <br/><br/>
 <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>

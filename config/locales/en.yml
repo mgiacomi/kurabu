@@ -48,6 +48,4 @@ en:
           activity_cname: "Child's Name (Authorization Activities)"
           activity_signed: "Activities Authorization Signature"
           activity_signed_date: "Activities Authorization Date"
-
-
-
+          tsize: "T-Shirt Size"
