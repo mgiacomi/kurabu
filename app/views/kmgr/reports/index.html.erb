@@ -34,9 +34,8 @@
   <% end %>
 </table>
 
-<br/>
-<strong><%= link_to 'All Registered Singups', kmgr_reports_list_path %></strong>
-
+<br/><strong><%= link_to 'All Registered Singups', kmgr_reports_list_path %></strong>
+<br/><strong><%= link_to 'Details Dump Report', kmgr_reports_dump_report_path(format: :csv) %></strong>
 <br/><br/>
 Email List By Session:
 <%= link_to 'Session 1', kmgr_reports_emaillist_url(1) %>&nbsp;&nbsp;&nbsp;

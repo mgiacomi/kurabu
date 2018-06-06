@@ -1,0 +1,51 @@
+<%- headers = ['cfname', 'clname', 'cgender', 'birthday', 'grade', 'p1fname', 'p1lname', 'p2fname', 'p2lname', 'phone1', 'phone2', 'email', 'street', 'city', 'state', 'zip', 'session1', 'session2', 'session3', 'session4', 'session5', 'special', 'medical', 'medical_agree', 'medical_signed', 'medical_signed_date', 'econtact_name', 'econtact_relationship', 'econtact_phone', 'econtact_address', 'activity_cname', 'activity_agree', 'activity_signed', 'activity_signed_date', 'photo_agree', 'photo_signed', 'photo_signed_date', 'directions', 'shots_date', 'friends', 'tsize'] -%>
+<%= CSV.generate_line headers -%>
+<%=
+  CSV.generate do |csv|
+    @signups.each do |signup|
+      csv << [
+          signup.cfname,
+          signup.clname,
+          signup.cgender,
+          "#{signup.cmonth}/#{signup.cday}/#{signup.cyear}",
+          signup.cage,
+          signup.p1fname,
+          signup.p1lname,
+          signup.p2fname,
+          signup.p2lname,
+          signup.phone1,
+          signup.phone2,
+          signup.email,
+          signup.street,
+          signup.city,
+          signup.state,
+          signup.zip,
+          signup.session1,
+          signup.session2,
+          signup.session3,
+          signup.session4,
+          signup.session5,
+          signup.special,
+          signup.medical,
+          signup.medical_agree,
+          signup.medical_signed,
+          signup.medical_signed_date,
+          signup.econtact_name,
+          signup.econtact_relationship,
+          signup.econtact_phone,
+          signup.econtact_address,
+          signup.activity_cname,
+          signup.activity_agree,
+          signup.activity_signed,
+          signup.activity_signed_date,
+          signup.photo_agree,
+          signup.photo_signed,
+          signup.photo_signed_date,
+          signup.directions,
+          signup.shots_date,
+          signup.friends,
+          signup.tsize
+      ]
+    end
+  end.html_safe
+%>

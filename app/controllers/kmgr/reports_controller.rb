@@ -208,32 +208,14 @@ class Kmgr::ReportsController < ApplicationController
     file_path = "reports/#{SecureRandom.hex(20)}.xlsx"
     d_service.export_file ss.spreadsheet_id, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', download_dest: file_path
     send_file file_path, disposition: 'attachment', filename: "kurabu_session#{params[:session]}_#{params[:grade].downcase.tr(' ', '_')}.xlsx"
+  end
 
-
-    #d_service.export_file(ss.spreadsheet_id, 'application/pdf', download_dest: '/download/tmp/test.pdf')
-
-    # create new spreadsheet
-    #ss = Google::Apis::SheetsV4::Spreadsheet.new
-    #ss_props = Google::Apis::SheetsV4::SpreadsheetProperties.new
-    #ss_props.title = 'matt'
-    #ss.properties = ss_props
-
-    # create new worksheet
-    #ws = Google::Apis::SheetsV4::Sheet.new
-    #s1_props = Google::Apis::SheetsV4::SheetProperties.new
-    #s1_props.title = 'First Sheet'
-    #ws.properties = s1_props
-    #ss.sheets = [ws]
-    #ss = s_service.create_spreadsheet ss
-
-    # List the 10 most recently modified files.
-    #g_response = d_service.list_files(page_size: 10, fields: 'nextPageToken, files(id, name)')
-    #puts 'Files:'
-    #puts 'No files found' if g_response.files.empty?
-    #g_response.files.each do |file|
-    #  puts "#{file.name} (#{file.id})"
-    #end
-
+  def dump_report
+    @signups = Signup.all.order(:clname).select do |signup|
+      !signup.payment.nil? && signup.payment.accepted == "1"
+    end
+    headers['Content-Disposition'] = "attachment; filename=\"kurabu_signups.csv\""
+    headers['Content-Type'] ||= 'text/csv'
   end
 
 end
