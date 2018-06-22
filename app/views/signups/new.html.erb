@@ -2,10 +2,10 @@
     jQuery(document).ready(function () {
 
         jQuery('#signup_cage').change(function () {
-            hideSessions();
+//            hideSessions();
         });
 
-        hideSessions();
+//        hideSessions();
     });
 
     function hideSessions() {
@@ -222,10 +222,13 @@
     </div>
 <% end %>
 
+<!--
 <%= form_for @signup do |f| %>
     <%= render '/signups/edit_form', f: f %>
     <%= f.submit "Submit My Application" %>
 <% end %>
+-->
+<span style="color: red; font-weight: bold;">All Session are full</span>
 
 <p style="font-weight: bold; color:red;">Registrations are not confirmed until they are paid in full!</p>
 <p><span style="font-weight: bold;">Notes about Fees, Withdrawal &amp; Refunds:</span> Fees are for Portland area residents. For residents outside of the
