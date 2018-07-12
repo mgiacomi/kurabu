@@ -206,7 +206,6 @@
 
 <h1>Kurabu Summer Camp 2018 Registration</h1>
 <h1>クラブ（サマーキャンプ）</h1>
-<p>This form must be completed for every child attending Kurabu 2018.</p>
 
 <!--p style="color:red;font-weight: bold;">Sorry All sessions are full.</p-->
 
@@ -224,13 +223,17 @@
 
 <span style="font-weight: bold; color:red;">Kurabu registration is closed for 2108.</span>
 
-<% if false %>
-<%= form_for @signup do |f| %>
-    <%= render '/signups/edit_form', f: f %>
-    <%= f.submit "Submit My Application" %>
-<% end %>
-<% end %>
 
+<% if false %>
+    <p>This form must be completed for every child attending Kurabu 2018.</p>
+
+    <%= form_for @signup do |f| %>
+        <%= render '/signups/edit_form', f: f %>
+        <%= f.submit "Submit My Application" %>
+    <% end %>
+
+<% end %>
+<br/><br/>
 
 <p style="font-weight: bold; color:red;">Registrations are not confirmed until they are paid in full!</p>
 <p><span style="font-weight: bold;">Notes about Fees, Withdrawal &amp; Refunds:</span> Fees are for Portland area residents. For residents outside of the
