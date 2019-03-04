@@ -20,4 +20,4 @@ puts "Created Ryoko: #{user.email} #{password}"
 
 password = SecureRandom.urlsafe_base64(6)
 user = User.create(email: 'kurabu.assistant@oyanokai.com', password: password)
-puts "Created Yoshie: #{user.email} #{password}"
+puts "Created Assistant: #{user.email} #{password}"
