@@ -9,9 +9,6 @@
     });
 
     function hideSessions() {
-        jQuery('#tr_session1').hide();
-        jQuery('#session1_desc').hide();
-
         if ("Kindergarten" == jQuery("#signup_cage").val()) {
             <% if @classk[:s1] > 19 %>
             jQuery('#tr_session1').hide();
@@ -201,6 +198,9 @@
             jQuery('#session5_desc').show();
             <% end %>
         }
+
+        jQuery('#tr_session1').hide();
+        jQuery('#session1_desc').hide();
     }
 </script>
 
