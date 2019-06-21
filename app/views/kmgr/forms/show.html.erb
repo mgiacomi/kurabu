@@ -20,7 +20,7 @@
     | <%= link_to 'Pay Link', signups_pay_path(@payment.signup_id) %>
 <% end %>
 <% if @payment.signup.amt_due == 0 %>
-    | <%= link_to 'Receipt Link', signups_receipt_path(@payment.receipt_link) %>
+  | <a href="http://kurabu.herokuapp.com/signups/receipt/#{@payment.receipt_link}">Receipt Link</a> %>
 <% end %>
 <br/><br/>
 
