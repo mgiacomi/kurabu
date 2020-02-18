@@ -23,21 +23,21 @@ class Signup < ActiveRecord::Base
   end
 
   def amt_due
-    s1 = session1 == "1" ? 255 : 0
-    s2 = session2 == "1" ? 255 : 0
-    s3 = session3 == "1" ? 255 : 0
-    s4 = session4 == "1" ? 255 : 0
-    s5 = session5 == "1" ? 255 : 0
+    s1 = session1 == "1" ? 260 : 0
+    s2 = session2 == "1" ? 210 : 0
+    s3 = session3 == "1" ? 260 : 0
+    s4 = session4 == "1" ? 260 : 0
+    s5 = session5 == "1" ? 260 : 0
     total = s1 + s2 + s3 + s4 + s5
     payment.present? ? total - payment.scholarship.to_f - payment.amount.to_f : total
   end
 
   def total
-    s1 = session1 == "1" ? 255 : 0
-    s2 = session2 == "1" ? 255 : 0
-    s3 = session3 == "1" ? 255 : 0
-    s4 = session4 == "1" ? 255 : 0
-    s5 = session5 == "1" ? 255 : 0
+    s1 = session1 == "1" ? 260 : 0
+    s2 = session2 == "1" ? 210 : 0
+    s3 = session3 == "1" ? 260 : 0
+    s4 = session4 == "1" ? 260 : 0
+    s5 = session5 == "1" ? 260 : 0
     s1 + s2 + s3 + s4 + s5
   end
 

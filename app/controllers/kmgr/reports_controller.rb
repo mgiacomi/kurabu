@@ -147,19 +147,19 @@ class Kmgr::ReportsController < ApplicationController
 
     # update weeks
     if params[:session] == "1"
-      daysOfWeek = [['Mon 6/24', 'Tue 6/25', 'Wed 6/26', 'Thu 6/27', 'Fri 6/28']]
+      daysOfWeek = [['Mon 6/22', 'Tue 6/23', 'Wed 6/24', 'Thu 6/25', 'Fri 6/26']]
       session = "session1"
     elsif params[:session] == "2"
-      daysOfWeek = [['Mon 7/8', 'Tue 7/9', 'Wed 7/10', 'Thu 7/11', 'Fri 7/12']]
+      daysOfWeek = [['Mon 6/29', 'Tue 6/30', 'Wed 7/1', 'Thu 7/2']]
       session = "session2"
     elsif params[:session] == "3"
-      daysOfWeek = [['Mon 7/15', 'Tue 7/16', 'Wed 7/17', 'Thu 7/18', '7/19']]
+      daysOfWeek = [['Mon 7/6', 'Tue 7/7', 'Wed 7/8', 'Thu 7/9', '7/10']]
       session = "session3"
     elsif params[:session] == "4"
-      daysOfWeek = [['Mon 7/22', 'Tue 7/23', 'Wed 7/24', 'Thu 7/25', 'Fri 7/26']]
+      daysOfWeek = [['Mon 7/13', 'Tue 7/14', 'Wed 7/15', 'Thu 7/16', 'Fri 7/17']]
       session = "session4"
     elsif params[:session] == "5"
-      daysOfWeek = [['Mon 7/23', 'Tue 7/24', 'Wed 7/25', 'Thu 7/26', 'Fri 7/27']]
+      daysOfWeek = [['Mon 7/20', 'Tue 7/21', 'Wed 7/22', 'Thu 7/23', 'Fri 7/24']]
       session = "session5"
     end
 
