@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.7.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11.3'
 gem 'devise'
 gem 'pg'
 gem 'google-api-client'
