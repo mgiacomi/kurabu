@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-#ruby "2.3.8"
+ruby "2.7.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 gem 'devise'
-gem 'pg', '~> 0.21'
+gem 'pg'
 gem 'google-api-client'
 gem 'raygun4ruby'
 gem 'request_store'
@@ -45,7 +45,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'sqlite3'
+  #gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
 
