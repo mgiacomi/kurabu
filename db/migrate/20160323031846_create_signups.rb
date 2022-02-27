@@ -1,4 +1,4 @@
-class CreateSignups < ActiveRecord::Migration
+class CreateSignups < ActiveRecord::Migration[5.0]
   def change
 
     create_table "signups", force: :cascade do |t|

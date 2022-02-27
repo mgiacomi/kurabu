@@ -1,4 +1,4 @@
-class CreatePayments < ActiveRecord::Migration
+class CreatePayments < ActiveRecord::Migration[5.0]
   def change
 
     create_table "payments", force: :cascade do |t|

@@ -3,7 +3,7 @@ require 'google/apis/sheets_v4'
 require 'google/apis/drive_v3'
 
 class Kmgr::ReportsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   APPLICATION_NAME = 'Kurabu'
 
   def index

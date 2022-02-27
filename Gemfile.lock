@@ -48,6 +48,8 @@ GEM
     bcrypt (3.1.16)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
+    bootsnap (1.10.3)
+      msgpack (~> 1.2)
     builder (3.2.4)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -131,6 +133,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.15.0)
+    msgpack (1.4.5)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     nio4r (2.5.8)
@@ -249,6 +252,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bootsnap (>= 1.1.0)
   coffee-rails
   devise
   google-api-client
