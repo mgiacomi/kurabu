@@ -1,244 +1,274 @@
 <script>
-  jQuery(function () {
-    jQuery('#delete').click(function () {
-      var strconfirm = confirm("Are you sure you want to delete this application?");
-      if (strconfirm == true) {
-        jQuery('#delete_form').submit();
-      }
+    jQuery(function () {
+        jQuery('#delete').click(function () {
+            var strconfirm = confirm("Are you sure you want to delete this application?");
+            if (strconfirm == true) {
+                jQuery('#delete_form').submit();
+            }
+        });
+
+        //jQuery("tr:odd").addClass("even");
     });
-  });
 </script>
-<%= form_for @payment.signup, url: kmgr_application_delete_path(@payment.signup.id), html: {id: 'delete_form'} do |f| %>
-<% end %>
 
-<h3>Kurabu Administration</h3>
-<%= link_to 'Overview', kmgr_overview_path %> |
-<%= link_to 'View All Signups', kmgr_forms_path %> |
-<%= link_to 'Edit Signup Data', edit_kmgr_form_path(@payment.signup_id) %>
-<% unless @payment.accepted == '1' %> | <a href="#" id="delete">Delete Application</a>  <% end %>
-<% if @payment.signup.amt_due > 0 %>
-    | <%= link_to 'Pay Link', signups_pay_path(@payment.signup_id) %>
-<% end %>
-<% if @payment.signup.amt_due == 0 %>
-    | <%= link_to 'Receipt Link', signups_receipt_path(@payment.receipt_link) %>
-<% end %>
-<br/><br/>
+<%= render '/kmgr/includes/search' %>
 
-<% if @payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this registration from being saved:</h2>
+<div class="content">
+  <%= render '/kmgr/includes/breadcrumb', page_name: 'signup details' %>
+  <div class="box-960 half-bottom">
 
-      <ul>
-        <% @payment.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+    <%= form_for @payment.signup, url: kmgr_application_delete_path(@payment.signup.id), html: { id: 'delete_form' } do |f| %>
+    <% end %>
 
-<%= form_for @payment, :url => kmgr_payment_update_path do |f| %>
-    <%= f.hidden_field :signup_id %>
-    <table>
-      <tr>
-        <td>Signup Accepted:</td>
-        <td><%= f.check_box :accepted %></td>
-      </tr>
-      <tr>
-        <td>Payment Number:</td>
-        <td><%= f.text_field :pmtnum %></td>
-      </tr>
-      <tr>
-        <td>Payment Date:</td>
-        <td><%= f.text_field :pmtdate %></td>
-      </tr>
-      <tr>
-        <td>Payment Amount:</td>
-        <td nowrap="nowrap">$<%= f.text_field :amount %></td>
-      </tr>
-      <tr>
-        <td>Payment Fee:</td>
-        <td nowrap="nowrap">$<%= f.text_field :fee %></td>
-      </tr>
-      <tr>
-        <td>Scholarship:</td>
-        <td nowrap="nowrap">$<%= f.text_field :scholarship %></td>
-      </tr>
-      <tr>
-        <td>Amount Due:</td>
-        <td><%= number_to_currency(@payment.signup.amt_due) %></td>
-      </tr>
-    </table>
+    <%= link_to 'Overview', kmgr_overview_path, style: 'display:inline;' %> |
+    <%= link_to 'View All Signups', kmgr_forms_path, style: 'display:inline;' %> |
+    <%= link_to 'Edit Signup Data', edit_kmgr_form_path(@payment.signup_id), style: 'display:inline;' %>
+    <% unless @payment.accepted == '1' %> | <a "display:inline;" href="#" id="delete">Delete Application</a>
+    <% end %>
+    <% if @payment.signup.amt_due > 0 %>
+      | <%= link_to 'Pay Link', signups_pay_path(@payment.signup_id), style: 'display:inline;' %>
+    <% end %>
+    <% if @payment.signup.amt_due == 0 %>
+      | <%= link_to 'Receipt Link', signups_receipt_path(@payment.receipt_link), style: 'display:inline;' %>
+    <% end %>
     <br/>
-    <%= f.submit "Update Payment Data" %>
-<% end %>
-<br/><br/>
 
-<table style="border-bottom: 1px;width:700px;">
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child First</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.cfname %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child Last</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.clname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child Gender</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.cgender %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Grade</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.cage %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Birthday</p></td>
-    <td nowrap="nowrap">
-      <p style="margin-bottom:0;"><%= @payment.signup.cmonth %>
-        <%= @payment.signup.cday %>
-        <%= @payment.signup.cyear %></p>
-    </td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 1 First</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.p1fname %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 1 Last</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.p1lname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 2 First</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.p2fname %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 2 Last</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.p2lname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Home/Cell Phone</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.phone1 %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Work Phone</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.phone2 %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Email</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.email %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Street</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.street %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">City</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.city %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">State</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.state %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Zip</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.zip %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S1</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.session1 == "1" ? "Y" : "" %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S2</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.session2 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S3</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.session3 == "1" ? "Y" : "" %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S4</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.session4 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S5</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.session5 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Special</p></td>
-    <td colspan="3"><p style="margin-bottom:0;"><%= @payment.signup.special %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical</p></td>
-    <td colspan="3"><p style="margin-bottom:0;"><%= @payment.signup.medical %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Agree</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.medical_agree %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.medical_signed %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td>
-      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed Date</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.medical_signed_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Shots Date</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.shots_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Name</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_name %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact
-      Relationship</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_relationship %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Phone</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_phone %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Address</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.econtact_address %></p></td>
-  </tr>
-  <tr>
-    <td>
-      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Child Name</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.activity_cname %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Agree</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.activity_agree %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.activity_signed %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed
-      Date</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.activity_signed_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Agree</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.photo_agree %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Signed</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.photo_signed %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Signed Date</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.photo_signed_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Directions</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.directions %></p></td>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Friends</p></td>
-    <td><p style="margin-bottom:0;"><%= @payment.signup.friends %></p></td>
-  </tr>
-</table>
+    <div class="pricing-table pricing-selected-blue" style="width: 100%; padding-bottom: 2px;">
+      <h3>Manage Payment</h3>
+      <% if @payment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@payment.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+          <ul>
+            <% @payment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for @payment, :url => kmgr_payment_update_path do |f| %>
+        <%= f.hidden_field :signup_id %>
+        <table class="table">
+          <tbody>
+          <tr>
+            <td style="width:25%;"></td>
+            <td style="text-align:left!important">Signup Accepted:</td>
+            <td><%= f.check_box :accepted, style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;' %></td>
+            <td style="width:25%;"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:left!important">Payment Number:</td>
+            <td><%= f.text_field :pmtnum, style: "padding:0 5px;height:25px;width:177px;border: 1px solid grey;" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:left!important">Payment Date:</td>
+            <td><%= f.text_field :pmtdate, style: "padding:0 5px;height:25px;width:177px;border: 1px solid grey;" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:left!important">Payment Amount:</td>
+            <td><%= f.text_field :amount, style: "padding:0 5px;height:25px;width:177px;border: 1px solid grey;" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:left!important">Payment Fee:</td>
+            <td><%= f.text_field :fee, style: "padding:0 5px;height:25px;width:177px;border: 1px solid grey;" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:left!important">Scholarship:</td>
+            <td><%= f.text_field :scholarship, style: "padding:0 5px;height:25px;width:177px;border: 1px solid grey;" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td style="text-align:left!important">Amount Due:</td>
+            <td><input type="text" disabled="disabled" value="<%= number_to_currency(@payment.signup.amt_due) %>" style="padding:0 10px;height:25px;width:177px;border: 1px solid grey;" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4"><%= f.submit "Update Payment Data", class: "button button-blue center-button half-bottom", style: "width:200px;margin-top:5px;margin-bottom:5px!important;" %></td>
+          </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+
+    <br/>
+
+    <div class="pricing-table pricing-selected-blue" style="width: 100%; padding-bottom: 2px;">
+      <h3>Signup Details</h3>
+      <table class="table">
+        <tbody>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Child First:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.cfname %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Child Last:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.clname %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Child Gender:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.cgender %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Grade:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.cage %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Birthday:</td>
+          <td style="text-align:left!important;">
+            <%= @payment.signup.cmonth %>
+            <%= @payment.signup.cday %>
+            <%= @payment.signup.cyear %>
+          </td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Parent 1 First:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.p1fname %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Parent 1 Last:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.p1lname %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Parent 2 First:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.p2fname %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Parent 2 Last:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.p2lname %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Home/Cell Phone:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.phone1 %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Work Phone:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.phone2 %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Email:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.email %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Street:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.street %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">city:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.city %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">State:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.state %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Zip:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.zip %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">S1:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.session1 == "1" ? "Y" : "" %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">S2:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.session2 == "1" ? "Y" : "" %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">S3:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.session3 == "1" ? "Y" : "" %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">S4:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.session4 == "1" ? "Y" : "" %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">S5:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.session5 == "1" ? "Y" : "" %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Special:</td>
+          <td style="text-align:left!important;" colspan="4"><%= @payment.signup.special %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Medical:</td>
+          <td style="text-align:left!important;" colspan="4"><%= @payment.signup.medical %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Medical Agree:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.medical_agree %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Shots Date</td>
+          <td style="text-align:left!important;"><%= @payment.signup.shots_date %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Medical Signed:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.medical_signed %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Medical Signed Date</td>
+          <td style="text-align:left!important;"><%= @payment.signup.medical_signed_date %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Econtact Name:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.econtact_name %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;" nowrap="nowrap">Econtact Relationship</td>
+          <td style="text-align:left!important;"><%= @payment.signup.econtact_relationship %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Econtact Phone:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.econtact_phone %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Econtact Address:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.econtact_address %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Activity Child Name:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.activity_cname %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Activity Agree:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.activity_agree %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Activity Signed:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.activity_signed %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Activity Signed Date:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.activity_signed_date %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Photo Agree:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.photo_agree %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Photo Signed:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.photo_signed %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Photo Signed Date:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.photo_signed_date %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Directions:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.directions %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Friends:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.friends %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

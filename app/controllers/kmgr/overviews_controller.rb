@@ -13,6 +13,10 @@ class Kmgr::OverviewsController < ApplicationController
     end
   end
 
+  def search
+    @signups = Signup.search params[:term]
+  end
+
   def details
     if params[:grade] == 'Total'
       signups = Signup.where("session#{params[:session]}='1'")

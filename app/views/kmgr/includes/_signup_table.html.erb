@@ -1,0 +1,38 @@
+<table class="table" style="font-size:80%;">
+  <tbody>
+  <tr>
+    <th class="table-title" style="padding:5px 0;">Id</th>
+    <th class="table-title" style="padding:5px 0;">Child First</th>
+    <th class="table-title" style="padding:5px 0;">Child Last</th>
+    <th class="table-title" style="padding:5px 0;">Grade</th>
+    <th class="table-title" style="padding:5px 0;">Parent First</th>
+    <th class="table-title" style="padding:5px 0;">Parent Last</th>
+    <th class="table-title" style="padding:5px 0;">S1</th>
+    <th class="table-title" style="padding:5px 0;">S2</th>
+    <th class="table-title" style="padding:5px 0;">S3</th>
+    <th class="table-title" style="padding:5px 0;">S4</th>
+    <th class="table-title" style="padding:5px 0;">S5</th>
+    <th class="table-title" style="padding:5px 0;">Accepted</th>
+    <th class="table-title" style="padding:5px 0;">Paid</th>
+    <th class="table-title" style="padding:5px 0;">Amt Due</th>
+  </tr>
+  <% signups.each do |signup| %>
+    <tr>
+      <td><%= link_to signup.id, kmgr_form_path(signup) %></td>
+      <td><%= signup.cfname %></td>
+      <td><%= signup.clname %></td>
+      <td><%= signup.grade_short %></td>
+      <td><%= signup.p1fname %></td>
+      <td><%= signup.p1lname %></td>
+      <td><%= signup.session1 == "1" ? "Y" : "" %></td>
+      <td><%= signup.session2 == "1" ? "Y" : "" %></td>
+      <td><%= signup.session3 == "1" ? "Y" : "" %></td>
+      <td><%= signup.session4 == "1" ? "Y" : "" %></td>
+      <td><%= signup.session5 == "1" ? "Y" : "" %></td>
+      <td><%= !signup.payment.nil? && signup.payment.accepted == "1" ? "X" : "" %></td>
+      <td><%= !signup.payment.nil? && signup.payment.amount.present? ? number_to_currency(signup.payment.amount) : "" %></td>
+      <td><%= number_to_currency(signup.amt_due) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

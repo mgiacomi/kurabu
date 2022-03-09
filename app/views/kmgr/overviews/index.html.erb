@@ -1,86 +1,47 @@
 <script>
-  jQuery(document).ready(function () {
-    jQuery("tr:odd").css("background-color", "#CEF5FF");
-    jQuery("td").css("padding-left", "10px");
-    jQuery("td").css("padding-right", "10px");
-  });
+    jQuery(document).ready(function () {
+        jQuery("tr:odd").addClass("even");
+    });
 </script>
 
-<h3>Kurabu Administration</h3>
-<%= link_to 'view all signups', kmgr_forms_path %>
+<%= render '/kmgr/includes/search' %>
 
-<br/><br/>
-<table style="border-bottom: 1px;width:500px;">
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Grade</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S1</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S2</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S3</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S4</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S5</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;color:black;">Total</p></td>
-  </tr>
-  <% @summeries.each do |summary| %>
+<div class="content">
+  <%= render '/kmgr/includes/breadcrumb', page_name: '' %>
+  <div class="box-960 half-bottom">
+
+    <h4>Fully Registered Signups</h4>
+
+    <table class="table half-bottom">
+      <tbody>
       <tr>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:grade] %></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '1') %>"><%= summary[:s1] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '2') %>"><%= summary[:s2] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '3') %>"><%= summary[:s3] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '4') %>"><%= summary[:s4] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '5') %>"><%= summary[:s5] %></a></p></td>
-        <td><p style="margin-bottom:0;color: black;font-weight:bold;"><%= summary[:total] %></p></td>
+        <th class="table-title">Grade</th>
+        <th class="table-title">Session 1</th>
+        <th class="table-title">Session 2</th>
+        <th class="table-title">Session 3</th>
+        <th class="table-title">Session 4</th>
+        <th class="table-title">Session 5</th>
+        <th>Total</th>
       </tr>
-  <% end %>
-</table>
-
-<br/><br/>
-<table style="border-bottom: 1px;">
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Id</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Child First</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Child Last</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Grade</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Parent First</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Parent Last</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S1</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S2</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S3</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S4</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S5</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Accepted</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Paid</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Amt Due</p></td>
-  </tr>
-  <% @outstanding.each do |signup| %>
       <tr>
-        <td>
-          <p style="margin-bottom:0;">
-            <%= link_to signup.id, kmgr_form_path(signup) %>
+        <% @summeries.each do |summary| %>
+        <tr>
+          <td class="table-sub-title blue-title"><%= summary[:grade] %></td>
+          <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '1') %>"><%= summary[:s1] %></a></td>
+          <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '2') %>"><%= summary[:s2] %></a></td>
+          <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '3') %>"><%= summary[:s3] %></a></td>
+          <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '4') %>"><%= summary[:s4] %></a></td>
+          <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '5') %>"><%= summary[:s5] %></a></td>
+          <td style="color: black;font-weight:bold;text-align:right;"><%= summary[:total] %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'view all signups', kmgr_forms_path %>
 
-          </p>
-        </td>
-        <td><p style="margin-bottom:0;"><%= signup.cfname %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.clname %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.cage %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.p1fname %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.p1lname %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.session1 == "1" ? "Y" : "" %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.session2 == "1" ? "Y" : "" %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.session3 == "1" ? "Y" : "" %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.session4 == "1" ? "Y" : "" %></p></td>
-        <td><p style="margin-bottom:0;"><%= signup.session5 == "1" ? "Y" : "" %></p></td>
-        <td>
-          <p style="margin-bottom:0;text-align:center;"><%= !signup.payment.nil? && signup.payment.accepted == "1" ? "X" : "" %></p>
-        </td>
-        <td>
-          <p style="margin-bottom:0;text-align:right;"><%= !signup.payment.nil? && signup.payment.amount.present? ? number_to_currency(signup.payment.amount) : "" %></p>
-        </td>
-        <td>
-          <p style="margin-bottom:0;text-align:right;<%= signup.amt_due > 0 ? 'color:red;' : '' %>">
-            <%= number_to_currency(signup.amt_due) %>
-          </p>
-        </td>
-      </tr>
-  <% end %>
-</table>
+    <br/>
+    <h4>Outstanding Signups</h4>
+      <%= render '/kmgr/includes/signup_table', signups: @outstanding %>
 
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="social-strip">
+  <div class="box-960">
+    <div class="left-social-strip animated fadeIn">
+    </div>
+    <div class="right-social-strip" style="color:white; font-weight:bold; margin-top:10px; margin-bottom:10px;">
+      <%= form_tag kmgr_search_path, method: :post do %>
+          <%= text_field_tag 'term', "", style: "margin-left:20px;display:inline;height:25px;padding-left:10px;" %>
+          <input class="button button-icon button-magenta" style="height:30px;" type="submit" value="SEARCH"/>
+      <% end %>
+    </div>
+  </div>
+</div>

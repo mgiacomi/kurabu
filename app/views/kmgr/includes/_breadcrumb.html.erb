@@ -1,0 +1,13 @@
+<div class="small-breadcrumb">
+  <div class="left-breadcrumb">
+    <%= link_to 'overview', kmgr_overview_path %>
+    <% unless page_name.to_s.strip.empty? %>
+      <a href="javascript:void(0)"><i class="fa fa-angle-right"></i><%= page_name %></a>
+    <% end %>
+  </div>
+  <div class="right-breadcrumb">
+    <a href="tel: 415 250 1521"><i class="fa fa-phone"></i>415 250 1521</a>
+    <a href="mgiacomi@gltech.com"><i class="fa fa-envelope"></i>mgiacomi@gltech.com</a>
+  </div>  <div class="clear"></div>
+  <div style="margin-bottom:20px;" class="decoration"></div>
+</div>

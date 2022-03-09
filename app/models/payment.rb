@@ -9,7 +9,8 @@ class Payment < ActiveRecord::Base
   end
 
   def receipt_link
-    crypt = ActiveSupport::MessageEncryptor.new(Rails.configuration.url_enc_base)
+
+    crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base[0..31])
     crypt.encrypt_and_sign(signup_id)
   end
 

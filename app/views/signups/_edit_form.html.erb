@@ -1,46 +1,46 @@
 <p style="color:black;margin-bottom:10px;"><strong>Student Information</strong></p>
 <table>
   <tr>
-    <td><p style="margin-bottom:0;">Child’s First Name:</p></td>
-    <td><%= f.text_field :cfname %></td>
+    <td style="text-align:left!important;padding-left:30px">Child’s First Name:</td>
+    <td><%= f.text_field :cfname, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Child’s Last Name:</p></td>
-    <td><%= f.text_field :clname %></td>
+    <td style="text-align:left!important;padding-left:30px">Child’s Last Name:</td>
+    <td><%= f.text_field :clname, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Gender:</p></td>
+    <td style="text-align:left!important;padding-left:30px">Gender:</td>
     <td>
-      <span style="font-size: 13px;color: #8c8c8c;">Male</span> <%= f.radio_button :cgender, "Male" %>
-      &nbsp;&nbsp;&nbsp;
-      <span style="font-size: 13px;color: #8c8c8c;">Female</span> <%= f.radio_button :cgender, "Female" %>
+      <span style="font-size: 13px;color: #8c8c8c;">Male</span> <%= f.radio_button :cgender, "Male", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="font-size: 13px;color: #8c8c8c;">Female</span> <%= f.radio_button :cgender, "Female", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %>
     </td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Birthday:</p></td>
+    <td style="text-align:left!important;padding-left:30px">Birthday:</td>
     <td>
       <span style="font-size: 13px;color: #8c8c8c;">Month</span>
       <%= f.select :cmonth,
                    options_for_select([['', ''], ['Jan', 'Jan'], ['Feb', 'Feb'], ['Mar', 'Mar'], ['Apr', 'Apr'], ['May', 'May'], ['Jun', 'Jun'], ['Jul', 'Jul'], ['Aug', 'Aug'], ['Sep', 'Sep'], ['Oct', 'Oct'], ['Nov', 'Nov'], ['Dec', 'Dec']], @signup.cmonth),
-                   {}, {:style => 'width:100px;'} %>
+                   {}, { class: "text-input-one", style: 'height:30px;width:100px;' } %>
       &nbsp;&nbsp;&nbsp;
       <span style="font-size: 13px;color: #8c8c8c;">Day</span>
       <%= f.select :cday,
                    options_for_select([['', ''], ['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'], ['7', '7'], ['8', '8'], ['9', '9'], ['10', '10'], ['11', '11'], ['12', '12'], ['13', '13'], ['14', '14'], ['15', '15'], ['16', '16'], ['17', '17'], ['18', '18'], ['19', '19'], ['20', '20'], ['21', '21'], ['22', '22'], ['23', '23'], ['24', '24'], ['25', '25'], ['26', '26'], ['27', '27'], ['28', '28'], ['29', '29'], ['30', '30'], ['31', '31']], @signup.cday),
-                   {}, {:style => 'width:100px;'} %>
+                   {}, { class: "text-input-one", style: 'height:30px;width:100px;' } %>
       &nbsp;&nbsp;&nbsp;
       <span style="font-size: 13px;color: #8c8c8c;">Year</span>
       <%= f.select :cyear,
                    options_for_select([['', ''], ['2016', '2016'], ['2015', '2015'], ['2014', '2014'], ['2013', '2013'], ['2012', '2012'], ['2011', '2011'], ['2010', '2010'], ['2009', '2009'], ['2008', '2008'], ['2007', '2007'], ['2006', '2006'], ['2005', '2005'], ['2004', '2004'], ['2003', '2003'], ['2002', '2002'], ['2001', '2001'], ['2000', '2000'], ['1999', '1999'], ['1998', '1998'], ['1997', '1997'], ['1996', '1996'], ['1995', '1995'], ['1994', '1994'], ['1993', '1993'], ['1992', '1992'], ['1991', '1991']], @signup.cyear),
-                   {}, {:style => 'width:100px;'} %>
+                   {}, { class: "text-input-one", style: 'height:30px;width:100px;' } %>
     </td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Grade entering in fall 2020:</p></td>
+    <td style="text-align:left!important;padding-left:30px">Grade entering in fall 2022:</td>
     <td>
       <%= f.select :cage,
                    options_for_select([['', ''], ['Kindergarten', 'Kindergarten'], ['1st Grade', '1st Grade'], ['2nd Grade', '2nd Grade'], ['3rd Grade', '3rd Grade'], ['4th Grade', '4th Grade'], ['5th Grade', '5th Grade']], @signup.cage),
-                   {}, {:style => 'width:130px;'} %>
+                   {}, { class: "text-input-one", style: 'height:30px;' } %>
     </td>
   </tr>
 </table>
@@ -48,121 +48,143 @@
 <p style="color:black;margin-bottom:10px;"><strong>Parent Information</strong></p>
 <table>
   <tr>
-    <td><p style="margin-bottom:0;">Parent 1 First Name:</p></td>
-    <td><%= f.text_field :p1fname, style: 'width:500px' %></td>
+    <td style="text-align:left!important;padding-left:30px;width:30%;">Parent 1 First Name:</td>
+    <td><%= f.text_field :p1fname, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Parent 1 Last Name:</p></td>
-    <td><%= f.text_field :p1lname %></td>
+    <td style="text-align:left!important;padding-left:30px">Parent 1 Last Name:</td>
+    <td><%= f.text_field :p1lname, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Parent 2 First Name:</p></td>
-    <td><%= f.text_field :p2fname %></td>
+    <td style="text-align:left!important;padding-left:30px">Parent 2 First Name:</td>
+    <td><%= f.text_field :p2fname, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Parent 2 Last Name:</p></td>
-    <td><%= f.text_field :p2lname %></td>
+    <td style="text-align:left!important;padding-left:30px">Parent 2 Last Name:</td>
+    <td><%= f.text_field :p2lname, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Home/Cell Phone:</p></td>
-    <td><%= f.text_field :phone1 %></td>
+    <td style="text-align:left!important;padding-left:30px">Home/Cell Phone:</td>
+    <td><%= f.text_field :phone1, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Work Phone:</p></td>
-    <td><%= f.text_field :phone2 %></td>
+    <td style="text-align:left!important;padding-left:30px">Work Phone:</td>
+    <td><%= f.text_field :phone2, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Email:</p></td>
-    <td><%= f.text_field :email %></td>
+    <td style="text-align:left!important;padding-left:30px">Email:</td>
+    <td><%= f.text_field :email, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Street:</p></td>
-    <td><%= f.text_field :street %></td>
+    <td style="text-align:left!important;padding-left:30px">Street:</td>
+    <td><%= f.text_field :street, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">City:</p></td>
-    <td><%= f.text_field :city %></td>
+    <td style="text-align:left!important;padding-left:30px">City:</td>
+    <td><%= f.text_field :city, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">State:</p></td>
-    <td><%= f.text_field :state, style: 'width:150px;' %></td>
+    <td style="text-align:left!important;padding-left:30px">State:</td>
+    <td><%= f.text_field :state, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Zip:</p></td>
-    <td><%= f.text_field :zip, style: 'width:150px;' %></td>
+    <td style="text-align:left!important;padding-left:30px">Zip:</td>
+    <td><%= f.text_field :zip, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
 </table>
 <br/>
 
-Free Kurabu T-Shirt Size:
+<p style="color:black;margin-bottom:10px;"><strong>Free Kurabu T-Shirt Size:</strong></p>
 <%= f.select :tsize,
              options_for_select([['', ''], ['Extra Small', 'xs'], ['Small', 's'], ['Medium', 'm'], ['Large', 'l'], ['Extra Large', 'xl']], @signup.tsize),
-             {}, {:style => 'width:150px;'} %>
+             {}, { class: "text-input-one", style: 'height:30px;' } %>
 
 <br/><br/>
 <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
-<table>
+<table class="table" style="padding: 10px; background-color:white;">
   <tr id="tr_session1" style="display:table-row">
-    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session1 %></td>
+    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session1, style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;' %></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 22 - June 26</p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-    <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></td>
+    <td nowrap="nowrap" style="padding-right:10px;">
+      <p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></td>
     <td></td>
   </tr>
-  <tr id="session1_desc"><td></td><td colspan="5" style="padding-bottom:10px;">
-    The Amazing World of Japanese Heroes from folk tales and movies.
-  </td></tr>
+  <tr id="session1_desc">
+    <td></td>
+    <td colspan="5" style="padding-bottom:10px;">
+      The Amazing World of Japanese Heroes from folk tales and movies.
+    </td>
+  </tr>
 
   <tr id="tr_session2" style="display:table-row">
-    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session2 %></td>
+    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session2, style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;' %></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 29 - July 2</p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-Th</p></td>
-    <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$210</span></td>
+    <td nowrap="nowrap" style="padding-right:10px;">
+      <p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$210</span></td>
     <td width="100%"></td>
   </tr>
-  <tr id="session2_desc"><td></td><td colspan="5" style="padding-bottom:10px;">
-    Japanese Summer Time!: Celebrate Tanabata, star festival and other summer activities.
-  </td></tr>
+  <tr id="session2_desc">
+    <td></td>
+    <td colspan="5" style="padding-bottom:10px;">
+      Japanese Summer Time!: Celebrate Tanabata, star festival and other summer activities.
+    </td>
+  </tr>
 
   <tr id="tr_session3" style="display:table-row">
-    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session3 %></td>
+    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session3, style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;' %></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 6 - July 10</p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-    <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></p></td>
+    <td nowrap="nowrap" style="padding-right:10px;">
+      <p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></p></td>
     <td nowrap="nowrap" style="padding-right:10px;"></td>
   </tr>
-  <tr id="session3_desc"><td></td><td colspan="5" style="padding-bottom:10px;">
-    Randoseru Kids!: Experience what it is like to be an elementary school student  in Japan at school and in the community.
-  </td></tr>
+  <tr id="session3_desc">
+    <td></td>
+    <td colspan="5" style="padding-bottom:10px;">
+      Randoseru Kids!: Experience what it is like to be an elementary school student in Japan at school and in the
+      community.
+    </td>
+  </tr>
 
   <tr id="tr_session4" style="display:table-row">
-    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session4 %></td>
+    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session4, style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;' %></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 13 - July 17</p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-    <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></td>
+    <td nowrap="nowrap" style="padding-right:10px;">
+      <p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></td>
     <td></td>
   </tr>
-  <tr id="session4_desc"><td></td><td colspan="5" style="padding-bottom:10px;">
-    Japanese "Do- The Way": Experience of the philosophy of "Do" in Martial Arts, Calligraphy, Tea ceremony and more.
-  </td></tr>
+  <tr id="session4_desc">
+    <td></td>
+    <td colspan="5" style="padding-bottom:10px;">
+      Japanese "Do- The Way": Experience of the philosophy of "Do" in Martial Arts, Calligraphy, Tea ceremony and more.
+    </td>
+  </tr>
 
   <tr id="tr_session5" style="display:table-row">
-    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session5 %></td>
+    <td nowrap="nowrap" style="padding-right:10px;"><%= f.check_box :session5, style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;' %></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 20 - July 24</p></td>
     <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-    <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></p></td>
+    <td nowrap="nowrap" style="padding-right:10px;">
+      <p style="margin-bottom:0;"><span style="color: red; font-weight: bold;">$260</span></p></td>
     <td></td>
   </tr>
-  <tr id="session5_desc"><td></td><td colspan="5" style="padding-bottom:10px;">
-    Japanese Arts and Music: Learn about Japanese traditional to modern arts and music.
-  </td></tr>
+  <tr id="session5_desc">
+    <td></td>
+    <td colspan="5" style="padding-bottom:10px;">
+      Japanese Arts and Music: Learn about Japanese traditional to modern arts and music.
+    </td>
+  </tr>
 
 </table>
+<br/>
 <p style="color:blue;">
   ** Financial assistance (50% off one week of Kurabu) is provided for Free and Reduced Lunch "FRL" students.<br/>
   ** For assistance please contact us <a href="mailto:kurabu@oyanokai.org">kurabu@oyanokai.org</a>
@@ -171,13 +193,14 @@ Free Kurabu T-Shirt Size:
 
 <p style="color:black;margin-bottom:10px;">
   <strong>Special information about your child that would be helpful for the Kurabu staff to know:</strong></p>
-<%= f.text_area :special, style: "width:700px;height:100px;" %>
+<%= f.text_area :special, class: 'text-input-one', style: "height:100px;" %>
 
-<br/><br/><br/>
+<br/>
 <p style="color:black;margin-bottom:10px;">
   <strong>MEDICATIONS/CONDITIONS: Please list any health problems, mental or physical conditions that might require<br/>
-    special planning or consideration for this child’s participation in Kurabu. (Use additional paper if necessary.)</strong></p>
-<%= f.text_area :medical, style: "width:700px;height:100px;" %>
+    special planning or consideration for this child’s participation in Kurabu. (Use additional paper if
+    necessary.)</strong></p>
+<%= f.text_area :medical, class: 'text-input-one', style: "height:100px;" %>
 
 <p>Note: Kurabu staff will dispense medication under physician’s orders. All medications must be in the prescription
   container clearly labeled with child’s name, the type of medication, the dosage, and the times (both am and pm) to
@@ -191,45 +214,45 @@ Free Kurabu T-Shirt Size:
 <table>
   <tr>
     <td><p style="margin-bottom:0;">I agree:</p></td>
-    <td><%= f.check_box :medical_agree, {}, "Yes", "No" %></td>
+    <td><%= f.check_box :medical_agree, {style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;'}, "Yes", "No" %></td>
     <td><p style="margin-bottom:0;margin-left:50px;">Signed:</p></td>
-    <td><%= f.text_field :medical_signed, style: 'width:300px;' %></td>
+    <td><%= f.text_field :medical_signed, class: "text-input-one", style: 'height:30px;width:300px;' %></td>
     <td><p style="margin-bottom:0;margin-left:50px;">Date:</p></td>
-    <td><%= f.text_field :medical_signed_date %></td>
+    <td><%= f.text_field :medical_signed_date, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
 </table>
 
-<br/><br/>
+<br/>
 <p style="color:black;margin-bottom:10px;">Date of last tetanus booster:
-  <%= f.text_field :shots_date, style: 'width:200px' %></p>
+  <%= f.text_field :shots_date, class: "text-input-one", style: 'height:30px;width:200px;display:inline;' %></p>
 
-<br/><br/>
+<br/>
 <p style="color:black;margin-bottom:10px;">
   <strong>In Case of EMERGENCY, if unable to locate parents, contact:</strong>
 </p>
 <table>
   <tr>
-    <td><p style="margin-bottom:0;">Name:</p></td>
-    <td><%= f.text_field :econtact_name, style: 'width:500px;' %></td>
+    <td style="text-align:left!important;padding-left:30px" nowrap="nowrap">Name:</td>
+    <td style="width:100%;"><%= f.text_field :econtact_name, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Relationship to camper:</p></td>
-    <td><%= f.text_field :econtact_relationship %></td>
+    <td style="text-align:left!important;padding-left:30px" nowrap="nowrap">Relationship to camper:</td>
+    <td><%= f.text_field :econtact_relationship, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Phone:</p></td>
-    <td><%= f.text_field :econtact_phone %></td>
+    <td style="text-align:left!important;padding-left:30px" nowrap="nowrap">Phone:</td>
+    <td><%= f.text_field :econtact_phone, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
   <tr>
-    <td><p style="margin-bottom:0;">Address:</p></td>
-    <td><%= f.text_field :econtact_address %></td>
+    <td style="text-align:left!important;padding-left:30px" nowrap="nowrap">Address:</td>
+    <td><%= f.text_field :econtact_address, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
 </table>
 
-<br/><br/>
+<br/>
 <p style="color:black;margin-bottom:10px;"><strong>Activities Authorization:</strong></p>
 <p style="color:black;margin-bottom:10px;">
-  <%= f.text_field :activity_cname, style: 'width:300px;' %> (child’s name) has my permission to participate in all
+  <%= f.text_field :activity_cname, class: "text-input-one", style: 'height:30px;width:300px;display:inline;' %> (child’s name) has my permission to participate in all
   Kurabu activities.
   I also authorize Kurabu to use local emergency services in order to secure proper treatment for my child as named
   above. By agreeing and typing in my name, I release Oya No Kai, the City of Portland, and Richmond Elementary School
@@ -238,11 +261,11 @@ Free Kurabu T-Shirt Size:
 <table>
   <tr>
     <td><p style="margin-bottom:0;">I agree:</p></td>
-    <td><%= f.check_box :activity_agree, {}, "Yes", "No" %></td>
+    <td><%= f.check_box :activity_agree, {style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;'}, "Yes", "No" %></td>
     <td><p style="margin-bottom:0;margin-left:50px;">Signed:</p></td>
-    <td><%= f.text_field :activity_signed, style: 'width:300px;' %></td>
+    <td><%= f.text_field :activity_signed, class: "text-input-one", style: 'height:30px;width:300px;' %></td>
     <td><p style="margin-bottom:0;margin-left:50px;">Date:</p></td>
-    <td><%= f.text_field :activity_signed_date %></td>
+    <td><%= f.text_field :activity_signed_date, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
 </table>
 
@@ -255,25 +278,25 @@ Free Kurabu T-Shirt Size:
 <table>
   <tr>
     <td><p style="margin-bottom:0;">I agree:</p></td>
-    <td><%= f.check_box :photo_agree, {}, "Yes", "No" %></td>
+    <td><%= f.check_box :photo_agree, {style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;'}, "Yes", "No" %></td>
     <td><p style="margin-bottom:0;margin-left:50px;">Signed:</p></td>
-    <td><%= f.text_field :photo_signed, style: 'width:300px;' %></td>
+    <td><%= f.text_field :photo_signed, class: "text-input-one", style: 'height:30px;width:300px;' %></td>
     <td><p style="margin-bottom:0;margin-left:50px;">Date:</p></td>
-    <td><%= f.text_field :photo_signed_date %></td>
+    <td><%= f.text_field :photo_signed_date, class: "text-input-one", style: 'height:30px;' %></td>
   </tr>
 </table>
 
-<br/><br/>
+<br/>
 <p style="color:black;margin-bottom:10px;">
   <strong>Any directions to the contrary should be specified and signed below.</strong></p>
-<%= f.text_area :directions, style: "width:700px;height:100px;" %>
+<%= f.text_area :directions, class: 'text-input-one', style: "height:100px;" %>
 
-<br/><br/>
+<br/>
 <p style="color:black;margin-bottom:10px;">
   <strong>List any friends that you would like to be in class with your children.</strong></p>
-<%= f.text_area :friends, style: "width:700px;height:100px;" %>
+<%= f.text_area :friends, class: 'text-input-one', style: "height:100px;" %>
 
-<br/><br/><br/>
+<br/>
 <p>
   <strong>Please Note:</strong> In cases when lice is found on a camper's head, his/her parents will be notified
   immediately and will be asked to pick him/her up from the camp. The camper will be allowed to return to the camp

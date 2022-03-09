@@ -1,0 +1,61 @@
+<script>
+    $(document).ready(function () {
+        $("#logout1").click(function () {
+            $("#logout_form1").submit();
+        });
+    });
+</script>
+
+<%= form_tag(destroy_user_session_path, id: 'logout_form1', method: 'delete') do %>
+<% end %>
+
+<ul class="navigation">
+  <li class="mobile-navigation-breadcrumb">
+    <em>Navigation</em>
+  </li>
+
+  <% if current_user != nil %>
+
+      <li style="margin-right:0;margin-left:30px;">
+        <p id="logout1" style="margin-top:15px;">
+          <a href="<%= destroy_user_session_path %>">
+          <i class="fa fa-user"></i>
+          <i class="fa fa-circle"></i>
+          Logout
+          <em>exit session</em>
+          </a>
+        </p>
+      </li>
+
+      <% if current_user.admin? %>
+          <li style="margin-right:0;">
+            <p id="overview" style="margin-top:15px;">
+              <a href="<%= kmgr_overview_path %>">
+                <i class="fa fa-user"></i>
+                <i class="fa fa-circle"></i>
+                Overview
+                <em>administration</em>
+              </a>
+            </p>
+          </li>
+      <% else %>
+          <li style="margin-right:0;">
+            <p id="overview" style="margin-top:15px;">
+              <a href="<%= todos_home_path %>">
+                <i class="fa fa-user"></i>
+                <i class="fa fa-circle"></i>
+                Overview
+                <em>outstanding items</em>
+              </a>
+            </p>
+          </li>
+      <% end %>
+
+  <% else %>
+      <li>
+      </li>
+  <% end %>
+  <li class="mobile-navigation-breadcrumb">
+    <em>Copyright 2016. All rights reserved.</em>
+  </li>
+</ul>

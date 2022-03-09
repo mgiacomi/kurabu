@@ -1,37 +1,47 @@
 <script>
-  jQuery(function() {
-    jQuery('#delete').click(function() {
-      var strconfirm = confirm("Are you sure you want to delete this application?");
-      if (strconfirm == true)
-      {
-        jQuery('#delete_form').submit();
-      }
+    jQuery(function () {
+        jQuery('#delete').click(function () {
+            var strconfirm = confirm("Are you sure you want to delete this application?");
+            if (strconfirm == true) {
+                jQuery('#delete_form').submit();
+            }
+        });
     });
-  });
 </script>
-<%= form_for @signup, url: kmgr_application_delete_path(@signup.id), html: { id: 'delete_form' } do |f| %><% end %>
 
-<h3>Kurabu Administration</h3>
-<%= link_to 'overview', kmgr_overview_path %>
-| <%= link_to 'view all signups', kmgr_forms_path %>
-| <%= link_to 'edit payment data', kmgr_form_path(@signup.id) %>
-<% unless @signup.payment.accepted %> | <a href="#" id="delete">delete application</a>  <% end %>
+<%= render '/kmgr/includes/search' %>
 
-<br/><br/>
+<div class="content">
+  <%= render '/kmgr/includes/breadcrumb', page_name: 'edit registration' %>
+  <div class="box-960 half-bottom">
 
-<% if @signup.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this registration from being saved:</h2>
+    <%= form_for @signup, url: kmgr_application_delete_path(@signup.id), html: { id: 'delete_form' } do |f| %>
+    <% end %>
 
-      <ul>
-        <% @signup.errors.full_messages.each do |msg| %>
+    <%= link_to 'overview', kmgr_overview_path, style: 'display:inline;' %> |
+    <%= link_to 'view all signups', kmgr_forms_path, style: 'display:inline;' %> |
+    <%= link_to 'edit payment data', kmgr_form_path(@signup.id), style: 'display:inline;' %>
+    <% unless @signup.payment.accepted %> | <a href="#" id="delete" style="display:inline;">delete application</a>
+    <% end %>
+
+    <br/><br/>
+
+    <% if @signup.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+        <ul>
+          <% @signup.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-<%= form_for @signup, url: kmgr_form_path do |f| %>
-    <%= render '/signups/edit_form', f: f %>
-    <%= f.submit "Update Application" %>
-<% end %>
+    <%= form_for @signup, url: kmgr_form_path do |f| %>
+      <%= render '/signups/edit_form', f: f %>
+      <%= f.submit "Update Application", class: "button button-blue center-button half-bottom", style: "width:200px;margin-top:5px;margin-bottom:5px!important;" %>
+    <% end %>
+
+  </div>
+</div>
