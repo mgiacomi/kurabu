@@ -214,36 +214,44 @@
     }
 </script>
 
-<h1>Kurabu Summer Camp Registration</h1>
-<h1>クラブ（サマーキャンプ）</h1>
+<div class="content">
+  <div class="half-bottom"></div>
+  <div class="box-960 half-bottom">
 
-<!--p style="color:red;font-weight: bold;">Sorry All sessions are full.</p-->
+    <h1>Kurabu Summer Camp Registration</h1>
+    <h1>クラブ（サマーキャンプ）</h1>
 
-<% if @signup.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this registration from being saved:</h2>
+    <!--p style="color:red;font-weight: bold;">Sorry All sessions are full.</p-->
 
-      <ul>
-        <% @signup.errors.full_messages.each do |msg| %>
+    <% if @signup.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this registration from being saved:</h2>
+
+        <ul>
+          <% @signup.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
+          <% end %>
+        </ul>
+      </div>
+      <br/>
+    <% end %>
 
-<!--span style="font-weight: bold; color:red;">Kurabu registration is closed for 2022.</span-->
+    <!--span style="font-weight: bold; color:red;">Kurabu registration is closed for 2022.</span-->
 
     <p>This form must be completed for every child attending Kurabu 2022.</p>
 
     <%= form_for @signup do |f| %>
-        <%= render '/signups/edit_form', f: f %>
-        <%= f.submit "Submit My Application", class: "button button-blue center-button half-bottom", style: "width:200px;margin-top:5px;margin-bottom:5px!important;" %>
+      <%= render '/signups/edit_form', f: f %>
+      <%= f.submit "Submit My Application", class: "button button-blue center-button half-bottom", style: "width:200px;margin-top:5px;margin-bottom:5px!important;" %>
 
-<% end %>
+    <% end %>
 
-<br/><br/>
+    <br/><br/>
 
-<p style="font-weight: bold; color:red;">Registrations are not confirmed until they are paid in full!</p>
-<p><span style="font-weight: bold;">Fees are for Portland area residents. For residents outside of the Portland area, an additional 10% fee must be added. (See definition of non-resident on PP&R website.)
+    <p style="font-weight: bold; color:red;">Registrations are not confirmed until they are paid in full!</p>
+    <p><span style="font-weight: bold;">Fees are for Portland area residents. For residents outside of the Portland area, an additional 10% fee must be added. (See definition of non-resident on PP&R website.)
   A $50 non-refundable deposit per student is included in the price of the camp. ONK requires a 7 day cancellation notice for a full refund (minus the $50 deposit). We do not prorate for
-  any missed days. Receipt of full payment is required to reserve your spot, unless otherwise arranged. For cancellations less than 7 days and for payment options, contact kurabu@oyanokai.org.</span></p>
+  any missed days. Receipt of full payment is required to reserve your spot, unless otherwise arranged. For cancellations less than 7 days and for payment options, contact kurabu@oyanokai.org.</span>
+    </p>
+  </div>
+</div>

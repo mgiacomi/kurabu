@@ -23,7 +23,7 @@
     <%= link_to 'Overview', kmgr_overview_path, style: 'display:inline;' %> |
     <%= link_to 'View All Signups', kmgr_forms_path, style: 'display:inline;' %> |
     <%= link_to 'Edit Signup Data', edit_kmgr_form_path(@payment.signup_id), style: 'display:inline;' %>
-    <% unless @payment.accepted == '1' %> | <a "display:inline;" href="#" id="delete">Delete Application</a>
+    <% unless @payment.accepted == '1' %> | <a style="display:inline;" href="#" id="delete">Delete Application</a>
     <% end %>
     <% if @payment.signup.amt_due > 0 %>
       | <%= link_to 'Pay Link', signups_pay_path(@payment.signup_id), style: 'display:inline;' %>

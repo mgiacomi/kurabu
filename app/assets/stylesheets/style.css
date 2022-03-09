@@ -1729,6 +1729,7 @@
 .field_with_errors input, .field_with_errors select {
     background-color: #ffbeac;
     border-color: red;
+	display: inline;
 }
 
 .text-input-one{

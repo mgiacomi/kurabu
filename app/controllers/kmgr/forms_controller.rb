@@ -21,7 +21,7 @@ class Kmgr::FormsController < ApplicationController
     @signup.skip_session_validation = true
 
     if @signup.update(signup_params)
-      redirect_to kmgr_forms_path, notice: 'Application was successfully updated.'
+      redirect_to kmgr_form_path(@signup), notice: 'Application was successfully updated.'
     else
       render :action => "edit"
     end

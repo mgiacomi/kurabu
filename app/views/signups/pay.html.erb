@@ -1,166 +1,185 @@
-<h1>Kurabu Summer Camp 2021 Registration</h1>
-<h1>クラブ（サマーキャンプ）</h1>
-<h3>Purchase Kurabu Sessions</h3>
-<br/>
-<p style="color:black;margin-bottom:10px;"><strong>Student Information</strong></p>
-<table>
-  <tr>
-    <td><p style="margin-bottom:0;">Child’s First Name:</p></td>
-    <td><%= @signup.cfname %></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;">Child’s Last Name:</p></td>
-    <td><%= @signup.clname %></td>
-  </tr>
-</table>
+<div class="content">
+  <div class="half-bottom"></div>
+  <div class="box-960 half-bottom">
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-  <input type="hidden" name="cmd" value="_cart">
-  <input type="hidden" name="upload" value="1">
-  <input type="hidden" name="business" value="tricia.waineo@oyanokai.org">
-  <input type="hidden" name="notify_url" value="<%= signups_paypal_url %>">
-  <input type="hidden" name="invoice" value="<%= @signup.id %>-<%= Time.now.to_i %>">
+    <h1>Kurabu Summer Camp 2022 Registration</h1>
+    <h1>クラブ（サマーキャンプ）</h1>
+    <br/>
+    <h3>Purchase Kurabu Sessions</h3>
+    <br/>
+    <p style="color:black;margin-bottom:10px;"><strong>Student Information</strong></p>
+    <table>
+      <tr>
+        <td style="width:10%;"></td>
+        <td nowrap="nowrap" style="text-align:left!important;padding-left:30px;width:25%;">Child’s First Name:</td>
+        <td style="text-align:left!important;padding-left:30px;width:65%;"><%= @signup.cfname %></td>
+      </tr>
+      <tr>
+        <td style="width:10%;"></td>
+        <td nowrap="nowrap" style="text-align:left!important;padding-left:30px;width:25%;">Child’s Last Name:</td>
+        <td style="text-align:left!important;padding-left:30px;width:65%;"><%= @signup.clname %></td>
+      </tr>
+    </table>
 
-  <% @session_count = 1 %>
-  <% discount = @signup.payment.present? ? @signup.payment.scholarship.to_f : 0 %>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_cart">
+      <input type="hidden" name="upload" value="1">
+      <input type="hidden" name="business" value="tricia.waineo@oyanokai.org">
+      <input type="hidden" name="notify_url" value="<%= signups_paypal_url %>">
+      <input type="hidden" name="invoice" value="<%= @signup.id %>-<%= Time.now.to_i %>">
 
-  <%
-    if @signup.payment.present? && @signup.payment.amount.to_f > 0
-      discount = discount + @signup.payment.amount.to_f
-    end
-  %>
+      <% @session_count = 1 %>
+      <% discount = @signup.payment.present? ? @signup.payment.scholarship.to_f : 0 %>
+
+      <%
+        if @signup.payment.present? && @signup.payment.amount.to_f > 0
+          discount = discount + @signup.payment.amount.to_f
+        end
+      %>
 
 
-  <br/><br/>
-  <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
-  <table cellspacing="8">
-    <% if @signup.session1 == '1' %>
-        <tr>
-          <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 22 - June 26</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></td>
-        </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 1: June 22 - June 26">
-        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="260">
-        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
+      <br/><br/>
+      <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
+      <table cellspacing="8">
+        <% if @signup.session1 == '1' %>
+          <tr>
+            <td><p style="margin-bottom:0;"><strong>Session 1:</strong></p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 22 - June 26</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;">
+              <p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></td>
+          </tr>
+          <input type="hidden" name="item_name_<%= @session_count %>" value="Session 1: June 22 - June 26">
+          <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+          <input type="hidden" name="amount_<%= @session_count %>" value="260">
+          <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount  %>">
+          <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount %>">
             <% discount = discount - 259 %>
+          <% end %>
+
+          <% @session_count = @session_count + 1 %>
         <% end %>
+        <% if @signup.session2 == '1' %>
+          <tr>
+            <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 29 - July 2</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-TH</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;">
+              <p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$210</span></td>
+          </tr>
+          <input type="hidden" name="item_name_<%= @session_count %>" value="Session 2: June 29 - July 2">
+          <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+          <input type="hidden" name="amount_<%= @session_count %>" value="210">
+          <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% @session_count = @session_count + 1 %>
-    <% end %>
-    <% if @signup.session2 == '1' %>
-        <tr>
-          <td><p style="margin-bottom:0;"><strong>Session 2:</strong></p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">June 29 - July 2</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-TH</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$210</span></td>
-        </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 2: June 29 - July 2">
-        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="210">
-        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
-
-        <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 209 ? 209 : discount  %>">
+          <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 209 ? 209 : discount %>">
             <% discount = discount - 209 %>
+          <% end %>
+
+          <% @session_count = @session_count + 1 %>
         <% end %>
+        <% if @signup.session3 == '1' %>
+          <tr>
+            <td><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 6 - July 10</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;">
+              <p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></p></td>
+          </tr>
+          <input type="hidden" name="item_name_<%= @session_count %>" value="Session 3: July 6 - July 10">
+          <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+          <input type="hidden" name="amount_<%= @session_count %>" value="260">
+          <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% @session_count = @session_count + 1 %>
-    <% end %>
-    <% if @signup.session3 == '1' %>
-        <tr>
-          <td><p style="margin-bottom:0;"><strong>Session 3:</strong></p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 6 - July 10</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></p></td>
-        </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 3: July 6 - July 10">
-        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="260">
-        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
-
-        <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount  %>">
+          <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount %>">
             <% discount = discount - 259 %>
+          <% end %>
+
+          <% @session_count = @session_count + 1 %>
         <% end %>
+        <% if @signup.session4 == '1' %>
+          <tr>
+            <td><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 13 - July 17</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;">
+              <p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></td>
+          </tr>
+          <input type="hidden" name="item_name_<%= @session_count %>" value="Session 4: July 13 - July 17">
+          <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+          <input type="hidden" name="amount_<%= @session_count %>" value="260">
+          <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% @session_count = @session_count + 1 %>
-    <% end %>
-    <% if @signup.session4 == '1' %>
-        <tr>
-          <td><p style="margin-bottom:0;"><strong>Session 4:</strong></p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 13 - July 17</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></td>
-        </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 4: July 13 - July 17">
-        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="260">
-        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
-
-        <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount  %>">
+          <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount %>">
             <% discount = discount - 259 %>
+          <% end %>
+
+          <% @session_count = @session_count + 1 %>
         <% end %>
+        <% if @signup.session5 == '1' %>
+          <tr>
+            <td><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 20 - July 24</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
+            <td nowrap="nowrap" style="padding-right:10px;">
+              <p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></p></td>
+          </tr>
+          <input type="hidden" name="item_name_<%= @session_count %>" value="Session 5: July 20 - July 24">
+          <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
+          <input type="hidden" name="amount_<%= @session_count %>" value="260">
+          <input type="hidden" name="quantity_<%= @session_count %>" value="1">
 
-        <% @session_count = @session_count + 1 %>
-    <% end %>
-    <% if @signup.session5 == '1' %>
-        <tr>
-          <td><p style="margin-bottom:0;"><strong>Session 5:</strong></p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">July 20 - July 24</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;">M-F</p></td>
-          <td nowrap="nowrap" style="padding-right:10px;"><p style="margin-bottom:0;"><span style="color: blue; font-weight: bold;">$260</span></p></td>
-        </tr>
-        <input type="hidden" name="item_name_<%= @session_count %>" value="Session 5: July 20 - July 24">
-        <input type="hidden" name="item_number_<%= @session_count %>" value="<%= @signup.cfname %> <%= @signup.clname %>">
-        <input type="hidden" name="amount_<%= @session_count %>" value="260">
-        <input type="hidden" name="quantity_<%= @session_count %>" value="1">
-
-        <% if discount > 0 %>
-            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount  %>">
+          <% if discount > 0 %>
+            <input type="hidden" name="discount_amount_<%= @session_count %>" value="<%= discount > 259 ? 259 : discount %>">
             <% discount = discount - 259 %>
+          <% end %>
+
+          <% @session_count = @session_count + 1 %>
         <% end %>
+      </table>
+      <br/>
 
-        <% @session_count = @session_count + 1 %>
-    <% end %>
-  </table>
-  <br/>
+      <% if @signup.payment.present? && @signup.payment.scholarship.to_f > 0 %>
+        <p style="color:black;margin-bottom:10px;">
+          <strong>Scholarship:</strong> <%= number_to_currency(@signup.payment.scholarship) %></p>
+      <% end %>
 
-  <% if @signup.payment.present? && @signup.payment.scholarship.to_f > 0 %>
-      <p style="color:black;margin-bottom:10px;"><strong>Scholarship:</strong> <%= number_to_currency(@signup.payment.scholarship) %></p>
-  <% end %>
+      <% if @signup.payment.present? && @signup.payment.amount.to_f > 0 %>
+        <p style="color:black;margin-bottom:10px;">
+          <strong>Already Paid:</strong> <%= number_to_currency(@signup.payment.amount) %></p>
+      <% end %>
 
-  <% if @signup.payment.present? && @signup.payment.amount.to_f > 0 %>
-      <p style="color:black;margin-bottom:10px;"><strong>Already Paid:</strong> <%= number_to_currency(@signup.payment.amount) %></p>
-  <% end %>
+      <p style="color:black;margin-bottom:10px;"><strong>Amount Due:</strong> <%= number_to_currency(@signup.amt_due) %>
+      </p>
 
-  <p style="color:black;margin-bottom:10px;"><strong>Amount Due:</strong> <%= number_to_currency(@signup.amt_due) %></p>
+      <br/>
+      <p style="font-weight:bold;">Please note:
+        <span style="color:red;">Your spot in Kurabu is not reserved until you have paid in full!</span></p>
+      <br/>
+      <input type="hidden" name="currency_code" value="USD">
 
-  <br/>
-  <p style="font-weight:bold;">Please note: <span style="color:red;">Your spot in Kurabu is not reserved until you have paid in full!</span></p>
-  <br/>
-  <input type="hidden" name="currency_code" value="USD">
-
-  <!-- Enable override of buyers's address stored with PayPal . -->
-  <input type="hidden" name="address_override" value="0">
-  <!-- Set variables that override the address stored with PayPal. -->
-  <input type="hidden" name="first_name" value="<%= @signup.p1fname %>">
-  <input type="hidden" name="last_name" value="<%= @signup.p1lname %>">
-  <input type="hidden" name="address1" value="<%= @signup.street %>">
-  <input type="hidden" name="city" value="<%= @signup.city %>">
-  <input type="hidden" name="state" value="<%= @signup.state %>">
-  <input type="hidden" name="zip" value="<%= @signup.zip %>">
-  <input type="hidden" name="email" value="<%= @signup.email %>">
-  <input type="hidden" name="country" value="US">
-  <input type="image" name="submit"
-         src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-         alt="PayPal - The safer, easier way to pay online">
-</form>
-<br/>
-<p>After we have received your payment and reviewed your signup form we will send you email confirming your spot at Kurabu.  If you do not receive a confirmation email then please contact us kurabu@oyanokai.org</p>
+      <!-- Enable override of buyers's address stored with PayPal . -->
+      <input type="hidden" name="address_override" value="0">
+      <!-- Set variables that override the address stored with PayPal. -->
+      <input type="hidden" name="first_name" value="<%= @signup.p1fname %>">
+      <input type="hidden" name="last_name" value="<%= @signup.p1lname %>">
+      <input type="hidden" name="address1" value="<%= @signup.street %>">
+      <input type="hidden" name="city" value="<%= @signup.city %>">
+      <input type="hidden" name="state" value="<%= @signup.state %>">
+      <input type="hidden" name="zip" value="<%= @signup.zip %>">
+      <input type="hidden" name="email" value="<%= @signup.email %>">
+      <input type="hidden" name="country" value="US">
+      <input type="image" name="submit"
+             src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+             alt="PayPal - The safer, easier way to pay online">
+    </form>
+    <br/>
+    <p>After we have received your payment and reviewed your signup form we will send you email confirming your spot at
+      Kurabu. If you do not receive a confirmation email then please contact us kurabu@oyanokai.org</p>
+  </div>
+</div>

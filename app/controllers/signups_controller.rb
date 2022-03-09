@@ -14,7 +14,7 @@ class SignupsController < ApplicationController
   end
 
   def create
-    @signup = Signup.new params[:signup]
+    @signup = Signup.new signup_params
 
     class_summary = Signup.class_summary
     @classk = class_summary[:classk]
@@ -68,6 +68,14 @@ class SignupsController < ApplicationController
   end
 
   def denied
+  end
+
+  def signup_params
+    params.require(:signup).permit(:cfname, :clname, :cgender, :cmonth, :cday, :cyear, :cage, :p1fname, :p1lname, :p2fname, :p2lname, :phone1, :phone2,
+                                   :email, :street, :city, :state, :zip, :tsize, :session1, :session2, :session3, :session4, :session5, :special, :medical,
+                                   :medical_agree, :medical_signed, :medical_signed_date, :shots_date, :econtact_name, :econtact_relationship, :econtact_phone,
+                                   :econtact_address, :activity_cname, :activity_agree, :activity_signed, :activity_signed_date, :photo_agree, :photo_signed,
+                                   :photo_signed_date, :directions, :friends)
   end
 
 end
