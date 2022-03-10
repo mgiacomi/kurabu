@@ -24,7 +24,7 @@ class Signup < ActiveRecord::Base
 
   scope :search, lambda { |term|
     term = "%#{term}%"
-    where('lower(clname) like ? or lower(p1lname) like ?', term.downcase, term.downcase).order(:clname, :fname)
+    where('lower(clname) like ? or lower(p1lname) like ?', term.downcase, term.downcase).order(:clname, :p1lname)
   }
 
   def grade_short

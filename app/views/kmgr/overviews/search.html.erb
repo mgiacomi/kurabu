@@ -7,10 +7,10 @@
 <%= render '/kmgr/includes/search' %>
 
 <div class="content">
-  <%= render '/kmgr/includes/breadcrumb', page_name: 'Grade & Session' %>
+  <%= render '/kmgr/includes/breadcrumb', page_name: 'search' %>
   <div class="box-960 half-bottom">
 
-    <h4>Session <%= @session %> / <%= @grade %></h4>
+    <h4>Search '<%= params[:term] %>'</h4>
     <%= render '/kmgr/includes/signup_table', signups: @signups %>
 
   </div>
