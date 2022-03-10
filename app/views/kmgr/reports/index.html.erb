@@ -1,95 +1,83 @@
 <script>
-  jQuery(document).ready(function () {
-    jQuery("tr:odd").css("background-color", "#CEF5FF");
-    jQuery("td").css("padding-left", "10px");
-    jQuery("td").css("padding-right", "10px");
-  });
+    jQuery(document).ready(function () {
+        jQuery("tr:odd").css("background-color", "#CEF5FF");
+        jQuery("td").css("padding-left", "10px");
+        jQuery("td").css("padding-right", "10px");
+    });
 </script>
 
-<h3>Kurabu Reports</h3>
+<%= render '/kmgr/includes/search' %>
 
-<p>Click on a Session/Grade to get a Sign-in Sheet</p>
-<table style="border-bottom: 1px;width:500px;">
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">Grade</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S1</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S2</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S3</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S4</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;">S5</p></td>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;color:black;">Total</p></td>
-  </tr>
-  <% session = 0 %>
+<div class="content">
+  <%= render '/kmgr/includes/breadcrumb', page_name: '' %>
+  <div class="box-960 half-bottom">
 
-  <% @summeries.each do |summary| %>
-      <tr>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><%= summary[:grade] %></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '1') %>"><%= summary[:s1] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '2') %>"><%= summary[:s2] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '3') %>"><%= summary[:s3] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '4') %>"><%= summary[:s4] %></a></p></td>
-        <td><p style="margin-bottom:0;<%= summary[:grade] == 'Total' ? 'color:black;font-weight:bold;' : '' %>"><a href="<%= kmgr_overview_details_path(summary[:grade], '5') %>"><%= summary[:s5] %></a></p></td>
-        <td><p style="margin-bottom:0;color: black;font-weight:bold;"><%= summary[:total] %></p></td>
-      </tr>
-  <% end %>
-</table>
+    <h4>Fully Registered Signups</h4>
 
-<br/><strong><%= link_to 'All Registered Singups', kmgr_reports_list_path %></strong>
-<br/><strong><%= link_to 'Details Dump Report', kmgr_reports_dump_report_path(format: :csv) %></strong>
-<br/><br/>
-Email List By Session:
-<%= link_to 'Session 1', kmgr_reports_emaillist_url(1) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 2', kmgr_reports_emaillist_url(2) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 3', kmgr_reports_emaillist_url(3) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 4', kmgr_reports_emaillist_url(4) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 5', kmgr_reports_emaillist_url(5) %>
+    <p>Click on a Session/Grade to get a Sign-in Sheet</p>
 
-<br/><br/>
-Singups By Session:
-<%= link_to 'Session 1', kmgr_reports_signuplist_url(1) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 2', kmgr_reports_signuplist_url(2) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 3', kmgr_reports_signuplist_url(3) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 4', kmgr_reports_signuplist_url(4) %>&nbsp;&nbsp;&nbsp;
-<%= link_to 'Session 5', kmgr_reports_signuplist_url(5) %>
+    <%= render '/kmgr/includes/table', summeries: @summeries %>
 
-<br/><br/>
-<b>Sign-in Sheets by Grade and Session:</b>
-<br/>Session 1:
-<%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 1) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 1) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 1) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 1) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 1) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 1) %>&nbsp;&nbsp;&nbsp;
+    <strong><%= link_to 'All Registered Singups', kmgr_reports_list_path %></strong>
+    <strong><%= link_to 'Details Dump Report', kmgr_reports_dump_report_path(format: :csv) %></strong>
+    <br/>
+    Email List By Session:
+    <%= link_to 'Session 1', kmgr_reports_emaillist_url(1), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 2', kmgr_reports_emaillist_url(2), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 3', kmgr_reports_emaillist_url(3), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 4', kmgr_reports_emaillist_url(4), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 5', kmgr_reports_emaillist_url(5), style: 'display:inline; margin-right:10px;' %>
 
-<br/>Session 2:
-<%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 2) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 2) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 2) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 2) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 2) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 2) %>&nbsp;&nbsp;&nbsp;
+    <br/>
+    Singups By Session:
+    <%= link_to 'Session 1', kmgr_reports_signuplist_url(1), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 2', kmgr_reports_signuplist_url(2), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 3', kmgr_reports_signuplist_url(3), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 4', kmgr_reports_signuplist_url(4), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to 'Session 5', kmgr_reports_signuplist_url(5), style: 'display:inline; margin-right:10px;' %>
 
-<br/>Session 3:
-<%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 3) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 3) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 3) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 3) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 3) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 3) %>&nbsp;&nbsp;&nbsp;
+    <br/><br/>
+    <b>Sign-in Sheets by Grade and Session:</b>
+    <br/><br/>
+    Session 1:
+    <%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 1), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 1), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 1), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 1), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 1), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 1), style: 'display:inline; margin-right:10px;' %>
 
-<br/>Session 4:
-<%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 4) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 4) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 4) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 4) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 4) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 4) %>&nbsp;&nbsp;&nbsp;
+    <br/>Session 2:
+    <%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 2), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 2), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 2), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 2), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 2), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 2), style: 'display:inline; margin-right:10px;' %>
 
-<br/>Session 5:
-<%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 5) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 5) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 5) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 5) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 5) %>&nbsp;&nbsp;&nbsp;
-<%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 5) %>&nbsp;&nbsp;&nbsp;
+    <br/>Session 3:
+    <%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 3), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 3), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 3), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 3), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 3), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 3), style: 'display:inline; margin-right:10px;' %>
+
+    <br/>Session 4:
+    <%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 4), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 4), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 4), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 4), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 4), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 4), style: 'display:inline; margin-right:10px;' %>
+
+    <br/>Session 5:
+    <%= link_to 'Kindergarten', kmgr_reports_signupsheet_path('Kindergarten', 5), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '1st Grade', kmgr_reports_signupsheet_path('1st Grade', 5), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '2nd Grade', kmgr_reports_signupsheet_path('2nd Grade', 5), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '3rd Grade', kmgr_reports_signupsheet_path('3rd Grade', 5), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '4th Grade', kmgr_reports_signupsheet_path('4th Grade', 5), style: 'display:inline; margin-right:10px;' %>
+    <%= link_to '5th Grade', kmgr_reports_signupsheet_path('5th Grade', 5), style: 'display:inline; margin-right:10px;' %>
+
+  </div>
+</div>

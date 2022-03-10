@@ -1,0 +1,25 @@
+<table class="table half-bottom">
+  <tbody>
+  <tr>
+    <th class="table-title">Grade</th>
+    <th class="table-title">Session 1</th>
+    <th class="table-title">Session 2</th>
+    <th class="table-title">Session 3</th>
+    <th class="table-title">Session 4</th>
+    <th class="table-title">Session 5</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <% summeries.each do |summary| %>
+    <tr>
+      <td class="table-sub-title blue-title"><%= summary[:grade] %></td>
+      <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '1') %>"><%= summary[:s1] %></a></td>
+      <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '2') %>"><%= summary[:s2] %></a></td>
+      <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '3') %>"><%= summary[:s3] %></a></td>
+      <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '4') %>"><%= summary[:s4] %></a></td>
+      <td style="text-align:right;"><a href="<%= kmgr_overview_details_path(summary[:grade], '5') %>"><%= summary[:s5] %></a></td>
+      <td style="color: black;font-weight:bold;text-align:right;"><%= summary[:total] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
