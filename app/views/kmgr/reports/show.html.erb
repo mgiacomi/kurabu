@@ -1,171 +1,167 @@
-<h3>Kurabu Signup</h3>
-<%= link_to 'back to reports', kmgr_reports_index_path %>
-<br/><br/>
+<%= render '/kmgr/includes/search' %>
 
-<table cellspacing="5">
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child First</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.cfname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child Last</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.clname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Child Gender</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.cgender %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Grade</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.cage %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Birthday</p></td>
-    <td nowrap="nowrap">
-      <p style="margin-bottom:0;"><%= @signup.cmonth %>
-        <%= @signup.cday %>
-        <%= @signup.cyear %></p>
-    </td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 1 First</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.p1fname %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 1 Last</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.p1lname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 2 First</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.p2fname %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Parent 2 Last</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.p2lname %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Home/Cell Phone</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.phone1 %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Work Phone</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.phone2 %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Email</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.email %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Street</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.street %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">City</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.city %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">State</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.state %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Zip</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.zip %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S1</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.session1 == "1" ? "Y" : "" %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S2</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.session2 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S3</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.session3 == "1" ? "Y" : "" %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S4</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.session4 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">S5</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.session5 == "1" ? "Y" : "" %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Special</p></td>
-    <td colspan="3"><p style="margin-bottom:0;"><%= @signup.special %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical</p></td>
-    <td colspan="3"><p style="margin-bottom:0;"><%= @signup.medical %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Agree</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.medical_agree %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.medical_signed %></p></td>
-</tr><tr>
-    <td>
-      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Medical Signed Date</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.medical_signed_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Shots Date</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.shots_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Name</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.econtact_name %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact
-      Relationship</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.econtact_relationship %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Phone</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.econtact_phone %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Econtact Address</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.econtact_address %></p></td>
-  </tr>
-  <tr>
-    <td>
-      <p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Child Name</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.activity_cname %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Agree</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.activity_agree %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.activity_signed %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Activity Signed
-      Date</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.activity_signed_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Agree</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.photo_agree %></p></td>
-</tr><tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Signed</p></td>
-    <td><p style="margin-bottom:0;"><%= @signup.photo_signed %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Photo Signed Date</p>
-    </td>
-    <td><p style="margin-bottom:0;"><%= @signup.photo_signed_date %></p></td>
-  </tr>
-  <tr>
-    <td><p style="margin-bottom:0;font-weight: bold;text-decoration: underline;margin-right:30px;">Directions</p></td>
-    <td colspan="3"><p style="margin-bottom:0;"><%= @signup.directions %></p></td>
-  </tr>
-</table>
+<div class="content">
+  <%= render '/kmgr/includes/breadcrumb', page_name: 'signup details' %>
+  <div class="box-960 half-bottom">
+
+    <h4>Kurabu Singup Details</h4>
+    <div class="pricing-table pricing-selected-blue" style="width: 100%; padding-bottom: 2px;">
+
+      <table cellspacing="5">
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Child First</td>
+          <td><p style="text-align:left;"><%= @signup.cfname %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Child Last</td>
+          <td><p style="text-align:left;"><%= @signup.clname %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Child Gender</td>
+          <td><p style="text-align:left;"><%= @signup.cgender %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Grade</td>
+          <td><p style="text-align:left;"><%= @signup.cage %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Birthday</td>
+          <td nowrap="nowrap"><p style="text-align:left;"><%= @signup.cmonth %> <%= @signup.cday %> <%= @signup.cyear %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Parent 1 First</td>
+          <td><p style="text-align:left;"><%= @signup.p1fname %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Parent 1 Last</td>
+          <td><p style="text-align:left;"><%= @signup.p1lname %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Parent 2 First</td>
+          <td><p style="text-align:left;"><%= @signup.p2fname %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Parent 2 Last</td>
+          <td><p style="text-align:left;"><%= @signup.p2lname %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Home/Cell Phone</td>
+          <td><p style="text-align:left;"><%= @signup.phone1 %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Work Phone</td>
+          <td><p style="text-align:left;"><%= @signup.phone2 %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Email</td>
+          <td><p style="text-align:left;"><%= @signup.email %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Street</td>
+          <td><p style="text-align:left;"><%= @signup.street %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">City</td>
+          <td><p style="text-align:left;"><%= @signup.city %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">State</td>
+          <td><p style="text-align:left;"><%= @signup.state %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Zip</td>
+          <td><p style="text-align:left;"><%= @signup.zip %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">S1</td>
+          <td><p style="text-align:left;"><%= @signup.session1 == "1" ? "Y" : "" %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">S2</td>
+          <td><p style="text-align:left;"><%= @signup.session2 == "1" ? "Y" : "" %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">S3</td>
+          <td><p style="text-align:left;"><%= @signup.session3 == "1" ? "Y" : "" %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">S4</td>
+          <td><p style="text-align:left;"><%= @signup.session4 == "1" ? "Y" : "" %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">S5</td>
+          <td><p style="text-align:left;"><%= @signup.session5 == "1" ? "Y" : "" %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Special</td>
+          <td><p style="text-align:left;"><%= @signup.special %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Medical</td>
+          <td><p style="text-align:left;"><%= @signup.medical %></p></td>
+        </tr>
+        <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Medical Agree</td>
+          <td><p style="text-align:left;"><%= @signup.medical_agree %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Medical Signed</td>
+          <td><p style="text-align:left;"><%= @signup.medical_signed %></p></td>
+        </tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Medical Signed Date</td>
+          <td><p style="text-align:left;"><%= @signup.medical_signed_date %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Shots Date</td>
+          <td><p style="text-align:left;"><%= @signup.shots_date %></p></td>
+        </tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Econtact Name</td>
+          <td><p style="text-align:left;"><%= @signup.econtact_name %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Econtact Relationship</td>
+          <td><p style="text-align:left;"><%= @signup.econtact_relationship %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Econtact Phone</td>
+          <td><p style="text-align:left;"><%= @signup.econtact_phone %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Econtact Address</td>
+          <td><p style="text-align:left;"><%= @signup.econtact_address %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Activity Child Name</td>
+          <td><p style="text-align:left;"><%= @signup.activity_cname %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Activity Agree</td>
+          <td><p style="text-align:left;"><%= @signup.activity_agree %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Activity Signed</td>
+          <td><p style="text-align:left;"><%= @signup.activity_signed %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Activity Signed Date</td>
+          <td><p style="text-align:left;"><%= @signup.activity_signed_date %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Photo Agree</td>
+          <td><p style="text-align:left;"><%= @signup.photo_agree %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Photo Signed</td>
+          <td><p style="text-align:left;"><%= @signup.photo_signed %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Photo Signed Date</td>
+          <td><p style="text-align:left;"><%= @signup.photo_signed_date %></p></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align:left; margin-bottom:0;font-weight: bold;text-decoration: underline;padding-left:40px;">Directions</td>
+          <td><p style="text-align:left;"><%= @signup.directions %></p></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
