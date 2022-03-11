@@ -27,18 +27,16 @@
         </p>
       </li>
 
-      <% if current_user.admin? %>
-          <li style="margin-right:0;">
-            <p id="overview" style="margin-top:15px;">
-              <a href="<%= kmgr_overview_path %>">
-                <i class="fa fa-user"></i>
-                <i class="fa fa-circle"></i>
-                Overview
-                <em>administration</em>
-              </a>
-            </p>
-          </li>
-      <% end %>
+      <li style="margin-right:0;">
+        <p id="overview" style="margin-top:15px;">
+          <a href="<%= kmgr_overview_path %>">
+            <i class="fa fa-user"></i>
+            <i class="fa fa-circle"></i>
+            Overview
+            <em>administration</em>
+          </a>
+        </p>
+      </li>
 
   <% else %>
       <li>
