@@ -18,6 +18,8 @@ class Kmgr::ReportsController < ApplicationController
     @signups = Signup.all.order(:clname).select do |signup|
       !signup.payment.nil? && signup.payment.accepted == "1"
     end
+
+    render action: "../forms/index"
   end
 
   def signuplist

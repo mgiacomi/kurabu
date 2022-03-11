@@ -18,7 +18,13 @@
   </tr>
   <% signups.each do |signup| %>
     <tr>
-      <td><%= link_to signup.id, kmgr_form_path(signup) %></td>
+      <td>
+        <% if current_user.admin? %>
+          <%= link_to signup.id, kmgr_form_path(signup) %>
+        <% else %>
+          <%= link_to signup.id, kmgr_reports_show_path(signup) %>
+        <% end %>
+      </td>
       <td><%= signup.cfname %></td>
       <td><%= signup.clname %></td>
       <td><%= signup.grade_short %></td>
