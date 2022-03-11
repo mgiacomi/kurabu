@@ -10,7 +10,8 @@ class Signup < ActiveRecord::Base
   validates :activity_cname, :activity_signed, :activity_signed_date, presence: { message: " is required" }
   validates :activity_agree, :presence => true, :inclusion => { :in => ['Yes'], message: " must be checked" }
   validate :at_least_one_session
-  validate :session_not_over_twenty, unless: :skip_session_validation
+  validate :session_not_over_one_hundred, unless: :skip_session_validation
+  #validate :class_not_over_twenty, unless: :skip_session_validation
 
   attr_accessor :skip_session_validation
 
@@ -61,13 +62,33 @@ class Signup < ActiveRecord::Base
     end
   end
 
-  def session_not_over_twenty
-    class_summary = Signup.class_summary
-    classk = class_summary[:classk]
-    class1 = class_summary[:class1]
-    class2 = class_summary[:class2]
-    class3 = class_summary[:class3]
-    class4 = class_summary[:class4]
+  def session_not_over_one_hundred
+    summaries = Signup.summaries
+
+    if session1 == "1" && summaries[:total][:s1] > 99
+      errors.add(:session1, 'is already full.')
+    end
+    if session2 == "1" && summaries[:total][:s2] > 99
+      errors.add(:session2, 'is already full.')
+    end
+    if session3 == "1" && summaries[:total][:s3] > 99
+      errors.add(:session3, 'is already full.')
+    end
+    if session4 == "1" && summaries[:total][:s4] > 99
+      errors.add(:session4, 'is already full.')
+    end
+    if session5 == "1" && summaries[:total][:s5] > 99
+      errors.add(:session5, 'is already full.')
+    end
+  end
+
+  def class_not_over_twenty
+    summaries = Signup.summaries
+    classk = summaries[:classk]
+    class1 = summaries[:class1]
+    class2 = summaries[:class2]
+    class3 = summaries[:class3]
+    class4 = summaries[:class4]
 
     if cage == 'Kindergarten'
       if session1 == "1" && classk[:s1] > 19
