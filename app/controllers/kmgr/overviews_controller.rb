@@ -1,12 +1,10 @@
 class Kmgr::OverviewsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_privileges!
-  before_action do
-    redirect_to :signups_denied unless current_user && current_user.admin?
-  end
+  before_action :check_privileges!, only: [:index]
+
 
   def check_privileges!
-    redirect_to kmgr_reports_index_path unless current_user.super_admin?
+    redirect_to kmgr_reports_index_path unless current_user.admin?
   end
 
   def index
