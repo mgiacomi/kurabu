@@ -38,17 +38,17 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = {host:'localhost'}
+  config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address              => "mail.oyanokai.org",
+    :address              => 'smtp.gmail.com',
     :port                 => 587,
     :domain               => "oyanokai.org",
-    :user_name            => "no-reply@oyanokai.org",
-    :password             => "",
+    :user_name            => ENV['SMTP_USERNAME'],
+    :password             => ENV['SMTP_PASSWORD'],
     :authentication       => "plain",
-    :enable_starttls_auto => true,
-    :openssl_verify_mode  => 'none'
+    :enable_starttls_auto => true
   }
-
 
   config.action_mailer.perform_caching = false
 
