@@ -1,4 +1,4 @@
-<%- headers = ['cfname', 'clname', 'cgender', 'birthday', 'grade', 'p1fname', 'p1lname', 'p2fname', 'p2lname', 'phone1', 'phone2', 'email', 'street', 'city', 'state', 'zip', 'session1', 'session2', 'session3', 'session4', 'session5', 'special', 'medical', 'medical_agree', 'medical_signed', 'medical_signed_date', 'econtact_name', 'econtact_relationship', 'econtact_phone', 'econtact_address', 'activity_cname', 'activity_agree', 'activity_signed', 'activity_signed_date', 'photo_agree', 'photo_signed', 'photo_signed_date', 'directions', 'shots_date', 'friends', 'tsize'] -%>
+<%- headers = ['cfname', 'clname', 'cgender', 'birthday', 'grade', 'p1fname', 'p1lname', 'p2fname', 'p2lname', 'phone1', 'phone2', 'email', 'street', 'city', 'state', 'zip', 'session1', 'session2', 'session3', 'session4', 'session5', 'dietary', 'medical', 'medical_agree', 'medical_signed', 'medical_signed_date', 'pickup_name', 'pickup_relationship', 'pickup_phone', 'econtact_name', 'econtact_relationship', 'econtact_phone', 'econtact_address', 'activity_cname', 'activity_agree', 'activity_signed', 'activity_signed_date', 'photo_agree', 'photo_signed', 'photo_signed_date', 'art_agree', 'art_signed', 'art_signed_date', 'directions', 'shots_date', 'friends', 'tsize'] -%>
 <%= CSV.generate_line headers -%>
 <%=
   CSV.generate do |csv|
@@ -30,6 +30,9 @@
           signup.medical_agree,
           signup.medical_signed,
           signup.medical_signed_date,
+          signup.pickup_name,
+          signup.pickup_relationship,
+          signup.pickup_phone,
           signup.econtact_name,
           signup.econtact_relationship,
           signup.econtact_phone,
@@ -41,6 +44,9 @@
           signup.photo_agree,
           signup.photo_signed,
           signup.photo_signed_date,
+          signup.art_agree,
+          signup.art_signed,
+          signup.art_signed_date,
           signup.directions,
           signup.shots_date,
           signup.friends,

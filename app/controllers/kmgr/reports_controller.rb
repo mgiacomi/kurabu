@@ -149,19 +149,19 @@ class Kmgr::ReportsController < ApplicationController
 
     # update weeks
     if params[:session] == "1"
-      daysOfWeek = [['Mon 6/22', 'Tue 6/23', 'Wed 6/24', 'Thu 6/25', 'Fri 6/26']]
+      daysOfWeek = [['Mon 6/27', 'Tue 6/28', 'Wed 6/29', 'Thu 6/30', 'Fri 7/1']]
       session = "session1"
     elsif params[:session] == "2"
-      daysOfWeek = [['Mon 6/29', 'Tue 6/30', 'Wed 7/1', 'Thu 7/2']]
+      daysOfWeek = [['Tue 7/5', 'Wed 7/6', 'Thu 7/7', 'Fri 7/8']]
       session = "session2"
     elsif params[:session] == "3"
-      daysOfWeek = [['Mon 7/6', 'Tue 7/7', 'Wed 7/8', 'Thu 7/9', '7/10']]
+      daysOfWeek = [['Mon 7/11', 'Tue 7/12', 'Wed 7/13', 'Thu 7/14', 'Fri 7/15']]
       session = "session3"
     elsif params[:session] == "4"
-      daysOfWeek = [['Mon 7/13', 'Tue 7/14', 'Wed 7/15', 'Thu 7/16', 'Fri 7/17']]
+      daysOfWeek = [['Mon 7/18', 'Tue 7/19', 'Wed 7/20', 'Thu 7/21', 'Fri 7/22']]
       session = "session4"
     elsif params[:session] == "5"
-      daysOfWeek = [['Mon 7/20', 'Tue 7/21', 'Wed 7/22', 'Thu 7/23', 'Fri 7/24']]
+      daysOfWeek = [['Mon 7/25', 'Tue 7/26', 'Wed 7/27', 'Thu 7/28', 'Fri 7/29']]
       session = "session5"
     end
 
@@ -180,7 +180,16 @@ class Kmgr::ReportsController < ApplicationController
     count = 1
     rows = Array.new
     @accepted.each do |signup, index|
-      summary = "#{signup.p1fname} #{signup.p1lname}\n#{signup.phone1}\n#{signup.p2fname} #{signup.p2lname}\n#{signup.phone2}"
+      summary = "#{signup.p1fname} #{signup.p1lname}\n#{signup.phone1}\n"
+
+      unless signup.p2fname.empty?
+        summary += "#{signup.p2fname} #{signup.p2lname}\n#{signup.phone2}\n"
+      end
+
+      unless signup.pickup_name.empty?
+        summary += "#{signup.pickup_name}\n#{signup.pickup_phone}"
+      end
+
       rows << [count, signup.clname, signup.cfname, summary, signup.medical]
       count += 1
     end

@@ -34,6 +34,9 @@ class CreateSignups < ActiveRecord::Migration[5.0]
       t.string "econtact_relationship", limit: 45
       t.string "econtact_phone",        limit: 45
       t.string "econtact_address",      limit: 256
+      t.string "pickup_name",           limit: 45
+      t.string "pickup_relationship",   limit: 45
+      t.string "pickup_phone",          limit: 45
       t.string "activity_cname",        limit: 255
       t.string "activity_agree",        limit: 45
       t.string "activity_signed",       limit: 255
@@ -41,6 +44,9 @@ class CreateSignups < ActiveRecord::Migration[5.0]
       t.string "photo_agree",           limit: 45
       t.string "photo_signed",          limit: 255
       t.string "photo_signed_date",     limit: 45
+      t.string "art_agree",             limit: 45
+      t.string "art_signed",            limit: 255
+      t.string "art_signed_date",       limit: 45
       t.text   "directions",            limit: 16777215
       t.string "shots_date",            limit: 45
     end

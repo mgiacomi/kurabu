@@ -175,28 +175,28 @@
           <td style="text-align:left!important;"><%= @payment.signup.zip %></td>
         </tr>
         <tr>
-          <td style="text-align:left!important;padding-left:40px;">S1:</td>
+          <td style="text-align:left!important;padding-left:40px;">Session 1:</td>
           <td style="text-align:left!important;"><%= @payment.signup.session1 == "1" ? "Y" : "" %></td>
           <td style="text-align:left!important;"></td>
-          <td style="text-align:left!important;padding-left:40px;">S2:</td>
+          <td style="text-align:left!important;padding-left:40px;">Session 2:</td>
           <td style="text-align:left!important;"><%= @payment.signup.session2 == "1" ? "Y" : "" %></td>
         </tr>
         <tr>
-          <td style="text-align:left!important;padding-left:40px;">S3:</td>
+          <td style="text-align:left!important;padding-left:40px;">Session 3:</td>
           <td style="text-align:left!important;"><%= @payment.signup.session3 == "1" ? "Y" : "" %></td>
           <td style="text-align:left!important;"></td>
-          <td style="text-align:left!important;padding-left:40px;">S4:</td>
+          <td style="text-align:left!important;padding-left:40px;">Session 4:</td>
           <td style="text-align:left!important;"><%= @payment.signup.session4 == "1" ? "Y" : "" %></td>
         </tr>
         <tr>
-          <td style="text-align:left!important;padding-left:40px;">S5:</td>
+          <td style="text-align:left!important;padding-left:40px;">Session 5:</td>
           <td style="text-align:left!important;"><%= @payment.signup.session5 == "1" ? "Y" : "" %></td>
           <td style="text-align:left!important;"></td>
           <td style="text-align:left!important;padding-left:40px;"></td>
           <td style="text-align:left!important;"></td>
         </tr>
         <tr>
-          <td style="text-align:left!important;padding-left:40px;">Special:</td>
+          <td style="text-align:left!important;padding-left:40px;">Dietary Restrictions:</td>
           <td style="text-align:left!important;" colspan="4"><%= @payment.signup.special %></td>
         </tr>
         <tr>
@@ -207,8 +207,8 @@
           <td style="text-align:left!important;padding-left:40px;">Medical Agree:</td>
           <td style="text-align:left!important;"><%= @payment.signup.medical_agree %></td>
           <td style="text-align:left!important;"></td>
-          <td style="text-align:left!important;padding-left:40px;">Shots Date</td>
-          <td style="text-align:left!important;"><%= @payment.signup.shots_date %></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
         </tr>
         <tr>
           <td style="text-align:left!important;padding-left:40px;">Medical Signed:</td>
@@ -218,17 +218,31 @@
           <td style="text-align:left!important;"><%= @payment.signup.medical_signed_date %></td>
         </tr>
         <tr>
-          <td style="text-align:left!important;padding-left:40px;">Econtact Name:</td>
+          <td style="text-align:left!important;padding-left:40px;">Pickup Name:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.pickup_name %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;" nowrap="nowrap">Pickup Relationship</td>
+          <td style="text-align:left!important;"><%= @payment.signup.pickup_relationship %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Pickup Phone:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.pickup_phone %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Emergency Name:</td>
           <td style="text-align:left!important;"><%= @payment.signup.econtact_name %></td>
           <td style="text-align:left!important;"></td>
-          <td style="text-align:left!important;padding-left:40px;" nowrap="nowrap">Econtact Relationship</td>
+          <td style="text-align:left!important;padding-left:40px;" nowrap="nowrap">Emergency Relationship</td>
           <td style="text-align:left!important;"><%= @payment.signup.econtact_relationship %></td>
         </tr>
         <tr>
-          <td style="text-align:left!important;padding-left:40px;">Econtact Phone:</td>
+          <td style="text-align:left!important;padding-left:40px;">Emergency Phone:</td>
           <td style="text-align:left!important;"><%= @payment.signup.econtact_phone %></td>
           <td style="text-align:left!important;"></td>
-          <td style="text-align:left!important;padding-left:40px;">Econtact Address:</td>
+          <td style="text-align:left!important;padding-left:40px;">Emergency Address:</td>
           <td style="text-align:left!important;"><%= @payment.signup.econtact_address %></td>
         </tr>
         <tr>
@@ -260,11 +274,25 @@
           <td style="text-align:left!important;"></td>
         </tr>
         <tr>
-          <td style="text-align:left!important;padding-left:40px;">Directions:</td>
-          <td style="text-align:left!important;"><%= @payment.signup.directions %></td>
+          <td style="text-align:left!important;padding-left:40px;">Art Agree:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.art_agree %></td>
           <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;">Art Signed:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.art_signed %></td>
+        </tr>
+        <tr>
+          <td style="text-align:left!important;padding-left:40px;">Art Signed Date:</td>
+          <td style="text-align:left!important;"><%= @payment.signup.art_signed_date %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
+        </tr>
+        <tr>
           <td style="text-align:left!important;padding-left:40px;">Friends:</td>
           <td style="text-align:left!important;"><%= @payment.signup.friends %></td>
+          <td style="text-align:left!important;"></td>
+          <td style="text-align:left!important;padding-left:40px;"></td>
+          <td style="text-align:left!important;"></td>
         </tr>
         </tbody>
       </table>

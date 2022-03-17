@@ -11,9 +11,10 @@
   <tr>
     <td style="text-align:left!important;padding-left:30px">Gender:</td>
     <td>
-      <span style="font-size: 13px;color: #8c8c8c;">Male</span> <%= f.radio_button :cgender, "Male", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span style="font-size: 13px;color: #8c8c8c;">Female</span> <%= f.radio_button :cgender, "Female", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %>
+      <%= f.radio_button :cgender, "he/his/him", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %> <span style="font-size: 13px;color: #8c8c8c;">he/his/him</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :cgender, "she/her/her", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %> <span style="font-size: 13px;color: #8c8c8c;">she/her/her</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :cgender, "they/their/them", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %> <span style="font-size: 13px;color: #8c8c8c;">they/their/them</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.radio_button :cgender, "other", style: '-webkit-appearance: radio;-moz-appearance: radio; display:inline;' %> <span style="font-size: 13px;color: #8c8c8c;">other</span>
     </td>
   </tr>
   <tr>
@@ -31,7 +32,7 @@
       &nbsp;&nbsp;&nbsp;
       <span style="font-size: 13px;color: #8c8c8c;">Year</span>
       <%= f.select :cyear,
-                   options_for_select([['', ''], ['2016', '2016'], ['2015', '2015'], ['2014', '2014'], ['2013', '2013'], ['2012', '2012'], ['2011', '2011'], ['2010', '2010'], ['2009', '2009'], ['2008', '2008'], ['2007', '2007'], ['2006', '2006'], ['2005', '2005'], ['2004', '2004'], ['2003', '2003'], ['2002', '2002'], ['2001', '2001'], ['2000', '2000'], ['1999', '1999'], ['1998', '1998'], ['1997', '1997'], ['1996', '1996'], ['1995', '1995'], ['1994', '1994'], ['1993', '1993'], ['1992', '1992'], ['1991', '1991']], @signup.cyear),
+                   options_for_select([['', ''], ['2019', '2019'], ['2018', '2018'], ['2017', '2017'], ['2016', '2016'], ['2015', '2015'], ['2014', '2014'], ['2013', '2013'], ['2012', '2012'], ['2011', '2011'], ['2010', '2010'], ['2009', '2009'], ['2008', '2008'], ['2007', '2007'], ['2006', '2006'], ['2005', '2005'], ['2004', '2004'], ['2003', '2003'], ['2002', '2002'], ['2001', '2001'], ['2000', '2000'], ['1999', '1999'], ['1998', '1998'], ['1997', '1997'], ['1996', '1996'], ['1995', '1995'], ['1994', '1994'], ['1993', '1993'], ['1992', '1992'], ['1991', '1991']], @signup.cyear),
                    {}, { class: "text-input-one", style: 'height:30px;width:100px;' } %>
     </td>
   </tr>
@@ -94,10 +95,12 @@
 </table>
 <br/>
 
+<!--
 <p style="color:black;margin-bottom:10px;"><strong>Free Kurabu T-Shirt Size:</strong></p>
 <%= f.select :tsize,
              options_for_select([['', ''], ['Extra Small', 'xs'], ['Small', 's'], ['Medium', 'm'], ['Large', 'l'], ['Extra Large', 'xl']], @signup.tsize),
              {}, { class: "text-input-one", style: 'height:30px;' } %>
+-->
 
 <br/><br/>
 <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
@@ -185,14 +188,10 @@
 </table>
 <br/>
 <p style="color:blue;">
-  ** Financial assistance (50% off one week of Kurabu) is provided for Free and Reduced Lunch "FRL" students.<br/>
-  ** For assistance please contact us <a href="mailto:kurabu@oyanokai.org">kurabu@oyanokai.org</a>
+  * Financial assistance (50% off one week of Kurabu) is provided for students whose families meet the Federal Income Guidelines for Free and Reduced Lunch.
+  <a target="_blank" href="https://www.pps.net/cms/lib/OR01913224/Centricity/Domain/59/2021-22%20Federal%20Income%20Guidelines.pdf">Guidelines can be found here</a>.
+  For assistance please contact us <a href="mailto:kurabu@oyanokai.org">kurabu@oyanokai.org</a>
 </p>
-<br/>
-
-<p style="color:black;margin-bottom:10px;">
-  <strong>Special information about your child that would be helpful for the Kurabu staff to know:</strong></p>
-<%= f.text_area :special, class: 'text-input-one', style: "height:100px;" %>
 
 <br/>
 <p style="color:black;margin-bottom:10px;">
@@ -200,12 +199,16 @@
     special planning or consideration for this child’s participation in Kurabu. (Use additional paper if
     necessary.)</strong></p>
 <%= f.text_area :medical, class: 'text-input-one', style: "height:100px;" %>
-
 <p>Note: Kurabu staff will dispense medication under physician’s orders. All medications must be in the prescription
   container clearly labeled with child’s name, the type of medication, the dosage, and the times (both am and pm) to
   administer the medication. Additional “Medication Administration” forms may be required prior to the start of
   camp.</p>
 
+<p style="color:black;margin-bottom:10px;">
+  <strong>Dietary Restrictions: Please list if any dietary restrictions apply to your child:</strong></p>
+<%= f.text_area :special, class: 'text-input-one', style: "height:100px;" %>
+
+<br/>
 <p style="color:black;margin-bottom:10px;">
   <strong>By agreeing and typing in my name, I request the Kurabu staff administer medication to my
     above named child in the manner described by the physician’s orders.</strong></p>
@@ -221,9 +224,11 @@
   </tr>
 </table>
 
+<!--
 <br/>
 <p style="color:black;margin-bottom:10px;">Date of last tetanus booster:
   <%= f.text_field :shots_date, class: "text-input-one", style: 'height:30px;width:200px;display:inline;' %></p>
+-->
 
 <br/>
 <p style="color:black;margin-bottom:10px;">
@@ -249,6 +254,25 @@
 </table>
 
 <br/>
+<p style="color:black;margin-bottom:10px;">
+  <strong>Pick-up authorization list (if not parents listed above):</strong>
+</p>
+<table>
+  <tr>
+    <td style="text-align:left!important;padding-left:30px" nowrap="nowrap">Name:</td>
+    <td style="width:100%;"><%= f.text_field :pickup_name, class: "text-input-one", style: 'height:30px;' %></td>
+  </tr>
+  <tr>
+    <td style="text-align:left!important;padding-left:30px" nowrap="nowrap">Relationship to camper:</td>
+    <td><%= f.text_field :pickup_relationship, class: "text-input-one", style: 'height:30px;' %></td>
+  </tr>
+  <tr>
+    <td style="text-align:left!important;padding-left:30px" nowrap="nowrap">Phone:</td>
+    <td><%= f.text_field :pickup_phone, class: "text-input-one", style: 'height:30px;' %></td>
+  </tr>
+</table>
+
+<br/>
 <p style="color:black;margin-bottom:10px;"><strong>Activities Authorization:</strong></p>
 <p style="color:black;margin-bottom:10px;">
   <%= f.text_field :activity_cname, class: "text-input-one", style: 'height:30px;width:300px;display:inline;' %> (child’s name) has my permission to participate in all
@@ -268,8 +292,8 @@
   </tr>
 </table>
 
-<br/><br/>
-<p style="color:black;margin-bottom:10px;"><strong>Photo Authorization:</strong></p>
+<br/>
+<p style="color:black;margin-bottom:10px;"><strong>Photo / Video Authorization:</strong></p>
 <p style="color:black;margin-bottom:10px;">
   By agreeing and typing in my name, I consent to and authorize Kurabu to use my child’s name and photograph for
   educational and public relations purposes related to Kurabu.</p>
@@ -286,13 +310,31 @@
 </table>
 
 <br/>
+<p style="color:black;margin-bottom:10px;"><strong>Materials / Art Products Authorization:</strong></p>
+<p style="color:black;margin-bottom:10px;">
+  By agreeing and typing in my name, I consent to and authorize Kurabu and Oya No Kai use any materials/art products the participants created during Kurabu for fundraising and/or promotions.</p>
+
+<table>
+  <tr>
+    <td><p style="margin-bottom:0;">I agree:</p></td>
+    <td><%= f.check_box :art_agree, {style: '-webkit-appearance: checkbox;-moz-appearance: checkbox;'}, "Yes", "No" %></td>
+    <td><p style="margin-bottom:0;margin-left:50px;">Signed:</p></td>
+    <td><%= f.text_field :art_signed, class: "text-input-one", style: 'height:30px;width:300px;' %></td>
+    <td><p style="margin-bottom:0;margin-left:50px;">Date:</p></td>
+    <td><%= f.text_field :art_signed_date, class: "text-input-one", style: 'height:30px;' %></td>
+  </tr>
+</table>
+
+<!--
+<br/>
 <p style="color:black;margin-bottom:10px;">
   <strong>Any directions to the contrary should be specified and signed below.</strong></p>
 <%= f.text_area :directions, class: 'text-input-one', style: "height:100px;" %>
+-->
 
 <br/>
 <p style="color:black;margin-bottom:10px;">
-  <strong>List any friends that you would like to be in class with your children.</strong></p>
+  <strong>List any friends that you would like to be in class with your children. *It does not guarantee them being in the same class.</strong></p>
 <%= f.text_area :friends, class: 'text-input-one', style: "height:100px;" %>
 
 <br/>
