@@ -95,12 +95,10 @@
 </table>
 <br/>
 
-<!--
-<p style="color:black;margin-bottom:10px;"><strong>Free Kurabu T-Shirt Size:</strong></p>
+<p style="color:black;margin-bottom:10px;display:none;"><strong>Free Kurabu T-Shirt Size:</strong></p>
 <%= f.select :tsize,
              options_for_select([['', ''], ['Extra Small', 'xs'], ['Small', 's'], ['Medium', 'm'], ['Large', 'l'], ['Extra Large', 'xl']], @signup.tsize),
-             {}, { class: "text-input-one", style: 'height:30px;' } %>
--->
+             {}, { class: "text-input-one", style: 'height:30px;display:none;' } %>
 
 <br/><br/>
 <p style="color:black;margin-bottom:10px;"><strong>My Child will attend the following sessions:</strong></p>
@@ -228,11 +226,9 @@
   </tr>
 </table>
 
-<!--
 <br/>
-<p style="color:black;margin-bottom:10px;">Date of last tetanus booster:
-  <%= f.text_field :shots_date, class: "text-input-one", style: 'height:30px;width:200px;display:inline;' %></p>
--->
+<p style="color:black;margin-bottom:10px;display:none;">Date of last tetanus booster:
+  <%= f.text_field :shots_date, class: "text-input-one", style: 'height:30px;width:200px;display:none;' %></p>
 
 <br/>
 <p style="color:black;margin-bottom:10px;">
@@ -341,12 +337,10 @@
   </tr>
 </table>
 
-<!--
 <br/>
-<p style="color:black;margin-bottom:10px;">
+<p style="color:black;margin-bottom:10px;display:none;">
   <strong>Any directions to the contrary should be specified and signed below.</strong></p>
-<%= f.text_area :directions, class: 'text-input-one', style: "height:100px;" %>
--->
+<%= f.text_area :directions, class: 'text-input-one', style: "height:100px;display:none;" %>
 
 <br/>
 <p style="color:black;margin-bottom:10px;">
