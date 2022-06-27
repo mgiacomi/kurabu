@@ -244,8 +244,6 @@
     <h1>Kurabu Summer Camp Registration</h1>
     <h1>クラブ（サマーキャンプ）</h1>
 
-    <p style="color:red;font-weight: bold;">Sorry All sessions are full.</p>
-
     <% if @signup.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@signup.errors.count, "error") %> prohibited this registration from being saved:</h2>
@@ -259,15 +257,16 @@
       <br/>
     <% end %>
 
-    <!--span style="font-weight: bold; color:red;">Kurabu registration is closed for 2022.</span-->
+    <span style="font-weight: bold; color:red;">Kurabu registration is closed for 2022.</span>
 
+    <!--
     <p>This form must be completed for every child attending Kurabu 2022.</p>
 
     <%= form_for @signup do |f| %>
       <%= render '/signups/edit_form', f: f %>
       <%= f.submit "Submit My Application", class: "button button-blue center-button half-bottom", style: "width:200px;margin-top:5px;margin-bottom:5px!important;" %>
-
     <% end %>
+    -->
 
     <br/><br/>
     <p>Kurabu will be following SUN School Covid protocols. Additional details will be emailed to parents prior to the start of camp.</p>
